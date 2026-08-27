@@ -523,6 +523,7 @@ function GM:PlayerLoadout(client)
 		client:SetWalkSpeed(ix.config.Get("walkSpeed"))
 		client:SetRunSpeed(ix.config.Get("runSpeed"))
 		client:SetHealth(character:GetData("health", client:GetMaxHealth()))
+		client:SetArmor(character:GetData("armor", client:GetMaxArmor()))
 
 		local faction = ix.faction.indices[client:Team()]
 
@@ -642,6 +643,7 @@ function GM:PlayerDeath(client, inflictor, attacker)
 		client:SetNetVar("deathTime", CurTime() + ix.config.Get("spawnTime", 5))
 
 		character:SetData("health", nil)
+		character:SetData("armor", nil)
 
 		local deathSound = hook.Run("GetPlayerDeathSound", client)
 
@@ -908,6 +910,7 @@ function GM:CharacterPreSave(character)
 	end
 
 	character:SetData("health", client:Alive() and client:Health() or nil)
+	character:SetData("armor", client:Alive() and client:Armor() or nil)
 end
 
 timer.Create("ixLifeGuard", 1, 0, function()
