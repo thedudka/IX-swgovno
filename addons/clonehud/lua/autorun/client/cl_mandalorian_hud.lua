@@ -1878,7 +1878,7 @@ local function drawRadar(x, y, width, height, ply)
                 color = palette.holo
                 size = sp(4)
             elseif detection.kind == "npc" then
-                color = palette.danger
+                color = palette.red
                 size = sp(5)
             elseif detection.kind == "vehicle" then
                 color = withAlpha(palette.amber, 210)

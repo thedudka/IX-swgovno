@@ -1,0 +1,10 @@
+ITEM.name = "Аптечка"
+ITEM.model = Model("models/props/starwars/weapons/detpack.mdl")
+ITEM.description = "Стандартная полевая аптечка, способная вылечить малые раны."
+ITEM.price = 18
+ITEM.dUses = 1
+ITEM.healAmount = 35
+ITEM.useTime = 3
+ITEM.width = 1
+ITEM.height = 1
+ITEM.useSound = "items/medshot4.wav"

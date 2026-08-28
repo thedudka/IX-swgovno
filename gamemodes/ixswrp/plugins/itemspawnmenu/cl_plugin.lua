@@ -25,6 +25,7 @@ local icons = {
 	["UU-Branded Items"] = "asterisk_yellow",
 	["Weapons"] = "gun",
 	["Workstations"] = "page",
+	["Стандартная медицина"] = "heart",
 }
 
 spawnmenu.AddContentType("ixItem", function(container, data)

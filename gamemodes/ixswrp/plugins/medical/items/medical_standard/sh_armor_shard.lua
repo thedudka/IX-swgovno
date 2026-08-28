@@ -1,0 +1,12 @@
+ITEM.name = "Одноразовый сварочный аппарат"
+ITEM.model = Model("models/props/starwars/weapons/fusion_cutter.mdl")
+ITEM.description = "Инструмент, предназначенный для быстрой сварки поврежденной брони. Подходит для починки малых повреждений."
+ITEM.dUses = 1
+ITEM.healAmount = 0
+ITEM.armorAmount = 35
+ITEM.maxArmor = 100
+ITEM.useTime = 3
+ITEM.useSound = "physics/metal/metal_box_impact_bullet1.wav"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.price = 20

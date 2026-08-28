@@ -1,0 +1,10 @@
+ITEM.name = "Медицинский набор"
+ITEM.model = Model("models/starwars/syphadias/props/sw_tor/bioware_ea/items/harvesting/slicing/slicing_footlocker_screen.mdl")
+ITEM.description = "Большой медицинский набор, способный вылечить в условиях боевых действий очень тяжелые раны."
+ITEM.price = 65
+ITEM.width = 2
+ITEM.height = 2
+ITEM.dUses = 4
+ITEM.healAmount = 100
+ITEM.useTime = 10
+ITEM.useSound = "items/medshot4.wav"

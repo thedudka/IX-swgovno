@@ -1,0 +1,12 @@
+ITEM.name = "Комплект бронепластин"
+ITEM.description = "Большой и тяжелый комплект бронепластин с системой автоматической установки, позволяющий в кратчайшие сроки восстановить любую броню."
+ITEM.model = Model("models/starwars/syphadias/props/sw_tor/bioware_ea/items/harvesting/slicing/slicing_footlocker_panel.mdl")
+ITEM.dUses = 4
+ITEM.healAmount = 0
+ITEM.armorAmount = 100
+ITEM.maxArmor = 100
+ITEM.useTime = 10
+ITEM.useSound = "physics/metal/weapon_impact_soft2.wav"
+ITEM.width = 2
+ITEM.height = 2
+ITEM.price = 40

@@ -1,0 +1,12 @@
+ITEM.name = "Экспериментальный набор лечения"
+ITEM.description = "Очень редкий экспериментальный образец набора лечения нового поколения. При использовании восстанавливает все жизненные показатели, а также броню субъекта. На удивление лёгкий."
+ITEM.model = Model("models/reizer_props/88th_box_small_2_prop/88th_legion_box_small_2.mdl")
+ITEM.dUses = 1
+ITEM.healAmount = 100
+ITEM.armorAmount = 100
+ITEM.maxArmor = 100
+ITEM.useTime = 10
+ITEM.useSound = "items/suitchargeok1.wav"
+ITEM.width = 2
+ITEM.height = 2
+ITEM.price = 999
