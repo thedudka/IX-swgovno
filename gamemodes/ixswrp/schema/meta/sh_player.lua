@@ -5,7 +5,7 @@ function playerMeta:IsCombine()
 	return faction == FACTION_MPF or faction == FACTION_OTA
 end
 
-function playerMeta:IsClone()
+function playerMeta:IsRepublic()
 	local faction = self:Team()
 	return faction == FACTION_CLONE
 end

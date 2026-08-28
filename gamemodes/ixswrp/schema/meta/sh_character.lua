@@ -6,7 +6,7 @@ function CHAR:IsCombine()
 	return faction == FACTION_MPF or faction == FACTION_OTA
 end
 
-function CHAR:IsClone()
+function CHAR:IsRepublic()
 	local faction = self:GetFaction()
 	return faction == FACTION_CLONE
 end
