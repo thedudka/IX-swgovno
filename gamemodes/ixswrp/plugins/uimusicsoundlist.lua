@@ -5,7 +5,6 @@ PLUGIN.author = "dudka"
 PLUGIN.description = "Add custom ui and music from star wars."
 
 if CLIENT then
-    -- Overrides the default chat tick sound behavior
     local oldPlaySound = chat.PlaySound
     chat.PlaySound = function()
         LocalPlayer():EmitSound("sw_message")

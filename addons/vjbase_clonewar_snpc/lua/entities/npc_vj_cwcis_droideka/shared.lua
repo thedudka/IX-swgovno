@@ -7,6 +7,7 @@ ENT.Purpose 		= "Spawn it and fight with it!"
 ENT.Instructions 	= "Click on the spawnicon to spawn it."
 ENT.Category		= "Confederacy of Independent Systems"
 ENT.VJ_CW_IsDroideka = true
+ENT.VJ_NPC_Class = {"CLASS_CIS"}
 
 if CLIENT then
 	VJ.AddKillIcon("npc_vj_cwcis_droideka", ENT.PrintName, VJ.KILLICON_DEFAULT)

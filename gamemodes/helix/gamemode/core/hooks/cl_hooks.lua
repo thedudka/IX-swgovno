@@ -587,7 +587,7 @@ function GM:HUDPaintBackground()
 
 	local weapon = client:GetActiveWeapon()
 
-	if (IsValid(weapon) and (client:Team() != FACTION_CLONE) and
+	if (IsValid(weapon) and (client:Team() != FACTION_CLONE) and (client:Team() != FACTION_DROID) and
 		hook.Run("CanDrawAmmoHUD", weapon) != false and weapon.DrawAmmo != false) then
 		local clip = weapon:Clip1()
 		local clipMax = weapon:GetMaxClip1()

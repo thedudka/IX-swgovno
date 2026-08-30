@@ -11,7 +11,7 @@ FACTION.models = {
 	"models/vjsw/galacticrepublic/clones/clone_commando.mdl",
 }
 FACTION.isDefault = true
-FACTION.isGloballyRecognized = true
+FACTION.isGloballyRecognized = false
 
 function FACTION:OnCharacterCreated(client, character)
 	local id = Schema:ZeroNumber(math.random(1, 99999), 5)

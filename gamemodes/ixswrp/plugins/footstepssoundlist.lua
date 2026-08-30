@@ -19,7 +19,7 @@ sound.Add({
 })
 
 sound.Add({
-    name = "Clonetropper_footstep_wood",
+    name = "Standard_footstep_wood",
     channel = CHAN_BODY,
     volume = 0.4,
     level = 70,
@@ -30,7 +30,7 @@ sound.Add({
 })
 
 sound.Add({
-    name = "Clonetropper_footstep_conc",
+    name = "Standard_footstep_conc",
     channel = CHAN_BODY,
     volume = 0.4,
     level = 70,
@@ -44,7 +44,7 @@ sound.Add({
 })
 
 sound.Add({
-    name = "Clonetropper_footstep_metalgrate",
+    name = "Standard_footstep_metalgrate",
     channel = CHAN_BODY,
     volume = 0.5,
     level = 70,
@@ -66,7 +66,7 @@ sound.Add({
 })
 
 sound.Add({
-    name = "Clonetropper_footstep_metal",
+    name = "Standard_footstep_metal",
     channel = CHAN_BODY,
     volume = 0.5,
     level = 70,
@@ -104,7 +104,7 @@ sound.Add({
 })
 
 sound.Add({
-    name = "Clonetropper_footstep_metal2",
+    name = "Standard_footstep_metal2",
     channel = CHAN_BODY,
     volume = 0.5,
     level = 70,
@@ -116,7 +116,7 @@ sound.Add({
 })
 
 sound.Add({
-    name = "Clonetropper_footstep_sand",
+    name = "Standard_footstep_sand",
     channel = CHAN_BODY,
     volume = 0.5,
     level = 70,
@@ -128,7 +128,7 @@ sound.Add({
 })
 
 sound.Add({
-    name = "Clonetropper_footstep_dirt",
+    name = "Standard_footstep_dirt",
     channel = CHAN_BODY,
     volume = 0.5,
     level = 70,
@@ -140,7 +140,7 @@ sound.Add({
 })
 
 sound.Add({
-    name = "Clonetropper_footstep_grass",
+    name = "Standard_footstep_grass",
     channel = CHAN_BODY,
     volume = 0.5,
     level = 70,
@@ -152,7 +152,7 @@ sound.Add({
 })
 
 sound.Add({
-    name = "Clonetropper_footstep_glass",
+    name = "Standard_footstep_glass",
     channel = CHAN_BODY,
     volume = 0.5,
     level = 70,
@@ -164,7 +164,7 @@ sound.Add({
 })
 
 sound.Add({
-    name = "Clonetropper_footstep_water",
+    name = "Standard_footstep_water",
     channel = CHAN_BODY,
     volume = 0.5,
     level = 70,
@@ -176,7 +176,7 @@ sound.Add({
 })
 
 sound.Add({
-    name = "Clonetropper_footstep_vent",
+    name = "Standard_footstep_vent",
     channel = CHAN_BODY,
     volume = 0.5,
     level = 70,
@@ -184,6 +184,71 @@ sound.Add({
     sound = {"footsteps_clonetropper/footstep_vent01.wav",
     "footsteps_clonetropper/footstep_vent02.wav",
     "footsteps_clonetropper/footstep_vent03.wav",
+}
+})
+
+sound.Add({
+    name = "Droid_footstep_conc",
+    channel = CHAN_BODY,
+    volume = 0.5,
+    level = 70,
+    pitch = {85, 130},
+    sound = {"footsteps_droid/droid_footsteps_conc1.wav",
+    "footsteps_droid/droid_footsteps_conc2.wav",
+    "footsteps_droid/droid_footsteps_conc3.wav",
+    "footsteps_droid/droid_footsteps_conc4.wav",
+    "footsteps_droid/droid_footsteps_conc5.wav",
+}
+})
+
+sound.Add({
+    name = "Droid_footstep_metal",
+    channel = CHAN_BODY,
+    volume = 0.5,
+    level = 70,
+    pitch = {85, 130},
+    sound = {"footsteps_droid/droid_footsteps_metal1.wav",
+    "footsteps_droid/droid_footsteps_metal2.wav",
+    "footsteps_droid/droid_footsteps_metal3.wav",
+    "footsteps_droid/droid_footsteps_metal4.wav",
+    "footsteps_droid/droid_footsteps_metal5.wav",
+}
+})
+
+sound.Add({
+    name = "Droid_footstep_sand",
+    channel = CHAN_BODY,
+    volume = 0.5,
+    level = 70,
+    pitch = {85, 130},
+    sound = {"footsteps_droid/droid_footsteps_sand1.wav",
+    "footsteps_droid/droid_footsteps_sand2.wav",
+    "footsteps_droid/droid_footsteps_sand3.wav",
+}
+})
+
+sound.Add({
+    name = "Droid_footstep_grass",
+    channel = CHAN_BODY,
+    volume = 0.5,
+    level = 70,
+    pitch = {85, 130},
+    sound = {"footsteps_droid/droid_footsteps_grass1.wav",
+    "footsteps_droid/droid_footsteps_grass2.wav",
+    "footsteps_droid/droid_footsteps_grass3.wav",
+    "footsteps_droid/droid_footsteps_grass4.wav",
+    "footsteps_droid/droid_footsteps_grass5.wav",
+}
+})
+
+sound.Add({
+    name = "Droid_footstep_wood",
+    channel = CHAN_BODY,
+    volume = 0.5,
+    level = 70,
+    pitch = {85, 130},
+    sound = {"footsteps_droid/droid_footsteps_wood1.wav",
+    "footsteps_droid/droid_footsteps_wood2.wav",
 }
 })
 
@@ -238,7 +303,30 @@ resource.AddFile("sound/footsteps_clonetropper/gear_run01.wav")
 resource.AddFile("sound/footsteps_clonetropper/gear_run02.wav")
 resource.AddFile("sound/footsteps_clonetropper/gear_run03.wav")
 
-resource.AddFile("sound/music/mainmenu_theme.wav")
+resource.AddFile("sound/footsteps_droid/droid_footsteps_conc1.wav")
+resource.AddFile("sound/footsteps_droid/droid_footsteps_conc2.wav")
+resource.AddFile("sound/footsteps_droid/droid_footsteps_conc3.wav")
+resource.AddFile("sound/footsteps_droid/droid_footsteps_conc4.wav")
+resource.AddFile("sound/footsteps_droid/droid_footsteps_conc5.wav")
+
+resource.AddFile("sound/footsteps_droid/droid_footsteps_metal1.wav")
+resource.AddFile("sound/footsteps_droid/droid_footsteps_metal2.wav")
+resource.AddFile("sound/footsteps_droid/droid_footsteps_metal3.wav")
+resource.AddFile("sound/footsteps_droid/droid_footsteps_metal4.wav")
+resource.AddFile("sound/footsteps_droid/droid_footsteps_metal5.wav")
+
+resource.AddFile("sound/footsteps_droid/droid_footsteps_grass1.wav")
+resource.AddFile("sound/footsteps_droid/droid_footsteps_grass2.wav")
+resource.AddFile("sound/footsteps_droid/droid_footsteps_grass3.wav")
+resource.AddFile("sound/footsteps_droid/droid_footsteps_grass4.wav")
+resource.AddFile("sound/footsteps_droid/droid_footsteps_grass5.wav")
+
+resource.AddFile("sound/footsteps_droid/droid_footsteps_sand1.wav")
+resource.AddFile("sound/footsteps_droid/droid_footsteps_sand2.wav")
+resource.AddFile("sound/footsteps_droid/droid_footsteps_sand3.wav")
+resource.AddFile("sound/footsteps_droid/droid_footsteps_wood1.wav")
+resource.AddFile("sound/footsteps_droid/droid_footsteps_wood2.wav")
+
 
 
 

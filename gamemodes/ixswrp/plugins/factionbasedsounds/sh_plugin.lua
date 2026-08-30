@@ -15,12 +15,19 @@ PLUGIN.soundSets = {
         burnDeath = {"Clonetropper_death"}
     },
 
-     [FACTION_JEDI] = {
+    [FACTION_JEDI] = {
         hurt = {"hurt_default"},
         burn = {"hurt_burn"},
         drown = {"hurt_drown"},
         death = {"death_default"},
         burnDeath = {"death_default"}
+    },
+    [FACTION_DROID] = {
+        hurt = {"Droid_hurt"},
+        burn = {"hurt_burn"},
+        drown = {"hurt_drown"},
+        death = {"Droid_death"},
+        burnDeath = {"Droid_death"}
     },
 }
 
@@ -45,6 +52,33 @@ sound.Add({
     sound = {"hurtdeath_clonetropper/clone_hurt01.wav",
     "hurtdeath_clonetropper/clone_hurt02.wav",
     "hurtdeath_clonetropper/clone_hurt03.wav"
+}
+})
+
+sound.Add({
+    name = "Droid_death",
+    channel = CHAN_VOICE,
+    volume = 1,
+    level = 80,
+    pitch = {95, 105},
+    sound = {"hurtdeath_droid/droiddeath_01.wav",
+    "hurtdeath_droid/droiddeath_02.wav",
+    "hurtdeath_droid/droiddeath_03.wav"
+}
+})
+
+sound.Add({
+    name = "Droid_hurt",
+    channel = CHAN_VOICE,
+    volume = 0.9,
+    level = 75,
+    pitch = {95, 105},
+    sound = {"hurtdeath_droid/droidhurt_01.wav",
+    "hurtdeath_droid/droidhurt_02.wav",
+    "hurtdeath_droid/droidhurt_03.wav",
+    "hurtdeath_droid/droidhurt_04.wav",
+    "hurtdeath_droid/droidhurt_05.wav",
+    "hurtdeath_droid/droidhurt_06.wav"
 }
 })
 
@@ -101,5 +135,16 @@ resource.AddFile("sound/hurtdeath_clonetropper/clone_death03.wav")
 resource.AddFile("sound/hurtdeath_clonetropper/clone_hurt01.wav")
 resource.AddFile("sound/hurtdeath_clonetropper/clone_hurt02.wav")
 resource.AddFile("sound/hurtdeath_clonetropper/clone_hurt03.wav")
+
+resource.AddFile("sound/hurtdeath_droid/droiddeath_01.wav")
+resource.AddFile("sound/hurtdeath_droid/droiddeath_02.wav")
+resource.AddFile("sound/hurtdeath_droid/droiddeath_03.wav")
+
+resource.AddFile("sound/hurtdeath_droid/droidhurt_01.wav")
+resource.AddFile("sound/hurtdeath_droid/droidhurt_02.wav")
+resource.AddFile("sound/hurtdeath_droid/droidhurt_03.wav")
+resource.AddFile("sound/hurtdeath_droid/droidhurt_04.wav")
+resource.AddFile("sound/hurtdeath_droid/droidhurt_05.wav")
+resource.AddFile("sound/hurtdeath_droid/droidhurt_06.wav")
 
 ix.util.Include("sv_plugin.lua")

@@ -8,7 +8,12 @@ end
 
 function CHAR:IsRepublic()
 	local faction = self:GetFaction()
-	return faction == FACTION_CLONE
+	return faction == FACTION_CLONE or faction == FACTION_JEDI
+end
+
+function CHAR:IsCIS()
+	local faction = self:GetFaction()
+	return faction == FACTION_DROID
 end
 
 function CHAR:IsForceUser()

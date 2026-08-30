@@ -4,20 +4,37 @@ PLUGIN.name = "Custom footsteps"
 PLUGIN.author = "dudka"
 PLUGIN.description = "Adding footstep custom sound based on faction and surface types."
 
-local surfaceSoundsClone = {
-    [MAT_CONCRETE] = "Clonetropper_footstep_conc",
-    [MAT_METAL]    = "Clonetropper_footstep_metal2",
-    [MAT_WOOD]     = "Clonetropper_footstep_wood",
-    [MAT_GRATE]    = "Clonetropper_footstep_metalgrate",
-    [MAT_GLASS]    = "Clonetropper_footstep_glass",
+local surfaceSoundsDefault = {
+    [MAT_CONCRETE] = "Standard_footstep_conc",
+    [MAT_METAL]    = "Standard_footstep_metal2",
+    [MAT_WOOD]     = "Standard_footstep_wood",
+    [MAT_GRATE]    = "Standard_footstep_metalgrate",
+    [MAT_GLASS]    = "Standard_footstep_glass",
     [MAT_SNOW]     = "footstep_snow",
-    [MAT_PLASTIC]  = "Clonetropper_footstep_conc",
-    [MAT_DIRT]     = "Clonetropper_footstep_dirt",
-    [MAT_TILE]     = "Clonetropper_footstep_conc",
-    [MAT_VENT]     = "Clonetropper_footstep_vent",
-    [MAT_SLOSH]    = "Clonetropper_footstep_water", 
-    [MAT_SAND]     = "Clonetropper_footstep_sand",
-    [MAT_GRASS]    = "Clonetropper_footstep_grass",
+    [MAT_PLASTIC]  = "Standard_footstep_conc",
+    [MAT_DIRT]     = "Standard_footstep_dirt",
+    [MAT_TILE]     = "Standard_footstep_conc",
+    [MAT_VENT]     = "Standard_footstep_vent",
+    [MAT_SLOSH]    = "Standard_footstep_water", 
+    [MAT_SAND]     = "Standard_footstep_sand",
+    [MAT_GRASS]    = "Standard_footstep_grass",
+    [MAT_DEFAULT]  = "clonefootsteps_example"
+}
+
+local surfaceSoundsRobot = {
+    [MAT_CONCRETE] = "Droid_footstep_conc",
+    [MAT_METAL]    = "Droid_footstep_metal",
+    [MAT_WOOD]     = "Droid_footstep_wood",
+    [MAT_GRATE]    = "Droid_footstep_metal",
+    [MAT_GLASS]    = "Droid_footstep_conc",
+    [MAT_SNOW]     = "footstep_snow",
+    [MAT_PLASTIC]  = "Droid_footstep_conc",
+    [MAT_DIRT]     = "Droid_footstep_grass",
+    [MAT_TILE]     = "Droid_footstep_conc",
+    [MAT_VENT]     = "Droid_footstep_metal",
+    [MAT_SLOSH]    = "Standard_footstep_water", 
+    [MAT_SAND]     = "Droid_footstep_sand",
+    [MAT_GRASS]    = "Droid_footstep_grass",
     [MAT_DEFAULT]  = "clonefootsteps_example"
 }
 
@@ -44,7 +61,7 @@ hook.Add("PlayerFootstep", "SurfaceCustomFootsteps", function(ply, pos, foot, so
 
         local customSound
         if tr.Hit then
-            customSound = surfaceSoundsClone[tr.MatType]
+            customSound = surfaceSoundsDefault[tr.MatType]
         end
 
         if customSound then
@@ -54,11 +71,25 @@ hook.Add("PlayerFootstep", "SurfaceCustomFootsteps", function(ply, pos, foot, so
     
     end
 
-    if faction == FACTION_JEDI then
+    if faction == FACTION_DROID then
         
         local customSound
         if tr.Hit then
-            customSound = surfaceSoundsClone[tr.MatType]
+            customSound = surfaceSoundsRobot[tr.MatType]
+        end
+
+        if customSound then
+            ply:EmitSound(customSound, volume, 100, 1.0, CHAN_BODY)
+        end
+        return true
+    
+    end
+
+        if faction == FACTION_JEDI then
+        
+        local customSound
+        if tr.Hit then
+            customSound = surfaceSoundsDefault[tr.MatType]
         end
 
         if customSound then

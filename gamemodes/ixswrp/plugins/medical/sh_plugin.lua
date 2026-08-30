@@ -1,3 +1,3 @@
-PLUGIN.name = "Standard Medical Items"
-PLUGIN.author = ""
-PLUGIN.description = "Independent timed medical items using standard Helix health."
+PLUGIN.name = "Medical Items"
+PLUGIN.author = "dudka"
+PLUGIN.description = "Custom medical items system."

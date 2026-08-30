@@ -160,13 +160,6 @@ ENT.SoundTbl_FootStep = {
 ENT.SoundTbl_Impact = false
 
 function ENT:Init()
-	if GetConVar("vj_cw_cis_friendly"):GetInt() > 0 then
-		self.PlayerFriendly = true -- Makes the SNPC friendly to the player and HL2 Resistance
-		self.FollowPlayer = true -- Should the SNPC follow the player when the player presses a certain key?
-	else
-		self.PlayerFriendly = false -- Makes the SNPC friendly to the player and HL2 Resistance
-		self.FollowPlayer = false -- Should the SNPC follow the player when the player presses a certain key?
-	end
 	self:SetNW2Bool("AVP.IsTech",true)
 end
 

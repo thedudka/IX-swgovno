@@ -1,5 +1,5 @@
-FACTION.name = "Force User"
-FACTION.description = "Creature that has power beyond scientific vision about our universe and galaxy."
+FACTION.name = "Jedi"
+FACTION.description = "Person that belongs in Jedi Order and serve the Republic and the peace in the Galaxy."
 FACTION.color = Color(0, 217, 255)
 FACTION.pay = 50
 FACTION.models = {

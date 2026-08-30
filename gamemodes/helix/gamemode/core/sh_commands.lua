@@ -154,6 +154,14 @@ ix.command.Add("OpenForceMenu", {
 	end
 })
 
+ix.command.Add("AdminForceMenu", {
+	description = ".",
+	superAdminOnly = true,
+	OnRun = function(self, client)
+		client:ConCommand("lscs_openmenu")
+	end
+})
+
 ix.command.Add("CharSetModel", {
 	description = "@cmdCharSetModel",
 	superAdminOnly = true,
@@ -814,5 +822,117 @@ ix.command.Add("MapRestart", {
 			RunConsoleCommand("changelevel", game.GetMap())
 		end)
 	end
+})
+
+ix.command.Add("CharSwitchFaction", {
+    description = "Force switches a character's NPC relation faction.",
+    superAdminOnly = true,
+    arguments = {
+        ix.type.character,
+        ix.type.string
+    },
+    OnRun = function(self, client, targetChar, factionInput)
+        local faction = factionInput:lower()
+        local ply = targetChar:GetPlayer()
+
+        if not IsValid(ply) then
+            return "@playerNotFound"
+        end
+
+        -- Call custom engine logic from pbcr.lua
+        if PBCR_Factions and PBCR_Factions[faction] then
+            PBCR_PlayerFactions[ply:SteamID()] = faction
+            ply:SetNWString("PBCR_Faction", faction)
+            
+            if SERVER then
+                file.CreateDir("player_based_npc_relations_redone")
+                file.Write("player_based_npc_relations_redone/pbcr_factions_npcs.txt", util.TableToJSON(PBCR_PlayerFactions or {}))
+                
+                PBCR_ApplyZBaseFaction(ply)
+                PBCR_ApplyVJBaseFaction(ply)
+                PBCR_UpdateNPCRelationships(ply)
+            end
+
+            return string.format("Switched character %s's NPC faction to %s.", targetChar:GetName(), faction)
+        else
+            return "Invalid faction specified."
+        end
+    end
+})
+
+ix.command.Add("CharSwitchFaction", {
+    description = "Force switches a character's NPC relation faction.",
+    superAdminOnly = true,
+    arguments = {
+        ix.type.character,
+        ix.type.string
+    },
+    OnRun = function(self, client, targetChar, factionInput)
+        local faction = factionInput:lower()
+        local ply = targetChar:GetPlayer()
+
+        -- Prevent modifying locked Star Wars character logic
+        if targetChar.IsCIS and targetChar:IsCIS() then
+            return "Cannot change NPC relations for CIS characters."
+        end
+
+        if targetChar.IsRepublic and targetChar:IsRepublic() then
+            return "Cannot change NPC relations for Republic characters."
+        end
+
+        if PBCR_Factions and PBCR_Factions[faction] then
+            local charName = targetChar:GetName()
+            PBCR_PlayerFactions[charName] = faction
+
+            if SERVER then
+                file.CreateDir("player_based_npc_relations_redone")
+                file.Write("player_based_npc_relations_redone/pbcr_factions_npcs.txt", util.TableToJSON(PBCR_PlayerFactions or {}))
+
+                -- If player is currently loaded on this character, sync instantly
+                if IsValid(ply) and ply:GetCharacter() == targetChar then
+                    ply:SetNWString("PBCR_Faction", faction)
+                    PBCR_ApplyVJBaseFaction(ply, faction)
+                    PBCR_ApplyZBaseFaction(ply, faction)
+                    PBCR_UpdateNPCRelationships(ply, faction)
+                    PBCR_ApplyNoTarget(ply, faction)
+                end
+            end
+
+            return string.format("Switched character '%s' NPC faction to '%s'.", charName, faction)
+        else
+            return "Invalid faction specified. Check PBCR_Factions table for valid keys."
+        end
+    end
+})
+
+ix.command.Add("CharResetFaction", {
+    description = "Resets a character's NPC relation faction back to default.",
+    superAdminOnly = true,
+    arguments = {
+        ix.type.character
+    },
+    OnRun = function(self, client, targetChar)
+        local ply = targetChar:GetPlayer()
+        local charName = targetChar:GetName()
+
+        if PBCR_PlayerFactions then
+            PBCR_PlayerFactions[charName] = "default"
+
+            if SERVER then
+                file.CreateDir("player_based_npc_relations_redone")
+                file.Write("player_based_npc_relations_redone/pbcr_factions_npcs.txt", util.TableToJSON(PBCR_PlayerFactions or {}))
+
+                if IsValid(ply) and ply:GetCharacter() == targetChar then
+                    ply:SetNWString("PBCR_Faction", "default")
+                    PBCR_ApplyVJBaseFaction(ply, "default")
+                    PBCR_ApplyZBaseFaction(ply, "default")
+                    PBCR_UpdateNPCRelationships(ply, "default")
+                    PBCR_ApplyNoTarget(ply, "default")
+                end
+            end
+
+            return string.format("Reset character '%s' NPC faction back to Default.", charName)
+        end
+    end
 })
 
