@@ -19,6 +19,18 @@ sound.Add({
 })
 
 sound.Add({
+    name = "fauna_footstep",
+    channel = CHAN_BODY,
+    volume = 0.5,
+    level = 80,
+    pitch = {85, 130},
+    sound = {"npc/antlion/foot1.wav", 
+	"npc/antlion/foot2.wav", 
+	"npc/antlion/foot3.wav", 
+	"npc/antlion/foot4.wav", }
+})
+
+sound.Add({
     name = "Standard_footstep_wood",
     channel = CHAN_BODY,
     volume = 0.4,

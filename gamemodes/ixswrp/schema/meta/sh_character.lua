@@ -11,12 +11,37 @@ function CHAR:IsRepublic()
 	return faction == FACTION_CLONE or faction == FACTION_JEDI
 end
 
+function CHAR:IsFFA()
+	local faction = self:GetFaction()
+	return faction == FACTION_SITH or faction == FACTION_FAUNA
+end
+
+function CHAR:IsNeutral()
+	local faction = self:GetFaction()
+	return faction == FACTION_NEUTRAL
+end
+
+function CHAR:IsEventFaction()
+	local faction = self:GetFaction()
+	return faction == FACTION_CIS or faction == FACTION_NEUTRAL
+end
+
 function CHAR:IsCIS()
 	local faction = self:GetFaction()
-	return faction == FACTION_DROID
+	return faction == FACTION_DROID or faction == FACTION_CIS
+end
+
+function CHAR:IsDroid()
+	local faction = self:GetFaction()
+	return faction == FACTION_DROID or faction == FACTION_ROBOT
+end
+
+function CHAR:IsClone()
+	local faction = self:GetFaction()
+	return faction == FACTION_CLONE or faction == FACTION_MERC
 end
 
 function CHAR:IsForceUser()
 	local faction = self:GetFaction()
-	return faction == FACTION_JEDI
+	return faction == FACTION_JEDI or faction == FACTION_SITH
 end

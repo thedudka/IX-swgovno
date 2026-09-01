@@ -8,6 +8,7 @@ include('shared.lua')
 ENT.Model = {"models/VJSW/GalacticRepublic/Clones/Clonetrooper.mdl"} -- Leave empty if using more than one model
 ENT.StartHealth = 100
 ENT.FootStepSoundLevel = 80
+ENT.VJ_NPC_Class = {"CLASS_REPUBLIC"}
 
 ENT.SoundTbl_Alert = {
 "vj_sw_clone_wars_era/snpcs/clonetrooper/alert1.mp3",

@@ -6,7 +6,7 @@ include('shared.lua')
 	without the prior written consent of the author, unless otherwise indicated for stand-alone materials.
 -----------------------------------------------*/
 ENT.Model = {"models/VJSW/GalacticRepublic/Clones/Clonetrooper_Engineer.mdl"} -- Leave empty if using more than one model
-
+ENT.VJ_NPC_Class = {"CLASS_REPUBLIC"}
 ENT.CWTurret = NULL
 ENT.CWIsPlacingTurret = false
 ENT.CWNextTurretTimer = 0

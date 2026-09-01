@@ -9,7 +9,7 @@ ENT.Model = {"models/VJSW/GalacticRepublic/Clones/Clonetrooper_Heavy.mdl"} -- Le
 ENT.FootstepSoundTimerRun = 0.5
 ENT.Weapon_IgnoreSpawnMenu = true
 ENT.Weapon_FindCoverOnReload = false
-
+ENT.VJ_NPC_Class = {"CLASS_REPUBLIC"}
 function ENT:GalacticRepublicOnInit() 
 	self:Give("weapon_vj_cw_z-6_chaingun")
 end

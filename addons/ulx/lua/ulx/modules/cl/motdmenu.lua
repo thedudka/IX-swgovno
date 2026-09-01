@@ -1,9 +1,9 @@
-/*ulx.motdmenu_exists = true
+ulx.motdmenu_exists = true
 
 local mode
 local url
 
-function ulx.showMotdMenu( steamid )
+/*function ulx.showMotdMenu( steamid )
 	if mode == nil then
 		return -- No data provided
 	end

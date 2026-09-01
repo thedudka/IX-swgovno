@@ -1,14 +1,8 @@
 FACTION.name = "Clonetropper"
 FACTION.description = "A clonetropper fighting for the Galactic Republic."
-FACTION.color = Color(60, 50, 150)
+FACTION.color = Color(58, 125, 248)
 FACTION.models = {
-	"models/vjsw/galacticrepublic/clones/clonetrooper.mdl",
-	"models/vjsw/galacticrepublic/clones/deltasquad/sev.mdl",
-	"models/vjsw/galacticrepublic/clones/deltasquad/scorch.mdl",
-	"models/vjsw/galacticrepublic/clones/deltasquad/fixer.mdl",
-	"models/vjsw/galacticrepublic/clones/deltasquad/boss.mdl",
-	"models/vjsw/galacticrepublic/clones/212th_clonetrooper.mdl",
-	"models/vjsw/galacticrepublic/clones/clone_commando.mdl",
+	"models/vjsw/galacticrepublic/clones/phase1_clonetrooper.mdl",
 }
 FACTION.isDefault = true
 FACTION.isGloballyRecognized = false

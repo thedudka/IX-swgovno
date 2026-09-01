@@ -6,7 +6,7 @@ include('shared.lua')
 	without the prior written consent of the author, unless otherwise indicated for stand-alone materials.
 -----------------------------------------------*/
 ENT.Model = {"models/vjsw/galacticrepublic/clones/Phase1_Clonetrooper_Arc_Captain.mdl","models/vjsw/galacticrepublic/clones/Phase1_Clonetrooper_Arc_Commander.mdl","models/vjsw/galacticrepublic/clones/Phase1_Clonetrooper_Arc_Defaut.mdl","models/vjsw/galacticrepublic/clones/Phase1_Clonetrooper_Arc_Soldier.mdl","models/vjsw/galacticrepublic/clones/Phase1_Clonetrooper_Arc_Defaut.mdl"} -- Leave empty if using more than one model
-
+ENT.VJ_NPC_Class = {"CLASS_REPUBLIC"}
 -- To add rest of the SNPC and get full list of the function, you need to decompile VJ Base.
 
 /*-----------------------------------------------

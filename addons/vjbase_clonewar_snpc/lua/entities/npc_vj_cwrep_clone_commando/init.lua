@@ -13,6 +13,7 @@ ENT.MeleeAttackDamageType = DMG_SLASH
 ENT.HasMeleeAttackKnockBack = false
 ENT.TimeUntilMeleeAttackDamage = 0.4
 ENT.Weapon_IgnoreSpawnMenu = true
+ENT.VJ_NPC_Class = {"CLASS_REPUBLIC"}
 
 ENT.SoundTbl_MeleeAttackExtra = {
 "vj_sw_clone_wars_era/snpcs/clonecommando/imp_GEN_RC_melee_01.wav",

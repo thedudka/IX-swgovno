@@ -12,6 +12,7 @@ ENT.HealthRegenParams = {
 	Delay = VJ.SET(0.35, 0.35), -- Delay between each regeneration
 }
 ENT.MainSoundPitch = 100 -- Can be a number or VJ.SET
+ENT.VJ_NPC_Class = {"CLASS_REPUBLIC"}
 
 ENT.SevSoundTbl_Alert = {
 "vj_sw_clone_wars_era/snpcs/deltasquad_sev/alert1.mp3",

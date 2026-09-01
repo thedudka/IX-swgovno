@@ -10,6 +10,14 @@ local PBCR_Factions = {
         neutralClasses = {},
         useDefaultRelations = true,
     },
+    ["fauna"] = {
+        name = "Fauna",
+        icon = "icon16_relations/pariah.png",
+        desc = "Fauna — Wild aggressive fauna hostile to all other factions and NPCs.",
+        friendClasses = {},
+        neutralClasses = {CLASS_FAUNA, CLASS_ZOMBIE},
+        useDefaultRelations = false,
+    },
     ["outcast"] = {
         name = "Outcast",
         icon = "icon16_relations/pariah.png",
@@ -39,7 +47,7 @@ local PBCR_Factions = {
         icon = "icon16_relations/neutral.png",
         desc = "Neutral — All NPCs become neutral, and you are no longer hostile to all NPCs.",
         friendClasses = {},
-        neutralClasses = {CLASS_NONE, CLASS_BULLSEYE, CLASS_CITIZEN_PASSIVE, CLASS_FLARE, CLASS_COMBINE, CLASS_METROPOLICE, CLASS_MANHACK, CLASS_SCANNER, CLASS_COMBINE_HUNTER, CLASS_MILITARY, CLASS_STALKER, CLASS_COMBINE_GUNSHIP, CLASS_PROTOSNIPER, CLASS_PLAYER_ALLY, CLASS_PLAYER_ALLY_VITAL, CLASS_VORTIGAUNT, CLASS_HACKED_ROLLERMINE, CLASS_ZOMBIE, CLASS_HEADCRAB, CLASS_ANTLION, CLASS_MACHINE, CLASS_HUMAN_PASSIVE, CLASS_HUMAN_MILITARY, CLASS_ALIEN_MILITARY, CLASS_ALIEN_MONSTER, CLASS_ALIEN_PREY, CLASS_ALIEN_PREDATOR, CLASS_INSECT, CLASS_PLAYER_BIOWEAPON, CLASS_ALIEN_BIOWEAPON, CLASS_PORTAL_TURRET, CLASS_EARTH_FAUNA},
+        neutralClasses = {CLASS_NONE, CLASS_BULLSEYE, CLASS_CITIZEN_PASSIVE, CLASS_FLARE, CLASS_COMBINE, CLASS_METROPOLICE, CLASS_MANHACK, CLASS_SCANNER, CLASS_COMBINE_HUNTER, CLASS_MILITARY, CLASS_STALKER, CLASS_COMBINE_GUNSHIP, CLASS_PROTOSNIPER, CLASS_PLAYER_ALLY, CLASS_PLAYER_ALLY_VITAL, CLASS_VORTIGAUNT, CLASS_HACKED_ROLLERMINE, CLASS_ZOMBIE, CLASS_HEADCRAB, CLASS_ANTLION, CLASS_MACHINE, CLASS_HUMAN_PASSIVE, CLASS_HUMAN_MILITARY, CLASS_ALIEN_MILITARY, CLASS_ALIEN_MONSTER, CLASS_ALIEN_PREY, CLASS_ALIEN_PREDATOR, CLASS_INSECT, CLASS_PLAYER_BIOWEAPON, CLASS_ALIEN_BIOWEAPON, CLASS_PORTAL_TURRET, CLASS_EARTH_FAUNA, CLASS_FAUNA, CLASS_REPUBLIC, CLASS_CIS},
         useDefaultRelations = false,
     },
     ["combine"] = {
@@ -138,6 +146,7 @@ local function LoadFactions()
 end
 
 local PBCR_ZBaseFactionMap = {
+    fauna    = "fauna",
     cis      = "cis",
     republic = "republic",
     combine = "combine",
@@ -155,6 +164,7 @@ local PBCR_ZBaseFactionMap = {
 }
 
 local PBCR_VJClassMap = {
+    fauna    = "CLASS_FAUNA" or "CLASS_ZOMBIE",
     cis      = "CLASS_CIS" or CLASS_CIS,
     republic = "CLASS_REPUBLIC",
     combine = "CLASS_COMBINE",
@@ -394,6 +404,10 @@ local PBCR_FactionLocales = {
         ["republic"] = {
         en = { name = "republic", desc = "Default (Player) — Regular players have a standard relationship, with no automatic changes." },
         ru = { name = "республика", desc = "По умолчанию — Обычные игроки имеют стандартные отношения без автоматических изменений." },
+    },
+    ["fauna"] = {
+        en = { name = "Fauna", desc = "Fauna — Wild aggressive fauna hostile to all other factions and NPCs." },
+        ru = { name = "Фауна", desc = "Фауна — Дикая агрессивная фауна, враждебная ко всем остальным фракциям и NPC." },
     },
     ["outcast"] = {
         en = { name = "Outcast", desc = "Outcast — All NPCs become hostile, and you don't belong to more than one faction." },
@@ -671,8 +685,12 @@ function PBCR_SyncHelixCharacterFaction(ply)
     local charName = char:GetName()
     local targetFaction = "default"
 
-    if char.IsCIS and char:IsCIS() then
+    if char.IsFFA and char:IsFFA() then
+        targetFaction = "fauna"
+    elseif char.IsCIS and char:IsCIS() then
         targetFaction = "cis"
+    elseif char.IsNeutral and char:IsNeutral() then
+        targetFaction = "neutral"
     else
         targetFaction = PBCR_PlayerFactions[ply:SteamID()] or PBCR_PlayerFactions[charName] or "default"
     end
@@ -718,14 +736,16 @@ timer.Create("PBCR_RelationshipSyncLoop", 0.5, 0, function()
         PBCR_SyncHelixCharacterFaction(ply)
     end)
 
-    net.Receive("pbcr_request_setfaction", function(len, ply)
+net.Receive("pbcr_request_setfaction", function(len, ply)
         if not IsValid(ply) or not ply:IsSuperAdmin() then return end
 
         local faction = (net.ReadString() or ""):lower()
         local char = ply:GetCharacter()
         if not char then return end
 
+        if (char.IsFFA and char:IsFFA()) then return end
         if (char.IsCIS and char:IsCIS()) then return end
+        if (char.IsNeutral and char:IsNeutral()) then return end
         if faction == "" or not PBCR_Factions[faction] then return end
 
         local charName = char:GetName()

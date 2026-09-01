@@ -1,38 +1,20 @@
 FACTION.name = "Droid"
-FACTION.description = "A CIS droid."
-FACTION.color = Color(161, 0, 13)
+FACTION.description = "Typical droid that stands with the Republic."
+FACTION.color = Color(7, 112, 112)
 FACTION.models = {
-"models/vjsw/confederacyofindependentsystems/battle_droid.mdl",
-"models/vjsw/confederacyofindependentsystems/battle_droid_assassin.mdl",
-"models/vjsw/confederacyofindependentsystems/battle_droid_commander.mdl",
-"models/vjsw/confederacyofindependentsystems/battle_droid_engineer.mdl",
-"models/vjsw/confederacyofindependentsystems/battle_droid_rocketeer.mdl",
+"models/player/cheddar/swtor/droids/purification_droid.mdl",
+"models/player/cheddar/swtor/droids/bodyguard_droid.mdl",
+"models/player/cheddar/swtor/droids/enforcer_droid.mdl",
+"models/player/cheddar/swtor/droids/heavy_assault_droid.mdl",
+"models/player/cheddar/swtor/droids/hunter_droid.mdl",
+"models/player/cheddar/swtor/droids/slicer_droid.mdl",
+"models/player/cheddar/swtor/droids/temple_guardian_droid.mdl", 
+"models/player/cheddar/swtor/droids/welder_droid.mdl",
+"models/player/cheddar/swtor/droids/worker_droid.mdl"
+
 }
 FACTION.isDefault = false
 FACTION.isGloballyRecognized = false
-
-FACTION.npcRelations = {
-	["npc_turret_floor"] = D_NU,
-	["npc_combine_camera"] = D_NU,
-	["npc_turret_ceiling"] = D_NU,
-	["npc_rollermine"] = D_NU,
-	["npc_helicopter"] = D_NU,
-	["npc_combinegunship"] = D_NU,
-	["npc_strider"] = D_NU,
-	["npc_vj_cwcis_battle_droid_assasin"] = D_LI,
-	["npc_vj_cwcis_battle_droid_engineer"] = D_LI,
-	["npc_vj_cwcis_battle_droid_rocketeer"] = D_LI,
-	["npc_vj_cwcis_battle_droid_commando"] = D_LI,
-	["npc_vj_cwcis_super_battle_droid"] = D_LI,
-	["npc_vj_cwcis_magna_guard"] = D_LI,
-	["npc_vj_cwcis_sentry_gun"] = D_LI,
-	["npc_vj_cwcis_droideka"] = D_LI,
-	["npc_vj_cwcis_advanced_dwarf_spider_droid"] = D_LI,
-	["npc_vj_cwcis_homing_spider_droid"] = D_LI,
-	["npc_vj_cwcis_dwarf_spider_droid"] = D_LI,
-	["npc_hunter"] = D_NU,
-	["npc_manhack"] = D_LI
-}
 
 function FACTION:OnCharacterCreated(client, character)
 	local id = Schema:ZeroNumber(math.random(1, 99999), 5)
@@ -47,4 +29,4 @@ function FACTION:OnCharacterCreated(client, character)
 	})
 end
 
-FACTION_DROID = FACTION.index
+FACTION_ROBOT = FACTION.index

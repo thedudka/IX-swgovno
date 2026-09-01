@@ -11,7 +11,7 @@ if SERVER then
         if not IsValid(client) then return end
         local character = client:GetCharacter()
         
-        if character and character:GetFaction() == FACTION_DROID then
+        if character and character:IsDroid() then
             -- DONT_BLEED (-1) stops engine red blood decals & sounds
             client:SetBloodColor(DONT_BLEED)
         else
@@ -29,7 +29,7 @@ if SERVER then
         if not IsValid(target) or not target:IsPlayer() then return end
         
         local character = target:GetCharacter()
-        if not character or character:GetFaction() ~= FACTION_DROID then return end
+        if not character or !character:IsDroid() then return end
 
         -- Intercept physical damage types
         if dmginfo:IsDamageType(DMG_BULLET) or dmginfo:IsDamageType(DMG_BLAST) or dmginfo:IsDamageType(DMG_CLUB) or dmginfo:IsDamageType(DMG_SLASH) then

@@ -5,7 +5,8 @@ include('shared.lua')
 	No parts of this code or any of its contents may be reproduced, copied, modified or adapted,
 	without the prior written consent of the author, unless otherwise indicated for stand-alone materials.
 -----------------------------------------------*/
-ENT.Model = {"models/VJSW/GalacticRepublic/Clones/DeltaSquad/Boss.mdl","models/VJSW/GalacticRepublic/Clones/DeltaSquad/Boss.mdl","models/VJSW/GalacticRepublic/Clones/DeltaSquad/Boss.mdl","models/VJSW/GalacticRepublic/Clones/DeltaSquad/Boss.mdl","models/VJSW/GalacticRepublic/Clones/DeltaSquad/Boss.mdl"} -- Leave empty if using more than one model
+ENT.Model = {"models/VJSW/GalacticRepublic/Clones/DeltaSquad/Boss.mdl","models/VJSW/GalacticRepublic/Clones/DeltaSquad/Boss.mdl","models/VJSW/GalacticRepublic/Clones/DeltaSquad/Boss.mdl","models/VJSW/GalacticRepublic/Clones/DeltaSquad/Boss.mdl","models/VJSW/GalacticRepublic/Clones/DeltaSquad/Boss.mdl"}
+ENT.VJ_NPC_Class = {"CLASS_REPUBLIC"} -- Leave empty if using more than one model
 ENT.HealthRegenParams = {
 	Enabled = true, -- Can it regenerate its health?
 	Amount = 1, -- How much should the health increase after every delay?

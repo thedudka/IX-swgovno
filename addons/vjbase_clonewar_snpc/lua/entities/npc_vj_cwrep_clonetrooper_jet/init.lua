@@ -6,7 +6,7 @@ include('shared.lua')
 	without the prior written consent of the author, unless otherwise indicated for stand-alone materials.
 -----------------------------------------------*/
 ENT.Model = {"models/VJSW/GalacticRepublic/Clones/Clonetrooper_Jet.mdl"} -- Leave empty if using more than one model
-
+ENT.VJ_NPC_Class = {"CLASS_REPUBLIC"}
 -- Credit to ϟLightning Boltϟ and Panzer Elite for the Jetpack code
 ENT.CanJetpackJump = true
 ENT.JetpackJump_NextT = 0

@@ -6,7 +6,7 @@ include('shared.lua')
 	without the prior written consent of the author, unless otherwise indicated for stand-alone materials.
 -----------------------------------------------*/
 ENT.Model = {"models/vjsw/galacticrepublic/clones/Clonetrooper_Arc.mdl","models/vjsw/galacticrepublic/clones/Clonetrooper_Arc_Captain.mdl","models/vjsw/galacticrepublic/clones/Clonetrooper_Arc_Commander.mdl","models/vjsw/galacticrepublic/clones/Clonetrooper_Arc_Lieutenant.mdl","models/vjsw/galacticrepublic/clones/Clonetrooper_Arc_Sergeant.mdl"} -- Leave empty if using more than one model
-
+ENT.VJ_NPC_Class = {"CLASS_REPUBLIC"}
 function ENT:OnInput(key, activator, caller, data)
 	if key == "Impact" then
 		VJ_EmitSound(self, "physics/body/body_medium_impact_soft"..math.random(1,7)..".wav", 75, 100)

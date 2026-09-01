@@ -77,14 +77,6 @@ local AmmoFlash = 0
 local CustomScale = GetConVar("SyntHud_scale"):GetFloat()
 local ScrRatio = ScrH()/1080*CustomScale
 
-local function IsDroidFaction(ply)
-	if not IsValid(ply) then return false end
-	local char = ply:GetCharacter()
-	if not char then return false end
-
-	return char:GetFaction() == FACTION_DROID
-end
-
 -- Setting up textures
 	local HudBg = surface.GetTextureID("vgui/synthud/hudbg")
 	local LowHP = surface.GetTextureID("vgui/synthud/lowhp")
@@ -301,7 +293,7 @@ Transitions.GainStamina = {}
 
 hook.Add("HUDPaint", "SyntHud_StaminaBar", function()
 	local player = LocalPlayer()
-	if not IsValid(player) or not IsDroidFaction(player) then return end
+	if not IsValid(player) or not player:IsDroid() or (ix and ix.option and ix.option.Get and ix.option.Get("thirdpersonEnabled", false)) then return end
 	if not GetConVar("SyntHud_enabled"):GetBool() then return end
 	if not player:Alive() then return end
 
@@ -375,7 +367,7 @@ end)
 
 hook.Add("HUDPaint","SyntHud",function() 
 	local player = LocalPlayer()
-	if not IsDroidFaction(player) then return end
+	if not player:IsDroid() or (ix and ix.option and ix.option.Get and ix.option.Get("thirdpersonEnabled", false)) then return end
 	if (GetConVar("SyntHud_enabled"):GetBool()==true) then
 		local Weapon = player:GetActiveWeapon()
 		local ShieldMode = GetConVar("SyntHud_shield_mode"):GetBool()
@@ -1180,7 +1172,8 @@ end)
 
 -- Hide default hud
 hook.Add( "HUDShouldDraw","HideDefaultHUD1", function( szShouldDraw )
-	if IsDroidFaction(LocalPlayer()) and (GetConVar("SyntHud_enabled"):GetBool()==true) then
+	local ply = LocalPlayer()
+	if (GetConVar("SyntHud_enabled"):GetBool()==true) then
 		shoulddrawtable = 		
 		{
 			["CHudHealth"] = false,

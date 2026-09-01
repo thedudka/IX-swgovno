@@ -68,12 +68,12 @@ local damageGlitchLastHealth = nil
 local damageGlitchPulseEnd = 0
 local commsTransmissionFadeDuration = 1.1
 local commsTransmissionEntries = {}
+local currentHUDProfile = "mando"
 local thirdPersonEnabled = false
 local wasThirdPersonToggleDown = false
 local thirdPersonDistance = 104
 local thirdPersonHeight = 14
 local thirdPersonSideOffset = 16
-local currentHUDProfile = "mando"
 
 local helmetBodygroupKeywords = {
     "helmet",
@@ -107,7 +107,8 @@ local cloneTrooperKeywords = {
     "tk",
     "phase",
     "republic",
-    "imperial"
+    "imperial",
+    "shae"
 }
 
 local cloneTrooperModelProfiles = {
@@ -249,14 +250,10 @@ local function isHUDActive(ply)
     return cvEnabled:GetBool()
         and IsValid(ply)
         and ply:Alive()
-    and isnumber(FACTION_CLONE)
-    and ply:Team() == FACTION_CLONE
+        and ply:IsClone()
         and not ply:GetNWBool(helmetStateKey, false)
         and getHUDProfile(ply) ~= "off"
-end
-
-local function isThirdPersonActive(ply)
-    return thirdPersonEnabled and IsValid(ply) and ply:Alive()
+        and not thirdPersonEnabled
 end
 
 local function getPlayerHealthState(ply)
@@ -2927,10 +2924,10 @@ end)*/
 
 hook.Add("HUDPaint", "MandoHUD.DrawHelmetHUD", function()
     local ply = LocalPlayer()
-    if not IsValid(ply) or not isnumber(FACTION_CLONE) or ply:Team() ~= FACTION_CLONE then
+    if not IsValid(ply) or !ply:IsClone() or (ix and ix.option and ix.option.Get and ix.option.Get("thirdpersonEnabled", false)) or thirdPersonEnabled then
         return
     end
-
+    
     local hudProfile = getHUDProfile(ply)
     currentHUDProfile = hudProfile == "clone" and "clone" or "mando"
     palette = paletteSets[currentHUDProfile] or paletteSets.mando
@@ -2939,7 +2936,6 @@ hook.Add("HUDPaint", "MandoHUD.DrawHelmetHUD", function()
     local isDamageGlitching, damageGlitchIntensity, damageDropFrame = getDamageGlitchState(ply)
     local commsTransmission = getCurrentCommsTransmission(ply)
     local canDrawHUD = isHUDActive(ply)
-    local thirdPersonActive = isThirdPersonActive(ply)
 
     if not canDrawHUD and not isShuttingDown and not isStartingUp then
         return

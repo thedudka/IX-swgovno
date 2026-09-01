@@ -94,7 +94,7 @@ end
 do
 	ix.bar.Add(function()
 		local client = LocalPlayer()
-		if (client:Team() == FACTION_CLONE) or (client:Team() == FACTION_DROID) then
+		if (client:IsDroid()) or (client:IsClone()) then
 			return false
 		end
 		return math.max(LocalPlayer():Health() / LocalPlayer():GetMaxHealth(), 0)
@@ -102,7 +102,7 @@ do
 
 	ix.bar.Add(function()
 		local client = LocalPlayer()
-		if (client:Team() == FACTION_CLONE) or (client:Team() == FACTION_DROID) then
+		if (client:IsDroid()) or (client:IsClone()) then
 			return false
 		end
 		return math.min(LocalPlayer():Armor() / 100, 1)

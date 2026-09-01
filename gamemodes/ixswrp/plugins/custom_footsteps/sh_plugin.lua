@@ -38,6 +38,23 @@ local surfaceSoundsRobot = {
     [MAT_DEFAULT]  = "clonefootsteps_example"
 }
 
+local surfaceSoundsFauna = {
+    [MAT_CONCRETE] = "fauna_footstep",
+    [MAT_METAL]    = "fauna_footstep",
+    [MAT_WOOD]     = "fauna_footstep",
+    [MAT_GRATE]    = "fauna_footstep",
+    [MAT_GLASS]    = "fauna_footstep",
+    [MAT_SNOW]     = "footstep_snow",
+    [MAT_PLASTIC]  = "fauna_footstep",
+    [MAT_DIRT]     = "fauna_footstep",
+    [MAT_TILE]     = "fauna_footstep",
+    [MAT_VENT]     = "fauna_footstep",
+    [MAT_SLOSH]    = "fauna_footstep", 
+    [MAT_SAND]     = "fauna_footstep",
+    [MAT_GRASS]    = "fauna_footstep",
+    [MAT_DEFAULT]  = "clonefootsteps_example"
+}
+
 local gearSounds = {
     "footsteps_clonetropper/gear_run01.wav",
     "footsteps_clonetropper/gear_run02.wav",
@@ -56,7 +73,7 @@ hook.Add("PlayerFootstep", "SurfaceCustomFootsteps", function(ply, pos, foot, so
      if not char then return end
     local faction = char:GetFaction()
 
-    if faction == FACTION_CLONE then
+    if char:IsClone() then
     ply:EmitSound(gearSounds[math.random(#gearSounds)], volume * 0.4, 75, 0.2, CHAN_ITEM)
 
         local customSound
@@ -71,7 +88,7 @@ hook.Add("PlayerFootstep", "SurfaceCustomFootsteps", function(ply, pos, foot, so
     
     end
 
-    if faction == FACTION_DROID then
+    if char:IsDroid() then
         
         local customSound
         if tr.Hit then
@@ -85,11 +102,25 @@ hook.Add("PlayerFootstep", "SurfaceCustomFootsteps", function(ply, pos, foot, so
     
     end
 
-        if faction == FACTION_JEDI then
+        if char:IsForceUser() or char:IsEventFaction() then
         
         local customSound
         if tr.Hit then
             customSound = surfaceSoundsDefault[tr.MatType]
+        end
+
+        if customSound then
+            ply:EmitSound(customSound, volume, 100, 1.0, CHAN_BODY)
+        end
+        return true
+    
+    end
+
+        if faction == FACTION_FAUNA then
+        
+        local customSound
+        if tr.Hit then
+            customSound = surfaceSoundsFauna[tr.MatType]
         end
 
         if customSound then

@@ -6,7 +6,7 @@ include('shared.lua')
 	without the prior written consent of the author, unless otherwise indicated for stand-alone materials.
 -----------------------------------------------*/
 ENT.Model = {"models/VJSW/ConfederacyOfIndependentSystems/Battle_Droid_Rocketeer.mdl"} -- Leave empty if using more than one model
-
+ENT.VJ_NPC_Class = {"CLASS_CIS"}
 function ENT:OnCreateDeathCorpse(dmginfo, hitgroup, corpse)
 	if GetConVar("vj_cw_disablebattledroiddismemberment"):GetInt() < 1 then
 		if dmginfo:IsBulletDamage() then

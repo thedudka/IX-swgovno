@@ -14,14 +14,36 @@ PLUGIN.soundSets = {
         death = {"Clonetropper_death"},
         burnDeath = {"Clonetropper_death"}
     },
-
-    [FACTION_JEDI] = {
-        hurt = {"hurt_default"},
+    
+    [FACTION_SITH] = {
+        hurt = {""},
         burn = {"hurt_burn"},
         drown = {"hurt_drown"},
-        death = {"death_default"},
-        burnDeath = {"death_default"}
+        death = {""},
+        burnDeath = {""}
     },
+    [FACTION_CIS] = {
+        hurt = {""},
+        burn = {"hurt_burn"},
+        drown = {"hurt_drown"},
+        death = {""},
+        burnDeath = {""}
+    },
+    [FACTION_REPUBLIC] = {
+        hurt = {""},
+        burn = {"hurt_burn"},
+        drown = {"hurt_drown"},
+        death = {""},
+        burnDeath = {""}
+    },
+    [FACTION_JEDI] = {
+        hurt = {""},
+        burn = {"hurt_burn"},
+        drown = {"hurt_drown"},
+        death = {""},
+        burnDeath = {""}
+    },
+
     [FACTION_DROID] = {
         hurt = {"Droid_hurt"},
         burn = {"hurt_burn"},
@@ -29,7 +51,36 @@ PLUGIN.soundSets = {
         death = {"Droid_death"},
         burnDeath = {"Droid_death"}
     },
+    [FACTION_ROBOT] = {
+        hurt = {"Robot_hurt"},
+        burn = {"hurt_burn"},
+        drown = {"hurt_drown"},
+        death = {"Robot_death"},
+        burnDeath = {""}
+    },
+    [FACTION_FAUNA] = {
+        hurt = {""},
+        burn = {"hurt_burn"},
+        drown = {"hurt_drown"},
+        death = {""},
+        burnDeath = {""}
+    },
 }
+
+sound.Add({
+    name = "Robot_hurt",
+    channel = CHAN_VOICE,
+    volume = 0.9,
+    level = 75,
+    pitch = {95, 105},
+    sound = {"physics/metal/metal_computer_impact_hard1.wav",
+    "physics/metal/metal_computer_impact_hard2.wav",
+    "physics/metal/metal_computer_impact_hard3.wav",
+    "physics/metal/metal_solid_impact_bullet1.wav",
+    "physics/metal/metal_solid_impact_bullet2.wav",
+    "physics/metal/metal_solid_impact_bullet3.wav",
+}
+})
 
 sound.Add({
     name = "Clonetropper_death",
@@ -40,6 +91,17 @@ sound.Add({
     sound = {"hurtdeath_clonetropper/clone_death01.wav",
     "hurtdeath_clonetropper/clone_death02.wav",
     "hurtdeath_clonetropper/clone_death03.wav"
+}
+})
+
+sound.Add({
+    name = "Robot_death",
+    channel = CHAN_VOICE,
+    volume = 1,
+    level = 80,
+    pitch = 100,
+    sound = {"physics/metal/metal_sheet_impact_bullet1.wav",
+    "physics/metal/metal_sheet_impact_bullet2.wav",
 }
 })
 
