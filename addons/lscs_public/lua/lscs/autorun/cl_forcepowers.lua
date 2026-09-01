@@ -138,7 +138,7 @@ end
 local ID_IN_USE
 
 local function Use( ID )
-	if not IsValid(LocalPlayer()) or not LocalPlayer():IsForceUser() then return "@notJedi" end
+	if not IsValid(LocalPlayer()) or not LocalPlayer():IsForceUser() then return end
 
 	ID_IN_USE = ID
 

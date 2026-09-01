@@ -54,7 +54,7 @@ local radarCache = {}
 local radarDetections = {}
 local nextRadarRefresh = 0
 local radarEchoHoldTime = 0.22
-local radarEchoLifetime = 1.45
+local radarEchoLifetime = 3
 local helmetStateKey = "MandoHUDHelmetRaised"
 local helmetTransitionKey = "MandoHUDHelmetRaiseTransition"
 local helmetTransitionEndKey = "MandoHUDHelmetRaiseTransitionEnd"
@@ -1767,9 +1767,9 @@ local function drawRadar(x, y, width, height, ply)
     local radarInnerPoly = buildCirclePoly(centerX, centerY, radarRadius - sp(8), 48)
     local now = CurTime()
     local sweepAngle = (now * 92) % 360
-    local sweepPoly = buildSectorPoly(centerX, centerY, radarRadius - sp(6), sweepAngle - 112, sweepAngle - 90, 12)
+    local sweepPoly = buildSectorPoly(centerX, centerY, radarRadius - sp(6), sweepAngle - 150, sweepAngle - 90, 12)
     local contactCount = 0
-    local range = 350
+    local range = 700
     local usableRadius = radarRadius - sp(10)
     local scanHalfWidth = 11
     local scanCenterAngle = (sweepAngle - scanHalfWidth) % 360
@@ -1889,7 +1889,7 @@ local function drawRadar(x, y, width, height, ply)
     end
 
     draw.SimpleText(string.format("TRACKS %02d", contactCount), "MandoHUD.Small", footerLeft, footerY, palette.textSoft, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER)
-    draw.SimpleText("RANGE 2.2 KM", "MandoHUD.Small", footerCenter, footerY, palette.textSoft, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
+    draw.SimpleText("RANGE 20 METERS", "MandoHUD.Small", footerCenter, footerY, palette.textSoft, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
     draw.SimpleText(string.format("%s %03d", getCardinal(ply:EyeAngles().y), getBearing(ply:EyeAngles().y)), "MandoHUD.Body", footerRight, footerY, palette.amber, TEXT_ALIGN_RIGHT, TEXT_ALIGN_CENTER)
 end
 
@@ -2927,7 +2927,7 @@ hook.Add("HUDPaint", "MandoHUD.DrawHelmetHUD", function()
     if not IsValid(ply) or !ply:IsClone() or (ix and ix.option and ix.option.Get and ix.option.Get("thirdpersonEnabled", false)) or thirdPersonEnabled then
         return
     end
-    
+
     local hudProfile = getHUDProfile(ply)
     currentHUDProfile = hudProfile == "clone" and "clone" or "mando"
     palette = paletteSets[currentHUDProfile] or paletteSets.mando
