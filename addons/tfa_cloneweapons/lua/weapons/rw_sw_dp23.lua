@@ -36,8 +36,8 @@ SWEP.DisableChambering 				= true
 
 SWEP.Primary.ClipSize				= 8
 SWEP.Primary.DefaultClip			= 8*4
-SWEP.Primary.RPM					= 135
-SWEP.Primary.RPM_Burst				= 135
+SWEP.Primary.RPM					= 250
+SWEP.Primary.RPM_Burst				= 250
 SWEP.Primary.Ammo					= "ar2"
 SWEP.Primary.AmmoConsumption 		= 1
 SWEP.Primary.Range 					= 40000
@@ -49,7 +49,7 @@ SWEP.Primary.BurstDelay				= 0.2
 SWEP.Primary.Sound 					= Sound ("w/dp23.wav");
 SWEP.Primary.ReloadSound 			= Sound ("w/heavy.wav");
 SWEP.Primary.PenetrationMultiplier 	= 0
-SWEP.Primary.Damage					= 20
+SWEP.Primary.Damage					= 30
 SWEP.Primary.HullSize 				= 0
 SWEP.DamageType 					= nil
 
@@ -112,9 +112,9 @@ SWEP.VMPos = Vector(2, -2, -2)
 SWEP.VMAng = Vector(0,0,0)
 
 SWEP.IronSightTime 					= 0.3
-SWEP.Primary.KickUp					= 2.1
-SWEP.Primary.KickDown				= 1.9
-SWEP.Primary.KickHorizontal			= 0.12
+SWEP.Primary.KickUp					= 1.6
+SWEP.Primary.KickDown				= 1.3
+SWEP.Primary.KickHorizontal			= 0.08
 SWEP.Primary.StaticRecoilFactor 	= 0.6
 SWEP.Primary.Spread					= 0.08
 SWEP.Primary.IronAccuracy 			= 0.07

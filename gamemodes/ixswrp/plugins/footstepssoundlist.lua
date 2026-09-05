@@ -19,6 +19,21 @@ sound.Add({
 })
 
 sound.Add({
+    name = "robot_footstep_gear",
+    channel = CHAN_BODY,
+    volume = 0.4,
+    level = 70,
+    pitch = {85, 130},
+    sound = {"footsteps_robot/robot_step1.wav",
+"footsteps_robot/robot_step2.wav",
+"footsteps_robot/robot_step3.wav",
+"footsteps_robot/robot_step4.wav",
+"footsteps_robot/robot_step5.wav",
+"footsteps_robot/robot_step6.wav",
+}
+})
+
+sound.Add({
     name = "fauna_footstep",
     channel = CHAN_BODY,
     volume = 0.5,
@@ -338,6 +353,13 @@ resource.AddFile("sound/footsteps_droid/droid_footsteps_sand2.wav")
 resource.AddFile("sound/footsteps_droid/droid_footsteps_sand3.wav")
 resource.AddFile("sound/footsteps_droid/droid_footsteps_wood1.wav")
 resource.AddFile("sound/footsteps_droid/droid_footsteps_wood2.wav")
+
+resource.AddFile("sound/footsteps_robot/robot_step1.wav")
+resource.AddFile("sound/footsteps_robot/robot_step2.wav")
+resource.AddFile("sound/footsteps_robot/robot_step3.wav")
+resource.AddFile("sound/footsteps_robot/robot_step4.wav")
+resource.AddFile("sound/footsteps_robot/robot_step5.wav")
+resource.AddFile("sound/footsteps_robot/robot_step6.wav")
 
 
 

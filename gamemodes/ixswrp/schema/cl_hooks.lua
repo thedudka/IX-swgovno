@@ -259,7 +259,7 @@ netstream.Hook("PlaySound", function(sound)
 end)
 
 netstream.Hook("Frequency", function(oldFrequency)
-	Derma_StringRequest("Frequency", "What would you like to set the frequency to?", oldFrequency, function(text)
+	Derma_StringRequest("Частота", "Выберете частоту.", oldFrequency, function(text)
 		ix.command.Send("SetFreq", text)
 	end)
 end)

@@ -75,7 +75,7 @@ end)
 
 -- On player uneqipped the item, Removes a weapon from the player and keep the ammo in the item.
 ITEM.functions.EquipUn = { -- sorry, for name order.
-	name = "unequip",
+	name = "Снять",
 	tip = "unequipTip",
 	icon = "icon16/cross.png",
 	OnRun = function(item)
@@ -92,7 +92,7 @@ ITEM.functions.EquipUn = { -- sorry, for name order.
 
 -- On player eqipped the item, Gives a weapon to player and load the ammo data from the item.
 ITEM.functions.Equip = {
-	name = "equip",
+	name = "Экипировать",
 	tip = "equipTip",
 	icon = "icon16/tick.png",
 	OnRun = function(item)
@@ -301,7 +301,7 @@ end)
 
 hook.Add("EntityRemoved", "ixRemoveGrenade", function(entity)
 	-- hack to remove hl2 grenades after they've all been thrown
-	if (entity:GetClass() == "weapon_frag") then
+	if ((entity:GetClass() == "weapon_frag") or (entity:GetClass() == "zeus_thermaldet")) then
 		local client = entity:GetOwner()
 
 		if (IsValid(client) and client:IsPlayer() and client:GetCharacter()) then
@@ -312,5 +312,18 @@ hook.Add("EntityRemoved", "ixRemoveGrenade", function(entity)
 				entity.ixItem:Unequip(client, false, true)
 			end
 		end
+	end
+end)
+
+hook.Add("ixGrenadeThrown", "ixRemoveCustomGrenade", function(weapon)
+	if (!IsValid(weapon) or weapon:GetClass() != "zeus_thermaldet") then
+		return
+	end
+
+	local client = weapon:GetOwner()
+	local item = weapon.ixItem
+
+	if (IsValid(client) and client:IsPlayer() and item and item.Unequip) then
+		item:Unequip(client, false, true)
 	end
 end)

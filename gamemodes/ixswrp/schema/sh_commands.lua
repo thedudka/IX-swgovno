@@ -34,16 +34,18 @@ do
 				ix.chat.Send(client, "radio", message)
 				ix.chat.Send(client, "radio_eavesdrop", message)
 			else
-				return "@notNow"
+				return "Вы не можете этого сделать!"
 			end
 		elseif (#radios > 0) then
-			return "@radioNotOn"
+			return "Персональный планшет не включен."
 		else
-			return "@radioRequired"
+			return "Вам нужен персональный планшет."
 		end
 	end
 
 	ix.command.Add("Radio", COMMAND)
+	ix.command.Add("radio", COMMAND)
+	ix.command.Add("r", COMMAND)
 end
 
 do
@@ -60,7 +62,7 @@ do
 				character:SetData("frequency", frequency)
 				itemTable:SetData("frequency", frequency)
 
-				client:Notify(string.format("You have set your radio frequency to %s.", frequency))
+				client:Notify(string.format("Вы изменили частоту на %s.", frequency))
 			end
 		end
 	end

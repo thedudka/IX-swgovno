@@ -34,8 +34,8 @@ SWEP.DefaultFireMode 				= "Single"
 SWEP.FireModeName 					= nil
 SWEP.DisableChambering 				= true
 
-SWEP.Primary.ClipSize				= 26
-SWEP.Primary.DefaultClip			= 26*5
+SWEP.Primary.ClipSize				= 30
+SWEP.Primary.DefaultClip			= 30*5
 SWEP.Primary.RPM					= 355
 SWEP.Primary.RPM_Burst				= 355*3
 SWEP.Primary.Ammo					= "ar2"
@@ -49,7 +49,7 @@ SWEP.Primary.BurstDelay				= 0.2
 SWEP.Primary.Sound 					= Sound ("w/dc17.wav");
 SWEP.Primary.ReloadSound 			= Sound ("w/pistols.wav");
 SWEP.Primary.PenetrationMultiplier 	= 0
-SWEP.Primary.Damage					= 30
+SWEP.Primary.Damage					= 45
 SWEP.Primary.HullSize 				= 0
 SWEP.DamageType 					= nil
 

@@ -73,12 +73,10 @@ sound.Add({
     volume = 0.9,
     level = 75,
     pitch = {95, 105},
-    sound = {"physics/metal/metal_computer_impact_hard1.wav",
-    "physics/metal/metal_computer_impact_hard2.wav",
-    "physics/metal/metal_computer_impact_hard3.wav",
-    "physics/metal/metal_solid_impact_bullet1.wav",
-    "physics/metal/metal_solid_impact_bullet2.wav",
-    "physics/metal/metal_solid_impact_bullet3.wav",
+    sound = {"hurtdeath_robot/robot_hurt1.wav",
+    "hurtdeath_robot/robot_hurt2.wav",
+    "hurtdeath_robot/robot_hurt3.wav",
+    "hurtdeath_robot/robot_hurt4.wav",
 }
 })
 
@@ -100,8 +98,7 @@ sound.Add({
     volume = 1,
     level = 80,
     pitch = 100,
-    sound = {"physics/metal/metal_sheet_impact_bullet1.wav",
-    "physics/metal/metal_sheet_impact_bullet2.wav",
+    sound = {"hurtdeath_robot/robot_death1.wav",
 }
 })
 
@@ -208,5 +205,11 @@ resource.AddFile("sound/hurtdeath_droid/droidhurt_03.wav")
 resource.AddFile("sound/hurtdeath_droid/droidhurt_04.wav")
 resource.AddFile("sound/hurtdeath_droid/droidhurt_05.wav")
 resource.AddFile("sound/hurtdeath_droid/droidhurt_06.wav")
+
+resource.AddFile("sound/hurtdeath_robot/robot_hurt1.wav")
+resource.AddFile("sound/hurtdeath_robot/robot_hurt2.wav")
+resource.AddFile("sound/hurtdeath_robot/robot_hurt3.wav")
+resource.AddFile("sound/hurtdeath_robot/robot_hurt4.wav")
+resource.AddFile("sound/hurtdeath_robot/robot_death1.wav")
 
 ix.util.Include("sv_plugin.lua")

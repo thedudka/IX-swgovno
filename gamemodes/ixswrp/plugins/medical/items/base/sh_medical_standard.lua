@@ -1,7 +1,7 @@
 ITEM.name = "Медицинский предмет"
 ITEM.description = "Медицинский предмет, восстанавливающий здоровье и броню."
 ITEM.model = Model("models/items/healthkit.mdl")
-ITEM.category = "Стандартная медицина"
+ITEM.category = "Медицина"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.dUses = 1
@@ -62,7 +62,7 @@ local function startTreatment(item, client, target, targetEntity)
 	end
 
 	if not IsValid(client) or not client:Alive() or not item or
-		not IsValid(target) or not target:IsPlayer() or not target:Alive() then
+		not IsValid(target) or not target:IsPlayer() or not target:Alive() or target:InCriticalState() then
 		return false
 	end
 
@@ -88,7 +88,7 @@ local function startTreatment(item, client, target, targetEntity)
 
 	local function completeTreatment()
 		if not IsValid(client) or not client:Alive() or not item or
-			not IsValid(target) or not target:IsPlayer() or not target:Alive() or
+			not IsValid(target) or not target:IsPlayer() or not target:Alive() or target:InCriticalState() or
 			not isItemInInventory(item, inventoryID) then
 			resetTreatment()
 			return
@@ -205,7 +205,7 @@ ITEM.functions.Inject = {
 		local trace = client:GetEyeTrace()
 		local target = resolveTarget(trace.Entity)
 
-		if not IsValid(target) or not target:IsPlayer() or not target:Alive() or not target:GetCharacter() then
+		if not IsValid(target) or not target:IsPlayer() or not target:Alive() or not target:GetCharacter() or target:InCriticalState() then
 			return false
 		end
 

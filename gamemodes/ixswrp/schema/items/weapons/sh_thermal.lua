@@ -1,0 +1,16 @@
+ITEM.name = "Термальный детонатор"
+ITEM.description = "Противопехотное ручное устройство гранатного типа. В качестве взрывчатого вещества использует барадий, который воспламеняется в момент детонации, создавая взрыв с разлетающимися сгустками барадия высокой температуры. Данное устройство является стандартной ручной противопехотной гранатой как войск Республики и клонов-солдат, так и армии Конфедерации. Очень любит отскакивать, будьте внимательны!"
+ITEM.model = "models/vsw/thermaldetonator.mdl"
+ITEM.class = "zeus_thermaldet"
+ITEM.category = "Клоническое оружие"
+ITEM.isGrenade = true
+ITEM.isWeapon = true
+ITEM.EffectiveRange = 50
+ITEM.Damage = 150
+ITEM.Radius = 5
+ITEM.weaponCategory = "grenade"
+ITEM.classes = {CLASS_EOW}
+ITEM.flag = "V"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.price = 2000 

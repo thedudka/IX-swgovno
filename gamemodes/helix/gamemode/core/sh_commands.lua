@@ -562,6 +562,10 @@ ix.command.Add("PlyWhitelist", {
 ix.command.Add("CharGetUp", {
 	description = "@cmdCharGetUp",
 	OnRun = function(self, client, arguments)
+		if (client:IsCritical()) then
+			return
+		end
+
 		local entity = client.ixRagdoll
 
 		if (IsValid(entity) and entity.ixGrace and entity.ixGrace < CurTime() and
@@ -580,6 +584,54 @@ ix.command.Add("CharGetUp", {
 				entity:Remove()
 			end)
 		end
+	end
+})
+
+ix.command.Add("CharRevive", {
+	description = "Позволяет поднять игрока, если он в критическом состоянии.",
+	superAdminOnly = true,
+	arguments = {
+		ix.type.player
+	},
+	OnRun = function(self, client, target)
+		if (!IsValid(target) or !target:IsPlayer()) then
+			return false
+		end
+
+		if (!target:IsCritical()) then
+			client:Notify("Игрок не в критическом состоянии!")
+			return false
+		end
+
+		target:SetCriticalState(false)
+		target:SetHealth(100)
+		target:SetArmor(0)
+		target:Notify("Вы были возрождены силами за пределами вашего понимания.")
+		client:Notify("Вы возродили " .. target:Name() .. ".")
+	end
+})
+
+ix.command.Add("CharSlay", {
+	description = "Позволяет добить игрока, если он в критическом состоянии.",
+	superAdminOnly = true,
+	arguments = {
+		ix.type.player
+	},
+	OnRun = function(self, client, target)
+		if (!IsValid(target) or !target:IsPlayer()) then
+			return false
+		end
+
+		if (!target:IsCritical()) then
+			client:Notify("Игрок не в критическом состоянии!")
+			return false
+		end
+
+		target:SetCriticalBlood(0)
+		target:SetHealth(0)
+		target:Kill()
+		target:Notify("Вас что-то добило.")
+		client:Notify("Вы добили " .. target:Name() .. ".")
 	end
 })
 

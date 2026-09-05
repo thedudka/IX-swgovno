@@ -34,10 +34,10 @@ SWEP.DefaultFireMode 				= "single"
 SWEP.FireModeName 					= nil
 SWEP.DisableChambering 				= true
 
-SWEP.Primary.ClipSize				= 6
-SWEP.Primary.DefaultClip			= 6*4
-SWEP.Primary.RPM					= 75
-SWEP.Primary.RPM_Burst				= 75
+SWEP.Primary.ClipSize				= 5
+SWEP.Primary.DefaultClip			= 5*4
+SWEP.Primary.RPM					= 40
+SWEP.Primary.RPM_Burst				= 40
 SWEP.Primary.Ammo					= "ar2"
 SWEP.Primary.AmmoConsumption 		= 1
 SWEP.Primary.Range 					= 40000
@@ -49,7 +49,7 @@ SWEP.Primary.BurstDelay				= 0.2
 SWEP.Primary.Sound 					= Sound ("w/dc15x.wav");
 SWEP.Primary.ReloadSound 			= Sound ("w/heavy.wav");
 SWEP.Primary.PenetrationMultiplier 	= 0
-SWEP.Primary.Damage					= 145
+SWEP.Primary.Damage					= 160
 SWEP.Primary.HullSize 				= 0
 SWEP.DamageType 					= nil
 
@@ -110,7 +110,7 @@ SWEP.ImpactDecal 					= "FadingScorch"
 SWEP.VMPos = Vector(01, -2, -4)
 SWEP.VMAng = Vector(0, 0, 0)
 
-SWEP.IronSightTime 					= 0.6
+SWEP.IronSightTime 					= 0.8
 SWEP.Primary.KickUp					= 0.12
 SWEP.Primary.KickDown				= 0.09
 SWEP.Primary.KickHorizontal			= 0.055
@@ -122,7 +122,7 @@ SWEP.Primary.SpreadIncrement 		= 0.35
 SWEP.Primary.SpreadRecovery 		= 0.98
 SWEP.DisableChambering 				= true
 SWEP.MoveSpeed 						= 1
-SWEP.IronSightsMoveSpeed 			= 0.85
+SWEP.IronSightsMoveSpeed 			= 0.75
 
 SWEP.IronSightsPos = Vector(-3.88, -9, 2.825)
 SWEP.IronSightsAng = Vector(0, 0, 0)

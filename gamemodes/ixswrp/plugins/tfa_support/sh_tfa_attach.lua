@@ -22,7 +22,7 @@
 
 
 
-PLUGIN.AttachData[ "ins2_si_kobra" ] = {
+/*PLUGIN.AttachData[ "ins2_si_kobra" ] = {
 	Name = "Kobra Sight",
 	Desc = "Sight for weapons",
 	Price = 2000,
@@ -30,4 +30,4 @@ PLUGIN.AttachData[ "ins2_si_kobra" ] = {
 	Width = 1,
 	Height = 1,
 	Slot = 2
-}
+}*/

@@ -25,7 +25,11 @@ local icons = {
 	["UU-Branded Items"] = "asterisk_yellow",
 	["Weapons"] = "gun",
 	["Workstations"] = "page",
-	["Стандартная медицина"] = "heart",
+	["Медицина"] = "heart",
+	["Инструменты и модули"] = "cog",
+	["primary"] = "gun",
+	["sidearm"] = "gun",
+	["Клоническое оружие"] = "gun",
 }
 
 spawnmenu.AddContentType("ixItem", function(container, data)
@@ -84,10 +88,14 @@ local function CreateItemsPanel()
 	vgui.Create("ItemSearchBar", base.ContentNavBar)
 
 	for k, v in SortedPairsByMemberValue(ix.item.list, "category") do
-		if (!categories[v.category] and not string.match( v.name, "Base" )) then
-			categories[v.category] = true
+		local itemName = v.name
+		local itemCategory = v.category or "Other"
 
-			local category = tree:AddNode(L(v.category), icons[v.category] and ("icon16/" .. icons[v.category] .. ".png") or "icon16/brick.png")
+		if (isstring(itemName) and itemName != "" and !categories[itemCategory] and not string.match(itemName, "Base" )) then
+			categories[itemCategory] = true
+
+			local category = tree:AddNode(L(itemCategory), icons[itemCategory] and ("icon16/" .. icons[itemCategory] .. ".png") or "icon16/brick.png")
+			local selectedCategory = itemCategory
 
 			function category:DoPopulate()
 				if (self.Container) then return end
@@ -98,7 +106,9 @@ local function CreateItemsPanel()
 
 
 				for uniqueID, itemTable in SortedPairsByMemberValue(ix.item.list, "name") do
-					if (itemTable.category == v.category and not string.match( itemTable.name, "Base" )) then
+					local categoryName = itemTable.category or "Other"
+
+					if (isstring(itemTable.name) and itemTable.name != "" and categoryName == selectedCategory and not string.match(itemTable.name, "Base" )) then
 						spawnmenu.CreateContentIcon("ixItem", self.Container, itemTable)
 					end
 				end

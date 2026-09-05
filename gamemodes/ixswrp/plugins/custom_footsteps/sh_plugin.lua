@@ -61,6 +61,14 @@ local gearSounds = {
     "footsteps_clonetropper/gear_run03.wav",
 }
 
+local gearSoundsRobot = {"footsteps_robot/robot_step1.wav",
+"footsteps_robot/robot_step2.wav",
+"footsteps_robot/robot_step3.wav",
+"footsteps_robot/robot_step4.wav",
+"footsteps_robot/robot_step5.wav",
+"footsteps_robot/robot_step6.wav",
+}
+
 
 
 hook.Add("PlayerFootstep", "SurfaceCustomFootsteps", function(ply, pos, foot, sound, volume, rf)
@@ -88,7 +96,22 @@ hook.Add("PlayerFootstep", "SurfaceCustomFootsteps", function(ply, pos, foot, so
     
     end
 
-    if char:IsDroid() then
+    if faction == FACTION_ROBOT then
+    ply:EmitSound(gearSoundsRobot[math.random(#gearSoundsRobot)], volume * 0.4, 75, 0.2, CHAN_ITEM)
+
+        local customSound
+        if tr.Hit then
+            customSound = surfaceSoundsRobot[tr.MatType]
+        end
+
+        if customSound then
+            ply:EmitSound(customSound, volume, 100, 1.0, CHAN_BODY)
+        end
+        return true
+    
+    end
+
+    if faction == FACTION_DROID then
         
         local customSound
         if tr.Hit then

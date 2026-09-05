@@ -11,3 +11,4 @@ function PLUGIN:PlayerSwitchFlashlight(client, bEnabled)
 		return true
 	end
 end
+

@@ -11,6 +11,7 @@ ix.util.Include("sh_commands.lua")
 
 ix.util.Include("cl_schema.lua")
 ix.util.Include("cl_hooks.lua")
+ix.util.Include("cl_weapon_info.lua")
 ix.util.Include("sh_hooks.lua")
 ix.util.Include("sh_voices.lua")
 ix.util.Include("sv_schema.lua")
@@ -61,7 +62,7 @@ end
 do
 	local CLASS = {}
 	CLASS.color = Color(75, 150, 50)
-	CLASS.format = "%s radios in \"%s\""
+	CLASS.format = "%s отправляет \"%s\""
 
 	function CLASS:CanHear(speaker, listener)
 		local character = listener:GetCharacter()
@@ -89,7 +90,7 @@ end
 do
 	local CLASS = {}
 	CLASS.color = Color(255, 255, 175)
-	CLASS.format = "%s radios in \"%s\""
+	CLASS.format = "%s отправляет \"%s\""
 
 	function CLASS:GetColor(speaker, text)
 		if (LocalPlayer():GetEyeTrace().Entity == speaker) then

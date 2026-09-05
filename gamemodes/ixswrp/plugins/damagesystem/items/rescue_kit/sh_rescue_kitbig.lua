@@ -1,0 +1,12 @@
+ITEM.name = "Санитарный комплект"
+ITEM.description = "Огромный комплект для санитаров и медиков на поле боя, способный поднять на ноги бойца в критическом состоянии. Комплект предоставляет только базовую медицину для восстановления, поэтому рекомендуется после использования применять дополнительные медикаменты."
+ITEM.model = Model("models/reizer_props/alysseum_project/medicine_obj/med_canister_01/med_canister_01.mdl")
+ITEM.category = "Медицина"
+ITEM.width = 3
+ITEM.height = 3
+ITEM.base = "base_rescue_kit"
+ITEM.dUses = 5
+ITEM.useTime = 10
+ITEM.useSound = "items/medshot4.wav"
+ITEM.reviveHealth = 50
+ITEM.reviveArmor = 0

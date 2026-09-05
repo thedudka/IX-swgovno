@@ -30,7 +30,7 @@ SWEP.Primary.ClipSize = -1
 SWEP.Primary.DefaultClip = -1
 SWEP.Primary.Automatic = false
 SWEP.Primary.Ammo = ""
-SWEP.Primary.Damage = 5
+SWEP.Primary.Damage = 0
 SWEP.Primary.Delay = 0.75
 
 SWEP.Secondary.ClipSize = -1
@@ -80,25 +80,6 @@ if (CLIENT) then
 			cmd:SetViewAngles(angle)
 		end
 	end)
-end
-
-function SWEP:Deploy()
-	if (!IsValid(self:GetOwner())) then
-		return
-	end
-
-	local viewModel = self:GetOwner():GetViewModel()
-
-	if (IsValid(viewModel)) then
-		viewModel:SetPlaybackRate(1)
-		viewModel:ResetSequence(ACT_VM_FISTS_DRAW)
-		if CLIENT then
-			self.NextAllowedPlayRateChange = CurTime() + viewModel:SequenceDuration()
-		end
-	end
-
-	self:DropObject()
-	return true
 end
 
 function SWEP:Precache()

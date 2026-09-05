@@ -267,6 +267,12 @@ if (SERVER) then
 	-- @number[opt=startTime + time] finishTime Game time in seconds that the timer should complete at. If you are using `time`,
 	-- then you shouldn't use this argument
 	function meta:SetAction(text, time, callback, startTime, finishTime)
+		if (self:IsCritical()) then
+			if (text ~= false) then
+				return
+			end
+		end
+
 		if (time and time <= 0) then
 			if (callback) then
 				callback(self)

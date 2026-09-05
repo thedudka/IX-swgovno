@@ -1,7 +1,8 @@
 
-ITEM.name = "Handheld Radio"
-ITEM.model = Model("models/deadbodies/dead_male_civilian_radio.mdl")
-ITEM.description = "A shiny handheld radio with a frequency tuner.\nIt is currently turned %s%s."
+ITEM.name = "Персональный планшет"
+ITEM.model = Model("models/lt_c/sci_fi/holo_tablet.mdl")
+ITEM.description = "Планшет с возможностью отправки сообщений по зашифрованному каналу и выбором частоты.\nПланшет %s%s."
+ITEM.category = "Инструменты и модули"
 ITEM.cost = 50
 ITEM.classes = {CLASS_EMP, CLASS_EOW}
 ITEM.flag = "v"
@@ -18,7 +19,7 @@ end
 
 function ITEM:GetDescription()
 	local enabled = self:GetData("enabled")
-	return string.format(self.description, enabled and "on" or "off", enabled and (" and tuned to " .. self:GetData("frequency", "100.0")) or "")
+	return string.format(self.description, enabled and "включен" or "выключен", enabled and (" и настроен на " .. self:GetData("frequency", "100.0")) or "")
 end
 
 function ITEM.postHooks.drop(item, status)
@@ -53,7 +54,7 @@ ITEM.functions.Toggle = {
 			itemTable:SetData("enabled", !itemTable:GetData("enabled", false))
 			itemTable.player:EmitSound("buttons/lever7.wav", 50, math.random(170, 180), 0.25)
 		else
-			itemTable.player:NotifyLocalized("radioAlreadyOn")
+			itemTable.player:NotifyLocalized("Планшет уже включен.")
 		end
 
 		return false

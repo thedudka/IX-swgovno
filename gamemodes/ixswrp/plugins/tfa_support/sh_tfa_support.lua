@@ -113,6 +113,13 @@ function PLUGIN:InitializedPlugins()
 		ITEM.class = class
 		ITEM.IsTFA = true
 		ITEM.DoEquipSnd = true
+		ITEM.description = dat.Desc
+		ITEM.category = dat.Category
+		ITEM.EffectiveRange = dat.EffectiveRange
+		ITEM.Damage = dat.Damage
+		ITEM.MagazineCapacity = dat.MagazineCapacity
+		ITEM.Accuracy = dat.Accuracy
+		ITEM.Radius = dat.Radius
 		
 		if dat.iconCam then
 			ITEM.iconCam = dat.iconCam
@@ -183,13 +190,7 @@ function PLUGIN:InitializedPlugins()
 		end
 
 		function ITEM:GetDescription()
-			local text = ""
-
-			if v.Primary.Ammo and v.Primary.ClipSize then
-				local ammo_itm = ix.item.list[ "ammo_" .. v.Primary.Ammo ]
-				text = text .. "Using ammo: " .. ( ( ammo_itm and ammo_itm.name ) or v.Primary.Ammo ) .. ".\nMagazine capacity: " .. v.Primary.ClipSize .. "."
-			end
-
+			local text = ITEM.description
 			return text
 		end
 
@@ -259,10 +260,7 @@ function PLUGIN:InitializedPlugins()
 		ITEM.isAttachment = true
 		ITEM.category = "Attachments"
         ITEM.slot = v.Slot
-
-        function ITEM:GetDescription()
-			return v.Desc
-		end
+        ITEM.description = v.Desc
 
 		ITEM.functions.use = {
 			name = "Equip",
