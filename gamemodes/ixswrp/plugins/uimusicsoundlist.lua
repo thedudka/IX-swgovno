@@ -1,6 +1,6 @@
 local PLUGIN = PLUGIN
 
-PLUGIN.name = "Ui and music soundlist"
+PLUGIN.name = "Ui and music list"
 PLUGIN.author = "dudka"
 PLUGIN.description = "Add custom ui and music from star wars."
 
@@ -78,6 +78,10 @@ end
 	})
 
 resource.AddFile("sound/music/mainmenu_theme.wav")
+resource.AddFile("sound/music/tower_battle.wav")
+resource.AddFile("sound/music/space_battle_theme.wav")
+resource.AddFile("sound/music/assasin_droids_ost.wav")
+resource.AddFile("sound/music/macewindu_theme.wav")
 
 resource.AddFile("sound/ui/ui_cancel.wav")
 resource.AddFile("sound/ui/ui_click.wav")
@@ -85,3 +89,5 @@ resource.AddFile("sound/ui/ui_message.wav")
 resource.AddFile("sound/ui/ui_rollover.wav")
 resource.AddFile("sound/ui/ui_back.wav")
 resource.AddFile("sound/ui/ui_notify.wav")
+
+resource.AddFile("materials/background.jpg")

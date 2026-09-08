@@ -17,7 +17,7 @@ Reload: Drop]]
 SWEP.Purpose = "Hitting things and knocking on doors."
 SWEP.Drop = false
 
-SWEP.ViewModelFOV = 45
+SWEP.ViewModelFOV = 30
 SWEP.ViewModelFlip = false
 SWEP.AnimPrefix	 = "rpg"
 

@@ -1,0 +1,10 @@
+ITEM.base = "base_food"
+ITEM.name = "Стейк"
+ITEM.model = "models/food/steak.mdl"
+ITEM.description = "Стейк из Банты. Мясо вяленное и очень нежное - оно прямо тает во рту."
+ITEM.useSound = "npc/barnacle/barnacle_crunch3.wav"
+ITEM.cost = 10
+ITEM.dUses = 5
+ITEM.AddStam = 0
+ITEM.AddHealth = 8
+ITEM.rarity = 1

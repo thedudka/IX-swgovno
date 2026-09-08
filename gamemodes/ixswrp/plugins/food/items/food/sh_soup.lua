@@ -1,0 +1,9 @@
+ITEM.base = "base_drink"
+ITEM.name = "Тарелка супа"
+ITEM.model = "models/food/soupbowl.mdl"
+ITEM.description = "Тарелка, внутри которой находится горячий суп с мясом, овощами и зеленью. То что нужно после сухих пайков."
+ITEM.cost = 4
+ITEM.dUses = 5
+ITEM.AddStam = 0
+ITEM.AddHealth = 7
+ITEM.useSound = "npc/barnacle/barnacle_gulp1.wav"

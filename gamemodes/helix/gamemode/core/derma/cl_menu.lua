@@ -1,6 +1,7 @@
 
 local animationTime = 1
 local matrixZScale = Vector(1, 1, 0.0001)
+local bgMaterial = Material("background.jpg")
 
 DEFINE_BASECLASS("ixSubpanelParent")
 local PANEL = {}

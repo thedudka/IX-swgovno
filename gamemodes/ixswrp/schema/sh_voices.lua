@@ -1,5 +1,5 @@
 
-Schema.voices.Add("Combine", "0", "Zero.", "npc/metropolice/vo/zero.wav")
+/*Schema.voices.Add("Combine", "0", "Zero.", "npc/metropolice/vo/zero.wav")
 Schema.voices.Add("Combine", "1", "One.", "npc/metropolice/vo/one.wav")
 Schema.voices.Add("Combine", "10", "Ten.", "npc/metropolice/vo/ten.wav")
 Schema.voices.Add("Combine", "10-0 HUNTING", "10-0, 10-0, viscerator is hunting!", "npc/metropolice/vo/tenzerovisceratorishunting.wav")
@@ -403,4 +403,11 @@ end)
 
 Schema.voices.AddClass("Dispatch", function(client)
 	return client:IsDispatch()
+end)*/
+
+Schema.voices.Add("Clone", "Test", "testVoice", "ambient/levels/canals/drip4.wav")
+
+
+Schema.voices.AddClass("Clone", function(client)
+	return client:IsClone()
 end)

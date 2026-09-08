@@ -37,9 +37,9 @@ do
 				return "Вы не можете этого сделать!"
 			end
 		elseif (#radios > 0) then
-			return "Персональный планшет не включен."
+			return "Датапад не включен."
 		else
-			return "Вам нужен персональный планшет."
+			return "Вам нужен датапад."
 		end
 	end
 
@@ -202,3 +202,4 @@ do
 
 	ix.command.Add("CharSearch", COMMAND)
 end
+

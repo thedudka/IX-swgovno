@@ -1,0 +1,11 @@
+ITEM.name = "Бинокль"
+ITEM.description = "Устройство слежения и обнаружения для клонов коммандиров. Обладает встроенным приближением, а также возможностью ставить метки, которые автоматически появляются на интерфейсах других клонов. Самая необходимая вещь для полевых командующих клонами."
+ITEM.model = "models/ace/sw/w_macrobinoculars.mdl"
+ITEM.class = "waypoint_designator"
+ITEM.category = "Инструменты и модули"
+ITEM.isWeapon = true
+ITEM.weaponCategory = "equipment"
+ITEM.flag = "V"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.price = 2500

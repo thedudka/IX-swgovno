@@ -115,7 +115,7 @@ function PLUGIN:InitializedPlugins()
 		ITEM.DoEquipSnd = true
 		ITEM.description = dat.Desc
 		ITEM.category = dat.Category
-		ITEM.EffectiveRange = dat.EffectiveRange
+		ITEM.Firerate = dat.Firerate
 		ITEM.Damage = dat.Damage
 		ITEM.MagazineCapacity = dat.MagazineCapacity
 		ITEM.Accuracy = dat.Accuracy

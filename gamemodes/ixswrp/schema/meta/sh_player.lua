@@ -17,7 +17,7 @@ end
 
 function playerMeta:IsFFA()
 	local faction = self:Team()
-	return faction == FACTION_SITH or faction == FACTION_FAUNA
+	return faction == FACTION_FAUNA
 end
 
 function playerMeta:IsDroid()
@@ -37,7 +37,7 @@ end
 
 function playerMeta:IsCIS()
 	local faction = self:Team()
-	return faction == FACTION_DROID or faction == FACTION_CIS
+	return faction == FACTION_DROID or faction == FACTION_CIS or faction == FACTION_SITH
 end
 
 function playerMeta:IsEventFaction()

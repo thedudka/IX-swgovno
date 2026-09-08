@@ -21,9 +21,23 @@ ix.container.Register("models/reizer_props/srsp/sci_fi/crate_03/crate_03.mdl", {
 	height = 6,
 })
 
+ix.container.Register("models/reizer_props/srsp/sci_fi/crate_04/crate_04.mdl", {
+	name = "Ящик со взрывчаткой",
+	description = "Грузовой ящик с взрывчатыми и нестабильными соединениями. Помимо прочного корпуса обладает и ячейками с обивкой для минимизации случайного срабатывания груза.",
+	width = 6,
+	height = 6,
+})
+
+ix.container.Register("models/reizer_props/srsp/sci_fi/crate_05/crate_05.mdl", {
+	name = "Ящик поддержки",
+	description = "Грузовой ящик общего назначения в котором могут быть любые необходимые припасы для подразделений, чаще всего съестные. Оборудован холодильником.",
+	width = 6,
+	height = 6,
+})
+
 ix.container.Register("models/reizer_props/srsp/sci_fi/crate_02/crate_02.mdl", {
-	name = "Оружейный ящик",
-	description = "Грузовой ящик с оружием с усиленным каркасом и материалом для избежания повреждения вооружения при резких сильных ударах, характерных при перевозке.",
+	name = "Ящик снаряжения",
+	description = "Грузовой ящик с оружием или броней с усиленным каркасом и материалом для избежания повреждения вооружения или брони при резких сильных ударах, характерных при перевозке.",
 	width = 6,
 	height = 6,
 })
@@ -50,9 +64,9 @@ ix.container.Register("models/niksacokica/containers/con_square_crate02.mdl", {
 })
 
 ix.container.Register("models/theinvisibleman/swbf/imperial/general/box_05.mdl", {
-	name = "Малый оружейный контейнер",
-	description = "Небольшой контейнер для хранения малого количества боеприпасов или оружия.",
-	width = 4,
+	name = "Оружейный контейнер",
+	description = "Контейнер для хранения оружия большого размера.",
+	width = 5,
 	height = 2,
 })
 

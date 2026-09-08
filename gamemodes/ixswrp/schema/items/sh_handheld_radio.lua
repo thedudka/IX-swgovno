@@ -1,7 +1,7 @@
 
-ITEM.name = "Персональный планшет"
+ITEM.name = "Датапад"
 ITEM.model = Model("models/lt_c/sci_fi/holo_tablet.mdl")
-ITEM.description = "Планшет с возможностью отправки сообщений по зашифрованному каналу и выбором частоты.\nПланшет %s%s."
+ITEM.description = "Устройство с возможностью отправки сообщений по зашифрованному каналу и выбором частоты.\nДатапад %s%s."
 ITEM.category = "Инструменты и модули"
 ITEM.cost = 50
 ITEM.classes = {CLASS_EMP, CLASS_EOW}
@@ -54,7 +54,7 @@ ITEM.functions.Toggle = {
 			itemTable:SetData("enabled", !itemTable:GetData("enabled", false))
 			itemTable.player:EmitSound("buttons/lever7.wav", 50, math.random(170, 180), 0.25)
 		else
-			itemTable.player:NotifyLocalized("Планшет уже включен.")
+			itemTable.player:NotifyLocalized("Датапад уже включен.")
 		end
 
 		return false

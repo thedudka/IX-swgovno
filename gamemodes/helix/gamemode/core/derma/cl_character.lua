@@ -3,6 +3,7 @@ local gradient = surface.GetTextureID("vgui/gradient-d")
 local audioFadeInTime = 2
 local animationTime = 0.5
 local matrixZScale = Vector(1, 1, 0.0001)
+local bgMaterial = Material("background.jpg")
 
 -- character menu panel
 DEFINE_BASECLASS("ixSubpanelParent")
@@ -175,7 +176,7 @@ function PANEL:Init()
 		surface.DrawRect(0, y, width, newHeight)
 
 		-- border lines
-		surface.SetDrawColor(ix.config.Get("color") or color_white)
+		surface.SetDrawColor(color_white)
 		surface.DrawRect(0, y, width, 1)
 		surface.DrawRect(0, y + newHeight - 1, width, 1)
 
@@ -513,8 +514,8 @@ function PANEL:Close(bFromMenu)
 end
 
 function PANEL:Paint(width, height)
-	surface.SetTexture(gradient)
-	surface.SetDrawColor(0, 0, 0, 255)
+	surface.SetDrawColor(255, 255, 255, self.currentAlpha)
+	surface.SetMaterial(bgMaterial)
 	surface.DrawTexturedRect(0, 0, width, height)
 
 	if (!ix.option.Get("cheapBlur", false)) then

@@ -6,22 +6,21 @@ surface.CreateFont( "ixWeaponStatsFont", {
 } )
 
 local function addWeaponStats( tooltip, item )
-	if not item or not item.EffectiveRange then
+	if not item or not item.Firerate then
 		return
 	end
 
 	local row = tooltip:AddRowAfter( "description", "weaponStats" )
 	if item.Radius then
 		row:SetText( string.format(
-			"ЭФФЕКТИВНАЯ ДАЛЬНОСТЬ: ДО %s МЕТРОВ\nМАКСИМАЛЬНЫЙ УРОН ОТ ВЗРЫВА: %s\nРАДИУС ВЗРЫВА: %s МЕТРОВ",
-			item.EffectiveRange,
+			"МАКСИМАЛЬНЫЙ УРОН ОТ ВЗРЫВА: %s\nРАДИУС ВЗРЫВА: %s МЕТРОВ",
 			item.Damage,
 			item.Radius
 		) )
 	else
 		row:SetText( string.format(
-			"ЭФФЕКТИВНАЯ ДАЛЬНОСТЬ: ДО %s МЕТРОВ\nУРОН ЗА СНАРЯД: %s\nВМЕСТИМОСТЬ МАГАЗИНА: %s\nРАЗБРОС: %.3f",
-			item.EffectiveRange,
+			"СКОРОСТРЕЛЬНОСТЬ: %s ВЫСТРЕЛОВ В МИНУТУ\nУРОН ЗА СНАРЯД: %s\nВМЕСТИМОСТЬ МАГАЗИНА: %s\nРАЗБРОС: %.3f",
+			item.Firerate,
 			item.Damage,
 			item.MagazineCapacity,
 			item.Accuracy

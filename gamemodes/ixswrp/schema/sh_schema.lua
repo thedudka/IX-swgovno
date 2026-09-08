@@ -1,7 +1,7 @@
 
-Schema.name = "SW RP"
+Schema.name = "Битва на Геонозисе"
 Schema.author = "НКО Тунеядцы"
-Schema.description = "сделано дебилами для дебилов"
+Schema.description = "Будьте готовы - ваши действия будут влиять на ваши судьбы."
 
 -- Include netstream
 ix.util.Include("libs/thirdparty/sh_netstream2.lua")
@@ -20,9 +20,6 @@ ix.util.Include("sv_hooks.lua")
 ix.util.Include("meta/sh_player.lua")
 ix.util.Include("meta/sv_player.lua")
 ix.util.Include("meta/sh_character.lua")
-
-ix.flag.Add("v", "Access to light blackmarket goods.")
-ix.flag.Add("V", "Access to heavy blackmarket goods.")
 
 ix.anim.SetModelClass("models/eliteghostcp.mdl", "metrocop")
 ix.anim.SetModelClass("models/eliteshockcp.mdl", "metrocop")

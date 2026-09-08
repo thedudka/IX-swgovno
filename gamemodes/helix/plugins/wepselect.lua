@@ -13,6 +13,11 @@ if (CLIENT) then
 
 	local matrixScale = Vector(1, 1, 0)
 
+	local function voiceCommandMenuLocked()
+		local voiceMenu = ix.plugin.Get("voicecommandmenu")
+		return voiceMenu and (voiceMenu.menuOpen or CurTime() < (voiceMenu.weaponLockUntil or 0))
+	end
+
 	function PLUGIN:LoadFonts(font, genericFont)
 		surface.CreateFont("ixWeaponSelectFont", {
 			font = font,
@@ -29,6 +34,11 @@ if (CLIENT) then
 	end
 
 	function PLUGIN:HUDPaint()
+		if (voiceCommandMenuLocked()) then
+			self.alpha = 0
+			return
+		end
+
 		local frameTime = FrameTime()
 
 		self.alphaDelta = Lerp(frameTime * 10, self.alphaDelta, self.alpha)
@@ -124,6 +134,12 @@ if (CLIENT) then
 	function PLUGIN:PlayerBindPress(client, bind, pressed)
 		bind = bind:lower()
 
+		if (client == LocalPlayer() and voiceCommandMenuLocked() and
+			(bind:find("invprev") or bind:find("invnext") or bind:find("slot") or bind:find("attack"))) then
+			self.alpha = 0
+			return true
+		end
+
 		if (!pressed or !bind:find("invprev") and !bind:find("invnext")
 		and !bind:find("slot") and !bind:find("attack")) then
 			return
@@ -183,7 +199,9 @@ if (CLIENT) then
 
 	function PLUGIN:Think()
 		local client = LocalPlayer()
-		if (!IsValid(client) or !client:Alive()) then
+		if (voiceCommandMenuLocked()) then
+			self.alpha = 0
+		elseif (!IsValid(client) or !client:Alive()) then
 			self.alpha = 0
 		end
 	end

@@ -1,6 +1,7 @@
 
 local buttonPadding = ScreenScale(14) * 0.5
 local animationTime = 0.5
+local bgMaterial = Material("background.jpg")
 
 -- base menu button
 DEFINE_BASECLASS("DButton")
@@ -17,7 +18,7 @@ function PANEL:Init()
 	self:SetTextInset(buttonPadding, 0)
 
 	self.padding = {32, 12, 32, 12} -- left, top, right, bottom
-	self.backgroundColor = Color(0, 0, 0)
+	self.backgroundColor = Color(124, 123, 123)
 	self.backgroundAlpha = 128
 	self.currentBackgroundAlpha = 0
 end
@@ -50,7 +51,6 @@ function PANEL:PaintBackground(width, height)
 	surface.SetDrawColor(ColorAlpha(self.backgroundColor, self.currentBackgroundAlpha))
 	surface.DrawRect(0, 0, width, height)
 end
-
 function PANEL:Paint(width, height)
 	self:PaintBackground(width, height)
 	BaseClass.Paint(self, width, height)

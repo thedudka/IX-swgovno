@@ -13,7 +13,7 @@ end
 
 function CHAR:IsFFA()
 	local faction = self:GetFaction()
-	return faction == FACTION_SITH or faction == FACTION_FAUNA
+	return faction == FACTION_FAUNA
 end
 
 function CHAR:IsNeutral()
@@ -28,7 +28,7 @@ end
 
 function CHAR:IsCIS()
 	local faction = self:GetFaction()
-	return faction == FACTION_DROID or faction == FACTION_CIS
+	return faction == FACTION_DROID or faction == FACTION_CIS or faction == FACTION_SITH
 end
 
 function CHAR:IsDroid()
