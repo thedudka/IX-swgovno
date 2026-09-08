@@ -1,8 +1,0 @@
-ENT.Base 			= "prop_vj_animatable"
-ENT.Type 			= "anim"
-ENT.PrintName 		= "VJ Prop Animatable (Staff)"
-ENT.Author 			= "Helghast Loyalist"
-ENT.Contact 		= "https://steamcommunity.com/profiles/76561198180831682/"
-ENT.Purpose 		= "Custom version of VJ Prop Animatable that removes itself if it doesn't have an owner. Used"
-ENT.Instructions 	= "Don't change anything."
-ENT.Category		= "VJ Base"

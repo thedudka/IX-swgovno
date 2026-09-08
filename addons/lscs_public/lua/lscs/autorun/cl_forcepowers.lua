@@ -164,7 +164,7 @@ end )
 local NextNav = 0
 
 local function Prev( dont_set_time )
-	if not IsValid(LocalPlayer()) or not LocalPlayer():IsForceUser() then return "@notJedi" end
+	if not IsValid(LocalPlayer()) or not LocalPlayer():IsForceUser() then return end
 
 	if not IsValid( LSCS.ForceSelector.Selector ) then CreateSelector() end
 
@@ -228,7 +228,7 @@ local function Next( dont_set_time )
 end
 
 local function PlayerButtonDown( ply, button )
-	if not IsValid(ply) or not ply:IsForceUser() then return "@notJedi" end
+	if not IsValid(ply) or not ply:IsForceUser() then return end
 
 	local selector = LSCS.ForceSelector
 
@@ -321,7 +321,7 @@ if game.SinglePlayer() then -- holy shit i hate gmod so much why dont these hook
 	hook.Add( "Think", "!!!lscs_gmods_prediction_system_is_cancer", function()
 		local ply = LocalPlayer()
 
-			if not IsValid(ply) or not ply:IsForceUser() then return "@notJedi" end
+			if not IsValid(ply) or not ply:IsForceUser() then return end
 
 		local selector = LSCS.ForceSelector
 
@@ -373,7 +373,7 @@ end
 local LAST_USED_LMB
 
 hook.Add( "PlayerBindPress", "!!!!_lscs_playerbindpress", function( ply, bind, pressed )
-	if not IsValid(ply) or not ply:IsForceUser() then return "@notJedi" end
+	if not IsValid(ply) or not ply:IsForceUser() then return end
 
 	if not MouseWheelScroller then
 

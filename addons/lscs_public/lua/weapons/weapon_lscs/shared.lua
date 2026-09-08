@@ -30,6 +30,8 @@ SWEP.RenderGroup = RENDERGROUP_BOTH
 
 SWEP.AutoSwitchFrom = false
 
+SWEP.weaponAlwaysRaised = true
+
 SWEP.HoldType = "jedi"
 
 SWEP.LSCS = true

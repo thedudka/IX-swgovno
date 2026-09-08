@@ -68,6 +68,13 @@ local damageGlitchLastHealth = nil
 local damageGlitchPulseEnd = 0
 local commsTransmissionFadeDuration = 1.1
 local commsTransmissionEntries = {}
+local commsTransmissionNextRefresh = 0
+local hudProfileCache = {
+    player = nil,
+    model = "",
+    nextCheck = 0,
+    value = "mando"
+}
 local currentHUDProfile = "mando"
 local thirdPersonEnabled = false
 local wasThirdPersonToggleDown = false
@@ -224,6 +231,15 @@ local function getHUDProfile(ply)
     end
 
     local modelName = ply:GetModel() or ""
+    local now = CurTime()
+    if hudProfileCache.player == ply and hudProfileCache.model == modelName and now < hudProfileCache.nextCheck then
+        return hudProfileCache.value
+    end
+
+    hudProfileCache.player = ply
+    hudProfileCache.model = modelName
+    hudProfileCache.nextCheck = now + 0.2
+
     local explicitCloneTrooperModel = isExplicitCloneTrooperModel(modelName)
     local helmetBodygroup, helmetValue = findHelmetBodygroupInfo(ply, explicitCloneTrooperModel)
     local selectedBodygroupName = getSelectedBodygroupName(helmetBodygroup, helmetValue)
@@ -232,17 +248,21 @@ local function getHUDProfile(ply)
         or hasKeywordMatch(selectedBodygroupName, cloneTrooperKeywords)
 
     if not looksCloneTrooper then
+        hudProfileCache.value = "mando"
         return "mando"
     end
 
     if not helmetBodygroup then
+        hudProfileCache.value = "clone"
         return "clone"
     end
 
     if isHelmetSelectionActive(helmetBodygroup, helmetValue) then
+        hudProfileCache.value = "clone"
         return "clone"
     end
 
+    hudProfileCache.value = "off"
     return "off"
 end
 
@@ -520,12 +540,18 @@ local function getCommsSpeakerLabel(speaker)
 end
 
 local function refreshCommsTransmissionEntries(ply)
+    local now = CurTime()
+    if now < commsTransmissionNextRefresh then
+        return
+    end
+
+    commsTransmissionNextRefresh = now + 0.1
+
     if not IsValid(ply) or not ply:Alive() or getComlinkFrequencyForPlayer(ply) == "" then
         table.Empty(commsTransmissionEntries)
         return
     end
 
-    local now = CurTime()
     local seenSpeakers = {}
 
     for _, speaker in ipairs(player.GetAll()) do
@@ -719,11 +745,9 @@ local function drawPolyOutline(poly, col)
 end
 
 local function drawSoftLine(x1, y1, x2, y2, col)
-    surface.SetDrawColor(withAlpha(col, 26))
+    surface.SetDrawColor(withAlpha(col, 32))
     surface.DrawLine(x1 - 1, y1, x2 - 1, y2)
     surface.DrawLine(x1 + 1, y1, x2 + 1, y2)
-    surface.DrawLine(x1, y1 - 1, x2, y2 - 1)
-    surface.DrawLine(x1, y1 + 1, x2, y2 + 1)
     surface.SetDrawColor(col)
     surface.DrawLine(x1, y1, x2, y2)
 end
@@ -1385,7 +1409,7 @@ local function drawVitalsEdgeTrace(x1, y1, x2, y2, ratio, label, valueText, fill
     local labelOffset = style.labelOffset or sy(14)
     local tickHalf = style.tickHalf or math.max(sp(5), 3)
     local curveDepth = style.curveDepth or sy(32)
-    local samples = style.samples or 24
+    local samples = style.samples or 12
     local valueSkewStep = style.valueSkewStep or math.max((ScrH() / 1080) * 0.9, 1)
     local valueInset = style.valueInset or sp(10)
     local valueAboveLift = style.valueAboveLift or sy(10)
