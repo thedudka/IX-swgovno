@@ -14,12 +14,6 @@ if SERVER then
 
 		if IsValid( SWEP ) then
 			OldBP = SWEP:GetBlockPoints()
-		else
-			if hook.Run( "PlayerGiveSWEP", self, "weapon_lscs", weapons.Get( "weapon_lscs" ) ) == false then
-				self:ChatPrint("[LSCS] - You don't have permission to spawn this SWEP.")
-
-				return
-			end
 		end
 
 		self:StripWeapon( "weapon_lscs" )

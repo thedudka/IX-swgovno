@@ -3,12 +3,10 @@ local PLUGIN = PLUGIN
 local function CanAccessMenus(client)
     if not IsValid(client) then return false end
 
-    -- 1. Staff Check
     if client:IsAdmin() or client:IsSuperAdmin() then
         return true
     end
 
-    -- 2. Helix Character 'e' Flag Check
     local char = client:GetCharacter()
     if char and char:HasFlags("e") then
         return true
@@ -18,7 +16,6 @@ local function CanAccessMenus(client)
 end
 
 if CLIENT then
-    -- Override Helix Framework Hooks directly
     function PLUGIN:OnSpawnMenuOpen()
         if not CanAccessMenus(LocalPlayer()) then
             return false
@@ -31,7 +28,6 @@ if CLIENT then
         end
     end
 
-    -- Standard GMod Hook Overrides
     function PLUGIN:SpawnmenuOpen()
         return CanAccessMenus(LocalPlayer())
     end
@@ -40,7 +36,6 @@ if CLIENT then
         return CanAccessMenus(LocalPlayer())
     end
 
-    -- VGUI Panel Patching (Prevents draw calls completely)
     local function PatchPanel(pnl)
         if not IsValid(pnl) then return end
         

@@ -1,7 +1,7 @@
 local PLUGIN = PLUGIN
 
 PLUGIN.name = "Custom footsteps"
-PLUGIN.author = "dudka"
+PLUGIN.author = ""
 PLUGIN.description = "Adding footstep custom sound based on faction and surface types."
 
 local surfaceSoundsDefault = {

@@ -1,4 +1,4 @@
-FACTION.name = "Battle Droid"
+FACTION.name = "Battle droid"
 FACTION.description = "A CIS droid."
 FACTION.color = Color(126, 14, 23)
 FACTION.models = {
@@ -33,18 +33,5 @@ FACTION.npcRelations = {
 	["npc_hunter"] = D_NU,
 	["npc_manhack"] = D_LI
 }
-
-function FACTION:OnCharacterCreated(client, character)
-	local id = Schema:ZeroNumber(math.random(1, 99999), 5)
-	local inventory = character:GetInventory()
-
-	character:SetData("cid", id)
-
-	inventory:Add("suitcase", 1)
-	inventory:Add("cid", 1, {
-		name = character:GetName(),
-		id = id
-	})
-end
 
 FACTION_DROID = FACTION.index

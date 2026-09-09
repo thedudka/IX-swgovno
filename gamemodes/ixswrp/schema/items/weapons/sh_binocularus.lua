@@ -5,6 +5,7 @@ ITEM.class = "waypoint_designator"
 ITEM.category = "Инструменты и модули"
 ITEM.isWeapon = true
 ITEM.weaponCategory = "equipment"
+ITEM.classes = {CLASS_EOW}
 ITEM.flag = "V"
 ITEM.width = 1
 ITEM.height = 1

@@ -1,7 +1,7 @@
 local PLUGIN = PLUGIN
 
 PLUGIN.name = "Ragdoll Fixes"
-PLUGIN.author = "SchwarzKruppzo"
+PLUGIN.author = ""
 PLUGIN.description = ""
 
 if SERVER then

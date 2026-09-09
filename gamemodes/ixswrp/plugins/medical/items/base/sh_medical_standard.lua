@@ -132,8 +132,8 @@ local function startTreatment(item, client, target, targetEntity)
 	end)
 
 	if targetEntity then
-		client:SetAction("Применение...", duration)
-		client:DoStaredAction(targetEntity, completeTreatment, duration, resetTreatment)
+		client:SetAction("Применение...", duration * 0.5)
+		client:DoStaredAction(targetEntity, completeTreatment, duration * 0.5, resetTreatment)
 	else
 		client:SetAction("Применение...", duration)
 		timer.Create(completeTimer, duration, 1, completeTreatment)

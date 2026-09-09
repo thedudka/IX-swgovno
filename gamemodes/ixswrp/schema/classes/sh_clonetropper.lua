@@ -1,4 +1,4 @@
 CLASS.name = "Clonetropper"
 CLASS.faction = FACTION_CLONE
-CLASS.isDefault = true
+CLASS.isDefault = false
 CLASS_CLONETROPPER = CLASS.index

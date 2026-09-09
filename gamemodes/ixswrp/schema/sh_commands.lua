@@ -203,3 +203,68 @@ do
 	ix.command.Add("CharSearch", COMMAND)
 end
 
+ix.command.Add("CharRevive", {
+	description = "Позволяет поднять игрока, если он в критическом состоянии.",
+	superAdminOnly = true,
+	arguments = {
+		ix.type.player
+	},
+	OnRun = function(self, client, target)
+		if (!IsValid(target) or !target:IsPlayer()) then
+			return false
+		end
+
+		if (!target:IsCritical()) then
+			client:Notify("Игрок не в критическом состоянии!")
+			return false
+		end
+
+		target:SetCriticalState(false)
+		target:SetHealth(100)
+		target:SetArmor(0)
+		target:Notify("Вы были возрождены силами за пределами вашего понимания.")
+		client:Notify("Вы возродили " .. target:Name() .. ".")
+	end
+})
+
+ix.command.Add("CharSlay", {
+	description = "Позволяет добить игрока, если он в критическом состоянии.",
+	superAdminOnly = true,
+	arguments = {
+		ix.type.player
+	},
+	OnRun = function(self, client, target)
+		if (!IsValid(target) or !target:IsPlayer()) then
+			return false
+		end
+
+		if (!target:IsCritical()) then
+			client:Notify("Игрок не в критическом состоянии!")
+			return false
+		end
+
+		target:SetCriticalBlood(0)
+		target:SetHealth(0)
+		target:Kill()
+		target:Notify("Вас что-то добило.")
+		client:Notify("Вы добили " .. target:Name() .. ".")
+	end
+})
+
+ix.command.Add("OpenForceMenu", {
+	description = "@openforcemenu",
+	OnCheckAccess = function(self, client)
+		return client:IsForceUser()
+	end,
+	OnRun = function(self, client)
+		client:ConCommand("lscs_openmenu")
+	end
+})
+
+ix.command.Add("AdminForceMenu", {
+	description = ".",
+	superAdminOnly = true,
+	OnRun = function(self, client)
+		client:ConCommand("lscs_openmenu")
+	end
+})

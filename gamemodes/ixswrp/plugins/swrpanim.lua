@@ -1,7 +1,7 @@
 local PLUGIN = PLUGIN
 
 PLUGIN.name = "SWRP Animations"
-PLUGIN.author = "dudka"
+PLUGIN.author = ""
 PLUGIN.description = "Set proper model classes to star wars models."
 
 ix.anim = ix.anim or {}
@@ -257,7 +257,7 @@ ix.anim.geonosian = {
 		[ACT_MP_CROUCHWALK] = {ACT_HL2MP_WALK_CROUCH, ACT_HL2MP_WALK_CROUCH_FIST},
 		[ACT_MP_RUN] = {ACT_HL2MP_RUN, ACT_HL2MP_RUN_FIST},
 		attack = ACT_HL2MP_GESTURE_RANGE_ATTACK_FIST,
-		glide = ACT_HL2MP_JUMP_FIST,
+		glide = ACT_HL2MP_RUN_AR2,
 		sit = ACT_HL2MP_SIT,
 	},
 	pistol = {
@@ -298,7 +298,7 @@ ix.anim.geonosian = {
 		[ACT_MP_RUN] = {ACT_HL2MP_RUN_PASSIVE, ACT_HL2MP_RUN_SMG1},
 		attack = ACT_HL2MP_GESTURE_RANGE_ATTACK_SMG1,
 		reload = ACT_HL2MP_GESTURE_RELOAD_SMG1,
-		glide = {ACT_HL2MP_JUMP_PASSIVE, ACT_HL2MP_JUMP_SMG1},
+		glide = {ACT_HL2MP_RUN_AR2, ACT_HL2MP_RUN_AR2},
 	},
 	ar2 = {
 		[ACT_MP_STAND_IDLE] = {ACT_HL2MP_IDLE_PASSIVE, ACT_HL2MP_IDLE_AR2},
@@ -308,7 +308,7 @@ ix.anim.geonosian = {
 		[ACT_MP_RUN] = {ACT_HL2MP_RUN_PASSIVE, ACT_HL2MP_RUN_AR2},
 		attack = ACT_HL2MP_GESTURE_RANGE_ATTACK_AR2,
 		reload = ACT_HL2MP_GESTURE_RELOAD_AR2,
-		glide = {ACT_HL2MP_JUMP_PASSIVE, ACT_HL2MP_JUMP_AR2},
+		glide = {ACT_HL2MP_RUN_AR2, ACT_HL2MP_RUN_AR2},
 	},
 	knife = {
 		[ACT_MP_STAND_IDLE] = {ACT_HL2MP_IDLE, ACT_HL2MP_IDLE_KNIFE},
@@ -452,8 +452,9 @@ ix.anim.SetModelClass("models/vjsw/galacticrepublic/clones/clonetrooper_engineer
 
 // jedi
 ix.anim.SetModelClass("models/cyanblue/genshin_impact/thicc_venti/thicc_venti.mdl", "jedi")
-ix.anim.SetModelClass("models/player/jesusstar/jdun/jdun.mdl", "jedi")
 ix.anim.SetModelClass("models/player/reaps/jediacc/zabrakf.mdl", "jedi")
+ix.anim.SetModelClass("models/gonzo/darthtenebrous/darthtenebrous.mdl", "jedi")
+ix.anim.SetModelClass("models/gonzo/darthzannah/darthzannah.mdl", "jedi")
 
 // battledroids
 ix.anim.SetModelClass("models/vjsw/confederacyofindependentsystems/battle_droid.mdl", "vj_player")

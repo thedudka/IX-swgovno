@@ -25,6 +25,8 @@ FACTION.models = {
 	"models/lt_c/sci_fi/humans/male_louis.mdl",
 
 	"models/star_wars_battlefront/sides/geo/geonosian.mdl",
+	"models/player/cheddar/swtor/republic/havoc_squad/havoc_squad_soldier.mdl",
+    "models/player/cheddar/swtor/republic/havoc_squad/havoc_squad_female_soldier.mdl",
 }
 FACTION.isDefault = false
 FACTION.isGloballyRecognized = false
@@ -51,18 +53,5 @@ FACTION.npcRelations = {
 	["npc_hunter"] = D_NU,
 	["npc_manhack"] = D_LI
 }
-
-function FACTION:OnCharacterCreated(client, character)
-	local id = Schema:ZeroNumber(math.random(1, 99999), 5)
-	local inventory = character:GetInventory()
-
-	character:SetData("cid", id)
-
-	inventory:Add("suitcase", 1)
-	inventory:Add("cid", 1, {
-		name = character:GetName(),
-		id = id
-	})
-end
 
 FACTION_CIS = FACTION.index

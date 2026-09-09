@@ -1,9 +1,8 @@
 
-ITEM.name = "Стяжки"
-ITEM.description = "Стяжки для связывания пленных или особо буйных собственных солдат."
+ITEM.name = "Наручники"
+ITEM.description = "Наручники для сдерживания пленных и обеспечения безопасности пленителей."
 ITEM.price = 8
 ITEM.model = "models/items/crossbowrounds.mdl"
-ITEM.factions = {FACTION_MPF, FACTION_OTA}
 ITEM.functions.Use = {
 	OnRun = function(itemTable)
 		local client = itemTable.player
@@ -23,11 +22,6 @@ ITEM.functions.Use = {
 				target:SetRestricted(true)
 				target:SetNetVar("tying")
 				target:NotifyLocalized("fTiedUp")
-
-				if (target:IsCombine()) then
-					Schema:AddCombineDisplayMessage("@cLosingContact", Color(255, 255, 255, 255))
-					Schema:AddCombineDisplayMessage("@cLostContact", Color(255, 0, 0, 255))
-				end
 
 				itemTable:Remove()
 			end, 5, function()

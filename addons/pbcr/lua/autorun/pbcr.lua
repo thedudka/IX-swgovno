@@ -1,5 +1,6 @@
 CLASS_CIS = CLASS_CIS or 101
 CLASS_REPUBLIC = CLASS_REPUBLIC or 102
+CLASS_GALACTIC_REPUBLIC = CLASS_GALACTIC_REPUBLIC or 103
 
 local PBCR_Factions = {
     ["default"] = {
@@ -38,9 +39,9 @@ local PBCR_Factions = {
         name = "Galactic Republic",
         icon = "icon16_relations/neutral.png",
         desc = "Republic — Friendly to Galactic Republic clone units and allies.",
-        friendClasses = {},
+        friendClasses = {CLASS_PLAYER_ALLY, CLASS_REPUBLIC, CLASS_GALACTIC_REPUBLIC},
         neutralClasses = {},
-        useDefaultRelations = true,
+        useDefaultRelations = false,
     },
     ["neutral"] = {
         name = "Neutral",
@@ -166,7 +167,7 @@ local PBCR_ZBaseFactionMap = {
 local PBCR_VJClassMap = {
     fauna    = "CLASS_FAUNA" or "CLASS_ZOMBIE",
     cis      = "CLASS_CIS" or CLASS_CIS,
-    republic = "CLASS_REPUBLIC",
+    republic = "CLASS_REPUBLIC" or CLASS_REPUBLIC or CLASS_GALACTIC_REPUBLIC or "CLASS_GALACTIC_REPUBLIC",
     combine = "CLASS_COMBINE",
     rebels = "CLASS_PLAYER_ALLY",
     ["default"] = "CLASS_PLAYER_ALLY",
@@ -679,20 +680,22 @@ end
 function PBCR_SyncHelixCharacterFaction(ply)
     if not SERVER or not IsValid(ply) or not ply:IsPlayer() then return end
     
-    local char = ply.GetCharacter and ply:GetCharacter()
+    local char = ply:GetCharacter()
     if not char then return end
 
     local charName = char:GetName()
     local targetFaction = "default"
 
-    if char.IsFFA and char:IsFFA() then
+    if char:IsFFA() or ply:IsFFA() then
         targetFaction = "fauna"
-    elseif char.IsCIS and char:IsCIS() then
+    elseif char:IsCIS() or ply:IsCIS() then
         targetFaction = "cis"
-    elseif char.IsNeutral and char:IsNeutral() then
+    elseif char:IsNeutral() or ply:IsNeutral() then
         targetFaction = "neutral"
+    elseif char:IsRepublic() or ply:IsRepublic() then
+        targetFaction = "default"
     else
-        targetFaction = PBCR_PlayerFactions[ply:SteamID()] or PBCR_PlayerFactions[charName] or "default"
+        targetFaction = "default"
     end
 
     ply:SetNWString("PBCR_Faction", targetFaction)
@@ -743,9 +746,10 @@ net.Receive("pbcr_request_setfaction", function(len, ply)
         local char = ply:GetCharacter()
         if not char then return end
 
-        if (char.IsFFA and char:IsFFA()) then return end
-        if (char.IsCIS and char:IsCIS()) then return end
-        if (char.IsNeutral and char:IsNeutral()) then return end
+        if (char:IsFFA() or ply:IsFFA()) then return end
+        if (char:IsCIS() or ply:IsCIS()) then return end
+        if (char:IsNeutral() or ply:IsNeutral()) then return end
+        if (char:IsRepublic() or ply:IsRepublic()) then return end
         if faction == "" or not PBCR_Factions[faction] then return end
 
         local charName = char:GetName()

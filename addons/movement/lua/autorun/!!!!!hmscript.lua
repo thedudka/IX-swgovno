@@ -6,7 +6,7 @@
 --sApieNz for creating "Movement QoL".
 --same as Better Movement V2, just ideas for "Heavier Movement".
  
-local math = math
+/*local math = math
 local meta = FindMetaTable("Player")
 
 local function RCV(name, def, desc, mn, mx)

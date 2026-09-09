@@ -11,7 +11,7 @@ ix.config.Add("maxammo", 500, "Максимальное количество п�
 
 if (SERVER) then
     function PLUGIN:PlayerAmmoChanged(client, ammoID, oldCount, newCount)
-        local maxAmmo = ix.config.Get("maxammo", 500)
+        local maxAmmo = ix.config.Get("maxammo", 1000)
         if (newCount > maxAmmo) then
             client:SetAmmo(maxAmmo, ammoID)
             client:Notify("Вы не можете переносить больше боеприпасов!")

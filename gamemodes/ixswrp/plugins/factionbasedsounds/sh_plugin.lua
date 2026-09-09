@@ -1,7 +1,7 @@
 local PLUGIN = PLUGIN
 
 PLUGIN.name = "Faction Based Sounds"
-PLUGIN.author = "dudka"
+PLUGIN.author = ""
 PLUGIN.description = "Playing based on faction hurt and death sounds."
 
 // сюда добавлять звуки
@@ -211,5 +211,7 @@ resource.AddFile("sound/hurtdeath_robot/robot_hurt2.wav")
 resource.AddFile("sound/hurtdeath_robot/robot_hurt3.wav")
 resource.AddFile("sound/hurtdeath_robot/robot_hurt4.wav")
 resource.AddFile("sound/hurtdeath_robot/robot_death1.wav")
+
+resource.AddFile("sound/geonosian_scum/geo_fly.wav")
 
 ix.util.Include("sv_plugin.lua")

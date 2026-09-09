@@ -1,5 +1,5 @@
 
-Schema.name = "Битва на Геонозисе"
+Schema.name = "Star Wars Roleplay"
 Schema.author = "НКО Тунеядцы"
 Schema.description = "Будьте готовы - ваши действия будут влиять на ваши судьбы."
 
@@ -58,7 +58,7 @@ end
 
 do
 	local CLASS = {}
-	CLASS.color = Color(75, 150, 50)
+	CLASS.color = Color(0, 112, 204)
 	CLASS.format = "%s отправляет \"%s\""
 
 	function CLASS:CanHear(speaker, listener)

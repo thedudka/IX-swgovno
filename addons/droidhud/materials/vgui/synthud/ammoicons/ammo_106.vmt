@@ -1,0 +1,7 @@
+"UnlitGeneric"
+{
+	"$basetexture" "vgui/synthud/ammoicons/ammo_106"
+                "$translucent"	"1"
+
+	"$ignorez"	"1"
+}

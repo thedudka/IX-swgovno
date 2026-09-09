@@ -4,7 +4,7 @@ MandoComlink.FrequencyNWKey = "MandoHUDComlinkFrequency"
 MandoComlink.SetFrequencyNetMessage = "MandoHUD.Comlink.SetFrequency"
 MandoComlink.MaxFrequencyLength = 18
 
-function MandoComlink.NormalizeFrequency(rawValue)
+/*function MandoComlink.NormalizeFrequency(rawValue)
     local value = string.upper(string.Trim(tostring(rawValue or "")))
     value = string.gsub(value, "[^A-Z0-9%-%._/]", "")
     return string.sub(value, 1, MandoComlink.MaxFrequencyLength)
@@ -78,4 +78,4 @@ if SERVER then
 
         return true, false
     end)
-end
+end*/

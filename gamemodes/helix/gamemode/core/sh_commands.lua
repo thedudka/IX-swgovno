@@ -144,24 +144,6 @@ ix.command.Add("ToggleRaise", {
 	end
 })
 
-ix.command.Add("OpenForceMenu", {
-	description = "@openforcemenu",
-	OnCheckAccess = function(self, client)
-		return client:IsForceUser()
-	end,
-	OnRun = function(self, client)
-		client:ConCommand("lscs_openmenu")
-	end
-})
-
-ix.command.Add("AdminForceMenu", {
-	description = ".",
-	superAdminOnly = true,
-	OnRun = function(self, client)
-		client:ConCommand("lscs_openmenu")
-	end
-})
-
 ix.command.Add("CharSetModel", {
 	description = "@cmdCharSetModel",
 	superAdminOnly = true,
@@ -891,7 +873,6 @@ ix.command.Add("CharSwitchFaction", {
             return "@playerNotFound"
         end
 
-        -- Call custom engine logic from pbcr.lua
         if PBCR_Factions and PBCR_Factions[faction] then
             PBCR_PlayerFactions[ply:SteamID()] = faction
             ply:SetNWString("PBCR_Faction", faction)
@@ -923,7 +904,6 @@ ix.command.Add("CharSwitchFaction", {
         local faction = factionInput:lower()
         local ply = targetChar:GetPlayer()
 
-        -- Prevent modifying locked Star Wars character logic
         if targetChar.IsCIS and targetChar:IsCIS() then
             return "Cannot change NPC relations for CIS characters."
         end
@@ -940,7 +920,6 @@ ix.command.Add("CharSwitchFaction", {
                 file.CreateDir("player_based_npc_relations_redone")
                 file.Write("player_based_npc_relations_redone/pbcr_factions_npcs.txt", util.TableToJSON(PBCR_PlayerFactions or {}))
 
-                -- If player is currently loaded on this character, sync instantly
                 if IsValid(ply) and ply:GetCharacter() == targetChar then
                     ply:SetNWString("PBCR_Faction", faction)
                     PBCR_ApplyVJBaseFaction(ply, faction)

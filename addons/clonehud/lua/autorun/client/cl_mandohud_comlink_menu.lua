@@ -1,4 +1,4 @@
-MandoComlink = MandoComlink or {}
+/*MandoComlink = MandoComlink or {}
 MandoComlink.FrequencyNWKey = MandoComlink.FrequencyNWKey or "MandoHUDComlinkFrequency"
 MandoComlink.SetFrequencyNetMessage = MandoComlink.SetFrequencyNetMessage or "MandoHUD.Comlink.SetFrequency"
 MandoComlink.MaxFrequencyLength = MandoComlink.MaxFrequencyLength or 18
@@ -274,7 +274,7 @@ function MandoComlink.OpenPanel()
     comlinkFrame = frame
 end
 
-/*hook.Add("Think", "MandoComlink.KeybindToggle", function()
+hook.Add("Think", "MandoComlink.KeybindToggle", function()
     local keyDown = input.IsKeyDown(KEY_K)
     if keyDown and not wasComlinkKeyDown and not gui.IsGameUIVisible() and not IsValid(vgui.GetKeyboardFocus()) then
         if IsValid(comlinkFrame) then

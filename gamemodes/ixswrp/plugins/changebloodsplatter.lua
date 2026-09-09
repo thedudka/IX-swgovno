@@ -6,13 +6,11 @@ PLUGIN.description = "Change blood splatters for sparks (for robots)"
 if SERVER then
     util.AddNetworkString("ixDroidBloodParticle")
 
-    -- Disable native blood decals entirely for droids
     local function ApplyDroidBloodColor(client)
         if not IsValid(client) then return end
         local character = client:GetCharacter()
         
         if character and character:IsDroid() then
-            -- DONT_BLEED (-1) stops engine red blood decals & sounds
             client:SetBloodColor(DONT_BLEED)
         else
             client:SetBloodColor(BLOOD_COLOR_RED)
@@ -24,14 +22,14 @@ if SERVER then
         ApplyDroidBloodColor(client)
     end)
 
-    -- Trigger custom minor spark particles without native red splatters
+    
     hook.Add("EntityTakeDamage", "ixDroidBloodFX", function(target, dmginfo)
         if not IsValid(target) or not target:IsPlayer() then return end
         
         local character = target:GetCharacter()
         if not character or !character:IsDroid() then return end
 
-        -- Intercept physical damage types
+        
         if dmginfo:IsDamageType(DMG_BULLET) or dmginfo:IsDamageType(DMG_BLAST) or dmginfo:IsDamageType(DMG_CLUB) or dmginfo:IsDamageType(DMG_SLASH) then
             local damagePos = dmginfo:GetDamagePosition()
             
@@ -47,18 +45,16 @@ if SERVER then
     end)
 
 else
-    -- Client-side small, compact spark effect
     net.Receive("ixDroidBloodParticle", function()
         local pos = net.ReadVector()
         local dir = net.ReadVector()
 
-        -- Small burst of sparks
         local spark = EffectData()
         spark:SetOrigin(pos)
         spark:SetNormal(dir)
-        spark:SetMagnitude(1) -- Reduced from 3
-        spark:SetScale(0.3)   -- Reduced from 1.5
-        spark:SetRadius(2)    -- Reduced from 8
+        spark:SetMagnitude(1) 
+        spark:SetScale(0.3)   
+        spark:SetRadius(2)    
         util.Effect("Sparks", spark)
     end)
 end
