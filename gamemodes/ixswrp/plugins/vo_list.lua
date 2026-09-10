@@ -5,6 +5,68 @@ PLUGIN.author = ""
 PLUGIN.description = "VO list."
 
 sound.Add({
+    name = "merc_medic",
+    channel = CHAN_VOICE,
+    volume = 1,
+    level = 80,
+    pitch = 100,
+    sound = {"mercnoises/medic01.wav",
+    "mercnoises/medic02.wav",
+}
+})
+
+sound.Add({
+    name = "merc_grenade",
+    channel = CHAN_VOICE,
+    volume = 1,
+    level = 80,
+    pitch = 100,
+    sound = {"mercnoises/grenade01.wav",
+    "mercnoises/grenade02.wav",
+}
+})
+
+sound.Add({
+    name = "merc_forward",
+    channel = CHAN_VOICE,
+    volume = 1,
+    level = 70,
+    pitch = 100,
+    sound = {"mercnoises/forward01.wav",
+    "mercnoises/attack01.wav",
+    "mercnoises/attack02.wav",
+    "mercnoises/attack03.wav",
+}
+})
+
+sound.Add({
+    name = "merc_ramble",
+    channel = CHAN_VOICE,
+    volume = 1,
+    level = 70,
+    pitch = 100,
+    sound = {"mercnoises/ramble01.wav",
+"mercnoises/ramble02.wav",
+"mercnoises/ramble03.wav",
+"mercnoises/ramble04.wav",
+"mercnoises/ramble05.wav",
+"mercnoises/ramble06.wav",
+}
+})
+
+sound.Add({
+    name = "merc_incoming",
+    channel = CHAN_VOICE,
+    volume = 1,
+    level = 70,
+    pitch = 100,
+    sound = {"mercnoises/contact01.wav",
+    "mercnoises/attack02.wav",
+    "mercnoises/grenade02.wav",
+}
+})
+
+sound.Add({
     name = "Clone_incoming",
     channel = CHAN_VOICE,
     volume = 0.8,
@@ -339,3 +401,22 @@ resource.AddFile("sound/vo_clonetropper/commander/retreat2.wav")
 resource.AddFile("sound/vo_clonetropper/commander/retreat3.wav")
 
 resource.AddFile("sound/vo_clonetropper/commander/secure1.wav")
+
+resource.AddFile("sound/mercnoises/attack01.wav")
+resource.AddFile("sound/mercnoises/attack02.wav")
+resource.AddFile("sound/mercnoises/attack03.wav")
+
+resource.AddFile("sound/mercnoises/ramble01.wav")
+resource.AddFile("sound/mercnoises/ramble02.wav")
+resource.AddFile("sound/mercnoises/ramble03.wav")
+resource.AddFile("sound/mercnoises/ramble04.wav")
+resource.AddFile("sound/mercnoises/ramble05.wav")
+resource.AddFile("sound/mercnoises/ramble06.wav")
+
+resource.AddFile("sound/mercnoises/medic01.wav")
+resource.AddFile("sound/mercnoises/medic02.wav")
+resource.AddFile("sound/mercnoises/grenade01.wav")
+resource.AddFile("sound/mercnoises/grenade02.wav")
+
+resource.AddFile("sound/mercnoises/forward01.wav")
+resource.AddFile("sound/mercnoises/contact01.wav")

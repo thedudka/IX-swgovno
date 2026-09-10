@@ -65,7 +65,40 @@ PLUGIN.soundSets = {
         death = {""},
         burnDeath = {""}
     },
+    [FACTION_MERC] = {
+        hurt = {"merc_hurt"},
+        burn = {"hurt_burn"},
+        drown = {"hurt_drown"},
+        death = {"merc_death"},
+        burnDeath = {"merc_death"}
+    },
 }
+
+sound.Add({
+    name = "merc_hurt",
+    channel = CHAN_VOICE,
+    volume = 1,
+    level = 70,
+    pitch = {95, 105},
+    sound = {"hurtdeath_merc/merc_hurt01.wav",
+    "hurtdeath_merc/merc_hurt02.wav",
+    "hurtdeath_merc/merc_hurt03.wav",
+    "hurtdeath_merc/merc_hurt04.wav",
+    "hurtdeath_merc/merc_hurt05.wav",
+    "hurtdeath_merc/merc_hurt06.wav",
+}
+})
+
+sound.Add({
+    name = "merc_death",
+    channel = CHAN_VOICE,
+    volume = 1.1,
+    level = 75,
+    pitch = 100,
+    sound = {"hurtdeath_merc/merc_death01.wav",
+    "hurtdeath_merc/merc_hurt06.wav",
+}
+})
 
 sound.Add({
     name = "Robot_hurt",
@@ -211,6 +244,14 @@ resource.AddFile("sound/hurtdeath_robot/robot_hurt2.wav")
 resource.AddFile("sound/hurtdeath_robot/robot_hurt3.wav")
 resource.AddFile("sound/hurtdeath_robot/robot_hurt4.wav")
 resource.AddFile("sound/hurtdeath_robot/robot_death1.wav")
+
+resource.AddFile("sound/hurtdeath_merc/merc_hurt01.wav")
+resource.AddFile("sound/hurtdeath_merc/merc_hurt02.wav")
+resource.AddFile("sound/hurtdeath_merc/merc_hurt03.wav")
+resource.AddFile("sound/hurtdeath_merc/merc_hurt04.wav")
+resource.AddFile("sound/hurtdeath_merc/merc_hurt05.wav")
+resource.AddFile("sound/hurtdeath_merc/merc_hurt06.wav")
+resource.AddFile("sound/hurtdeath_merc/merc_death01.wav")
 
 resource.AddFile("sound/geonosian_scum/geo_fly.wav")
 

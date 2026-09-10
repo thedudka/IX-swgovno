@@ -205,7 +205,12 @@ ITEM.functions.Inject = {
 		local trace = client:GetEyeTrace()
 		local target = resolveTarget(trace.Entity)
 
-		if not IsValid(target) or not target:IsPlayer() or not target:Alive() or not target:GetCharacter() or target:InCriticalState() then
+		if not IsValid(target) or not target:IsPlayer() or not target:Alive() or not target:GetCharacter() then
+			return false
+		end
+
+		if target:IsCriticalState() then
+			client:Notify("Пациенту нужен реанимационный набор!")
 			return false
 		end
 

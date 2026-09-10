@@ -102,6 +102,17 @@ PLUGIN.factionSounds = {
         [7] = {"Robot_hurt"},
         [8] = {"mouse_noise"},
         [9] = {"Robot_death"}
+	},
+		[FACTION_MERC] = {
+		[1] = {"merc_medic"},
+		[2] = {"merc_grenade"},
+		[3] = {"merc_forward"},
+		[4] = {"merc_ramble"},
+		[5] = {"merc_incoming"},
+        [6] = {"merc_forward"},
+        [7] = {"merc_ramble"},
+        [8] = {"merc_ramble"},
+        [9] = {"merc_forward"}
 	}
 }
 
