@@ -115,7 +115,8 @@ local cloneTrooperKeywords = {
     "phase",
     "republic",
     "imperial",
-    "shae"
+    "shae",
+    "din",
 }
 
 local cloneTrooperModelProfiles = {

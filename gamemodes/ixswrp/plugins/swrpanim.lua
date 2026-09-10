@@ -476,3 +476,4 @@ ix.anim.SetModelClass("models/player/cheddar/swtor/droids/worker_droid.mdl", "vj
 
 ix.anim.SetModelClass("models/star_wars_battlefront/sides/geo/geonosian.mdl", "geonosian")
 ix.anim.SetModelClass("models/vj_alienswarm/drone.mdl", "alienswarmdrone")
+ix.anim.SetModelClass("models/nada/dindjarin.mdl", "vj_player")

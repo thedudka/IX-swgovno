@@ -3,6 +3,7 @@ FACTION.description = "A mercenary that fights for the Republic, because they ha
 FACTION.color = Color(133, 219, 21)
 FACTION.models = {
 	"models/player/estrella/shae_vizla.mdl",
+	"models/nada/dindjarin.mdl",
 }
 FACTION.isDefault = false
 FACTION.isGloballyRecognized = false
