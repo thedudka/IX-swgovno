@@ -90,3 +90,13 @@ resource.AddWorkshop("2930121561")
 resource.AddWorkshop("1903833525")
 resource.AddWorkshop("3739856301")
 
+resource.AddWorkshop("1987994709")
+resource.AddWorkshop("946190478")
+resource.AddWorkshop("1708099047")
+resource.AddWorkshop("2735358488")
+resource.AddWorkshop("1257128301")
+resource.AddWorkshop("1841418570")
+resource.AddWorkshop("1922420046")
+resource.AddWorkshop("1251088550")
+resource.AddWorkshop("105841291")
+
