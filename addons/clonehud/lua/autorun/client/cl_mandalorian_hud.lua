@@ -1903,7 +1903,7 @@ local function drawRadar(x, y, width, height, ply)
                 color = palette.amber
                 size = sp(5)
             elseif detection.kind == "vehicle" then
-                color = withAlpha(palette.blue, 210)
+                color = withAlpha(palette.red, 210)
                 size = sp(5)
             end
 

@@ -97,8 +97,6 @@ function PLAYER:SetCriticalState(state)
 	self:SetCollisionGroup(COLLISION_GROUP_PLAYER)
 	self:ResetHull()
 	self:SetMoveType(MOVETYPE_WALK)
-	self:SetHealth(50)
-	self:SetArmor(0)
 	self:SetLocalVar("knocked", false)
 
 	if self.ixCriticalPosition then

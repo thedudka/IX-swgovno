@@ -588,7 +588,6 @@ ix.command.Add("CharRevive", {
 		target:SetCriticalState(false)
 		target:SetHealth(100)
 		target:SetArmor(0)
-		target:Notify("Вы были возрождены силами за пределами вашего понимания.")
 		client:Notify("Вы возродили " .. target:Name() .. ".")
 	end
 })

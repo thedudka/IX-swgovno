@@ -268,3 +268,21 @@ ix.command.Add("AdminForceMenu", {
 		client:ConCommand("lscs_openmenu")
 	end
 })
+
+do
+	COMMAND = {
+		description = "Позволяет ослепить игрока на выбранное время.",
+		arguments = {
+			ix.type.player,
+			ix.type.number,
+			ix.type.number
+		},
+		superAdminOnly = true
+	}
+
+	function COMMAND:OnRun(client, target, speed, time)
+		target:ScreenFade(SCREENFADE.OUT, color_black, speed, time)
+	end
+
+	ix.command.Add("PlyBlind", COMMAND)
+end

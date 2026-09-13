@@ -1,0 +1,12 @@
+ITEM.name = "Экстренный полевой санитарный комплект"
+ITEM.description = "Данный набор предназначен для обычных солдат без медицинского снаряжения. Внутри располагается бакта и инжектор, что ускоряет поднятие на ноги, однако, данный метод крайне неэффективен для восстановления, из-за чего бойцу после использования необходимо оказать медицинскую помощь, поэтому его чаще всего используют в экстренных случаях, когда санитар далеко, а время играет против солдат."
+ITEM.model = Model("models/lordtrilobite/starwars/props/kyber_canister_phys.mdl")
+ITEM.category = "Медицина"
+ITEM.width = 1
+ITEM.height = 2
+ITEM.base = "base_rescue_kit"
+ITEM.dUses = 1
+ITEM.useTime = 5
+ITEM.useSound = "items/medshot4.wav"
+ITEM.reviveHealth = 30
+ITEM.reviveArmor = 0

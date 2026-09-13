@@ -18,6 +18,11 @@ if (CLIENT) then
 		return voiceMenu and (voiceMenu.menuOpen or CurTime() < (voiceMenu.weaponLockUntil or 0))
 	end
 
+	local function secondVoiceCommandMenuLocked()
+		local voiceMenuSecond = ix.plugin.Get("voicecommandmenu_second")
+		return voiceMenuSecond and (voiceMenuSecond.menuOpen or CurTime() < (voiceMenuSecond.weaponLockUntil or 0))
+	end
+
 	function PLUGIN:LoadFonts(font, genericFont)
 		surface.CreateFont("ixWeaponSelectFont", {
 			font = font,
@@ -35,6 +40,10 @@ if (CLIENT) then
 
 	function PLUGIN:HUDPaint()
 		if (voiceCommandMenuLocked()) then
+			self.alpha = 0
+			return
+		end
+		if (secondVoiceCommandMenuLocked()) then
 			self.alpha = 0
 			return
 		end
@@ -140,6 +149,12 @@ if (CLIENT) then
 			return true
 		end
 
+		if (client == LocalPlayer() and secondVoiceCommandMenuLocked() and
+			(bind:find("invprev") or bind:find("invnext") or bind:find("slot") or bind:find("attack"))) then
+			self.alpha = 0
+			return true
+		end
+
 		if (!pressed or !bind:find("invprev") and !bind:find("invnext")
 		and !bind:find("slot") and !bind:find("attack")) then
 			return
@@ -200,6 +215,8 @@ if (CLIENT) then
 	function PLUGIN:Think()
 		local client = LocalPlayer()
 		if (voiceCommandMenuLocked()) then
+			self.alpha = 0
+		elseif (secondVoiceCommandMenuLocked()) then
 			self.alpha = 0
 		elseif (!IsValid(client) or !client:Alive()) then
 			self.alpha = 0

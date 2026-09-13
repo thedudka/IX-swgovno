@@ -1,12 +1,12 @@
-ITEM.name = "Медикаментозный набор быстрого восстановления"
-ITEM.description = "Экстренный набор для быстрого поднятия на ноги бойца на поле боя. Внутри содержит как запечатанную бакту, так и реагенты для восстановления брони. При применении бойцу не нужны дополнительные препараты."
+ITEM.name = "Санитарный набор быстрого восстановления"
+ITEM.description = "Набор для быстрого поднятия на ноги бойца на поле боя. Внутри содержит как запечатанную бакту, так и реагенты для восстановления брони. При применении бойцу не нужны дополнительные препараты, кроме небольшой починки."
 ITEM.model = Model("models/reizer_props/88th_box_small_prop/88th_legion_box_small.mdl")
 ITEM.category = "Медицина"
 ITEM.width = 2
 ITEM.height = 2
 ITEM.base = "base_rescue_kit"
-ITEM.dUses = 1
-ITEM.useTime = 5
+ITEM.dUses = 2
+ITEM.useTime = 7
 ITEM.useSound = "items/medshot4.wav"
 ITEM.reviveHealth = 100
-ITEM.reviveArmor = 100
+ITEM.reviveArmor = 65

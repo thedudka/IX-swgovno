@@ -99,11 +99,6 @@ local function startTreatment(item, client, target, targetEntity)
 			return
 		end
 
-		if target:IsCritical() then
-			client:Notify("Пациенту нужен реанимационный набор!")
-			return 
-		end
-
 		local health = math.min(target:Health() + math.max(tonumber(item.healAmount) or 0, 0), target:GetMaxHealth())
 		local armorAmount = math.max(tonumber(item.armorAmount) or 0, 0)
 		local maxArmor = math.max(tonumber(item.maxArmor) or 100, 0)
