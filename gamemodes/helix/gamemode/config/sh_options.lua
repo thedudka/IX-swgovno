@@ -40,7 +40,7 @@ if (CLIENT) then
 		category = "general"
 	})
 
-	ix.option.Add("showIntro", ix.type.bool, true, {
+	ix.option.Add("showIntro", ix.type.bool, false, {
 		category = "general"
 	})
 

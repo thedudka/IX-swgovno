@@ -9,39 +9,39 @@ PLUGIN.cooldown = 2
 PLUGIN.commands = {
 	[1] = {
 		label = "МЕДИК!",
-		message = "Медик, сюда!"
+		messages = {"Медик, сюда!", "Нужен медик!", "Нужен санитар!", "Высылайте подмогу, медика!"}
 	},
 	[2] = {
 		label = "ГРАНАТА!",
-		message = "Граната, в укрытие!"
+		messages = {"Граната, в укрытие!", "Берегись, граната!", "Ложись, граната!", "В укрытие!"}
 	},
 	[3] = {
 		label = "Вперед-вперед!",
-		message = "Вперед-вперед!"
+		messages = {"Вперед-вперед!", "Пошли-пошли!", "Продвигаемся, вперед!", "Бегом, марш!"}
 	},
 	[4] = {
-		label = "Я помогу тебе.",
-		message = "Я помогу тебе, солдат."
-	},
-	[5] = {
 		label = "Контакт!",
-		message = "Контакт!"
+		messages = {"Контакт!", "Замечен противник!", "Враг в поле зрения!"}
+	},
+    [5] = {
+		label = "Атаковать!",
+		messages = {"Атакуйте противника!", "Уничтожьте их!", "Атакуем врага!"}
 	},
     [6] = {
-		label = "Атаковать!",
-		message = "Атакуйте противника!"
-	},
-    [7] = {
-		label = "Негативная реплика.",
-		message = "Это не к добру."
-	},
-    [8] = {
-		label = "Позитивная реплика.",
-		message = "Да, вот так!"
-	},
-    [9] = {
 		label = "Боевой клич.",
-		message = "В атаку!"
+		messages = {"Понеслась!", "В бой!", "Ни шагу назад!", "Зададим им жару!", "Раздавим их!", "Задавим их интеллектом!"}
+	},
+	[7] = {
+		label = "Смотреть по сторонам!",
+		messages = {"Смотрите по сторонам!", "Смотрите по флангам!", "Фокус на фланги!", "Они могут идти по флангам!"}
+	},
+	[8] = {
+	    label = "Противник убит!",
+		messages = {"Противник убит!", "Противник уничтожен!", "Враг уничтожен!", "Враг нейтрализован!", "Враг больше не представляет угрозы!"}
+	},
+	[9] = {
+		label = "Прекратить огонь по своим!",
+		messages = {"Отставить огонь по своим!", "Прекратите огонь по своим!", "Вы атакуете своих, отставить!", "Разуйте глаза, вы стреляете в своих!"}
 	},
 }
 
@@ -85,34 +85,34 @@ PLUGIN.factionSounds = {
 		[1] = {"Clone_medic"},
 		[2] = {"Clone_grenade"},
 		[3] = {"Clone_forward"},
-		[4] = {"Clone_heal"},
-		[5] = {"Clone_incoming"},
-        [6] = {"Clone_supress"},
-        [7] = {"Clone_boo"},
-        [8] = {"Clone_cheers"},
-        [9] = {"Clone_pride"}
+		[4] = {"Clone_incoming"},
+		[5] = {"Clone_supress"},
+        [6] = {"Clone_pride"},
+		[7] = {"Clone_flank"},
+		[8] = {"Clone_enemydown"},
+        [9] = {"Clone_ff"},
 	},
 	[FACTION_ROBOT] = {
 		[1] = {"droid_medic"},
 		[2] = {"droid_grenade"},
 		[3] = {"droid_noise"},
-		[4] = {"mouse_noise"},
+		[4] = {"droid_noise"},
 		[5] = {"droid_noise"},
         [6] = {"droid_noise"},
-        [7] = {"Robot_hurt"},
+        [7] = {"mouse_noise"},
         [8] = {"mouse_noise"},
-        [9] = {"Robot_death"}
+        [9] = {"Robot_hurt"}
 	},
 		[FACTION_MERC] = {
 		[1] = {"merc_medic"},
 		[2] = {"merc_grenade"},
 		[3] = {"merc_forward"},
-		[4] = {"merc_ramble"},
+		[4] = {"merc_incoming"},
 		[5] = {"merc_incoming"},
         [6] = {"merc_forward"},
-        [7] = {"merc_ramble"},
-        [8] = {"merc_ramble"},
-        [9] = {"merc_forward"}
+        [7] = {"merc_incoming"},
+        [8] = {"merc_forward"},
+        [9] = {"merc_grenade"}
 	}
 }
 
@@ -141,20 +141,28 @@ if SERVER then
 		local class = character and character:GetClass()
 		local classSounds = PLUGIN.classSounds[class]
 		local sounds = classSounds and classSounds[number] or (factionSounds and factionSounds[number])
+		
 		if sounds and #sounds > 0 then
 			client:EmitSound(sounds[math.random(#sounds)], 75, 100)
 		end
 
-        if class == CLASS_CLONECOMMANDER then
-        ix.chat.Send(client, "radio", command.message)
+		-- Default to the standard string (for Commander commands)
+		local chatMessage = command.message
+		
+		-- Override with a randomized string ONLY if the 'messages' array exists (for standard commands)
+		if command.messages and #command.messages > 0 then
+			chatMessage = command.messages[math.random(#command.messages)]
+		end
+
+		if class == CLASS_CLONECOMMANDER then
+			ix.chat.Send(client, "radio", chatMessage)
 		else
-        ix.chat.Send(client, "y", command.message)
-        end
+			ix.chat.Send(client, "y", chatMessage)
+		end
 	end)
 
 	hook.Add("PlayerDisconnected", "ixVoiceCommandMenu.ClearCooldown", function(client)
 		PLUGIN.nextCommandTime[client] = nil
 	end)
 end
-
 ix.util.Include("cl_plugin.lua", "client")

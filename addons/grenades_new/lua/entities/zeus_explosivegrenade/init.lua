@@ -47,7 +47,7 @@ end
 HitEffect
 ---------------------------------------------------------*/
 function ENT:HitEffect()
-	for k, v in pairs ( ents.FindInSphere( self.Entity:GetPos(), 600 ) ) do
+	for k, v in pairs ( ents.FindInSphere( self.Entity:GetPos(), 200 ) ) do
 		if v:IsValid() && v:IsPlayer() then
 		end	
 	end
@@ -65,7 +65,7 @@ function ENT:Explosion()
 	local explo = ents.Create( "env_explosion" )
 		explo:SetOwner( self.GrenadeOwner )
 		explo:SetPos( self.Entity:GetPos() )
-		explo:SetKeyValue( "iMagnitude", "175" )
+		explo:SetKeyValue( "iMagnitude", "135" )
 		explo:Spawn()
 		explo:Activate()
 		explo:Fire( "Explode", "", 0 )

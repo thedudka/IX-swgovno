@@ -36,8 +36,8 @@ SWEP.DisableChambering 				= true
 
 SWEP.Primary.ClipSize				= 20
 SWEP.Primary.DefaultClip			= 20*4
-SWEP.Primary.RPM					= 205
-SWEP.Primary.RPM_Burst				= 205
+SWEP.Primary.RPM					= 190
+SWEP.Primary.RPM_Burst				= 190
 SWEP.Primary.Ammo					= "ar2"
 SWEP.Primary.AmmoConsumption 		= 1
 SWEP.Primary.Range 					= 40000

@@ -34,10 +34,10 @@ SWEP.DefaultFireMode 				= "auto"
 SWEP.FireModeName 					= nil
 SWEP.DisableChambering 				= true
 
-SWEP.Primary.ClipSize				= 20
+SWEP.Primary.ClipSize				= 15
 SWEP.Primary.DefaultClip			= 60
-SWEP.Primary.RPM					= 325
-SWEP.Primary.RPM_Burst				= 325
+SWEP.Primary.RPM					= 300
+SWEP.Primary.RPM_Burst				= 300
 SWEP.Primary.Ammo					= "ar2"
 SWEP.Primary.AmmoConsumption 		= 1
 SWEP.Primary.Range 					= 32000

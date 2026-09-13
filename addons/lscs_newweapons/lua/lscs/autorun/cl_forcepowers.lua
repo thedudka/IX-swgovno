@@ -139,6 +139,7 @@ local ID_IN_USE
 
 local function Use( ID )
 	ID_IN_USE = ID
+	
 	if not IsValid(LocalPlayer()) or not LocalPlayer():IsForceUser() then return end
 
 	net.Start("lscs_force_use")
@@ -317,7 +318,6 @@ if game.SinglePlayer() then -- holy shit i hate gmod so much why dont these hook
 	local OldPressedForce = {}
 
 	hook.Add( "Think", "!!!lscs_gmods_prediction_system_is_cancer", function()
-		local ply = LocalPlayer()
 
 		if not IsValid(LocalPlayer()) or not LocalPlayer():IsForceUser() then return end
 
@@ -371,7 +371,7 @@ end
 local LAST_USED_LMB
 
 hook.Add( "PlayerBindPress", "!!!!_lscs_playerbindpress", function( ply, bind, pressed )
-	if not IsValid(LocalPlayer()) or not LocalPlayer():IsForceUser() then return end
+	if not IsValid(ply) or not ply:IsForceUser() then return end
 	if not MouseWheelScroller then
 
 		if not LAST_USED_LMB then return end

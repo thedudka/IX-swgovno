@@ -30,7 +30,7 @@ sound.Add({
     name = "merc_forward",
     channel = CHAN_VOICE,
     volume = 1,
-    level = 70,
+    level = 75,
     pitch = 100,
     sound = {"mercnoises/forward01.wav",
     "mercnoises/attack01.wav",
@@ -43,7 +43,7 @@ sound.Add({
     name = "merc_ramble",
     channel = CHAN_VOICE,
     volume = 1,
-    level = 70,
+    level = 75,
     pitch = 100,
     sound = {"mercnoises/ramble01.wav",
 "mercnoises/ramble02.wav",
@@ -58,7 +58,7 @@ sound.Add({
     name = "merc_incoming",
     channel = CHAN_VOICE,
     volume = 1,
-    level = 70,
+    level = 75,
     pitch = 100,
     sound = {"mercnoises/contact01.wav",
     "mercnoises/attack02.wav",
@@ -142,6 +142,45 @@ sound.Add({
 })
 
 sound.Add({
+    name = "Clone_ff",
+    channel = CHAN_VOICE,
+    volume = 0.8,
+    level = 70,
+    pitch = 100,
+    sound = {"vj_sw_clone_wars_era/snpcs/clonetrooper/friendlyfire1.mp3",
+    "vj_sw_clone_wars_era/snpcs/clonetrooper/friendlyfire2.mp3",
+    "vj_sw_clone_wars_era/snpcs/clonetrooper/friendlyfire3.mp3",
+    "vj_sw_clone_wars_era/snpcs/clonetrooper/friendlyfire5.mp3",
+}
+})
+
+sound.Add({
+    name = "Clone_enemydown",
+    channel = CHAN_VOICE,
+    volume = 0.8,
+    level = 70,
+    pitch = 100,
+    sound = {"vj_sw_clone_wars_era/snpcs/clonetrooper/killedenemy.mp3",
+    "vj_sw_clone_wars_era/snpcs/clonetrooper/killedenemy14.mp3",
+    "vj_sw_clone_wars_era/snpcs/clonetrooper/killedenemy7.mp3",
+    "vj_sw_clone_wars_era/snpcs/clonetrooper/killedenemy9.mp3",
+}
+})
+
+sound.Add({
+    name = "Clone_flank",
+    channel = CHAN_VOICE,
+    volume = 0.8,
+    level = 70,
+    pitch = 100,
+    sound = {"vj_sw_clone_wars_era/snpcs/clonetrooper/combat18.mp3",
+    "vj_sw_clone_wars_era/snpcs/clonetrooper/combat2.mp3",
+    "vj_sw_clone_wars_era/snpcs/clonetrooper/combat3.mp3",
+    "vj_sw_clone_wars_era/snpcs/clonetrooper/combat4.mp3",
+}
+})
+
+sound.Add({
     name = "Clone_cheers",
     channel = CHAN_VOICE,
     volume = 0.8,
@@ -167,6 +206,8 @@ sound.Add({
     "vj_sw_clone_wars_era/snpcs/clonetrooper/mandown6.mp3",
     "vj_sw_clone_wars_era/snpcs/clonetrooper/mandown7.mp3",
     "vj_sw_clone_wars_era/snpcs/clonetrooper/mandown1.mp3",
+    "vo_clonetropper/negative01.wav",
+    "vo_clonetropper/negative02.wav"
 }
 })
 
@@ -179,8 +220,76 @@ sound.Add({
     sound = {"vj_sw_clone_wars_era/snpcs/clonetrooper/combat10.mp3",
     "vj_sw_clone_wars_era/snpcs/clonetrooper/combat11.mp3",
     "vj_sw_clone_wars_era/snpcs/clonetrooper/combat15.mp3",
-    "vj_sw_clone_wars_era/snpcs/clonetrooper/killedenemy2.mp3",
-    "vj_sw_clone_wars_era/snpcs/clonetrooper/killedenemy9.mp3",
+    "vj_sw_clone_wars_era/snpcs/clonetrooper/combat14.mp3",
+}
+})
+
+sound.Add({
+    name = "Clone_retreat",
+    channel = CHAN_VOICE,
+    volume = 0.8,
+    level = 70,
+    pitch = 100,
+    sound = {"vo_clonetropper/retreat01.wav",
+    "vo_clonetropper/retreat02.wav",
+}
+})
+
+sound.Add({
+    name = "Clone_pile",
+    channel = CHAN_VOICE,
+    volume = 0.8,
+    level = 70,
+    pitch = 100,
+    sound = {"vo_clonetropper/paleup01.wav",
+    "vo_clonetropper/paleup02.wav",
+}
+})
+
+sound.Add({
+    name = "Clone_spread",
+    channel = CHAN_VOICE,
+    volume = 0.8,
+    level = 70,
+    pitch = 100,
+    sound = {"vo_clonetropper/spread01.wav",
+    "vo_clonetropper/spread02.wav",
+}
+})
+
+sound.Add({
+    name = "Clone_hold",
+    channel = CHAN_VOICE,
+    volume = 0.8,
+    level = 70,
+    pitch = 100,
+    sound = {"vo_clonetropper/hold01.wav",
+    "vo_clonetropper/hold02.wav",
+    "vo_clonetropper/hold03.wav",
+}
+})
+
+sound.Add({
+    name = "Clone_yes",
+    channel = CHAN_VOICE,
+    volume = 0.8,
+    level = 70,
+    pitch = 100,
+    sound = {"vo_clonetropper/yes01.wav",
+    "vo_clonetropper/yes02.wav",
+    "vo_clonetropper/yes03.wav",
+    "vo_clonetropper/yes04.wav",
+}
+})
+
+sound.Add({
+    name = "Clone_no",
+    channel = CHAN_VOICE,
+    volume = 0.8,
+    level = 70,
+    pitch = 100,
+    sound = {"vo_clonetropper/no01.wav",
+    "vo_clonetropper/no02.wav",
 }
 })
 
@@ -400,8 +509,6 @@ resource.AddFile("sound/vo_clonetropper/commander/retreat1.wav")
 resource.AddFile("sound/vo_clonetropper/commander/retreat2.wav")
 resource.AddFile("sound/vo_clonetropper/commander/retreat3.wav")
 
-resource.AddFile("sound/vo_clonetropper/commander/secure1.wav")
-
 resource.AddFile("sound/mercnoises/attack01.wav")
 resource.AddFile("sound/mercnoises/attack02.wav")
 resource.AddFile("sound/mercnoises/attack03.wav")
@@ -420,3 +527,27 @@ resource.AddFile("sound/mercnoises/grenade02.wav")
 
 resource.AddFile("sound/mercnoises/forward01.wav")
 resource.AddFile("sound/mercnoises/contact01.wav")
+
+resource.AddFile("sound/vo_clonetropper/commander/secure1.wav")
+
+resource.AddFile("sound/vo_clonetropper/negative01.wav")
+resource.AddFile("sound/vo_clonetropper/negative02.wav")
+
+resource.AddFile("sound/vo_clonetropper/no01.wav")
+resource.AddFile("sound/vo_clonetropper/no02.wav")
+resource.AddFile("sound/vo_clonetropper/yes01.wav")
+resource.AddFile("sound/vo_clonetropper/yes02.wav")
+resource.AddFile("sound/vo_clonetropper/yes03.wav")
+resource.AddFile("sound/vo_clonetropper/yes04.wav")
+
+resource.AddFile("sound/vo_clonetropper/spread01.wav")
+resource.AddFile("sound/vo_clonetropper/spread02.wav")
+resource.AddFile("sound/vo_clonetropper/paleup01.wav")
+resource.AddFile("sound/vo_clonetropper/paleup02.wav")
+resource.AddFile("sound/vo_clonetropper/hold01.wav")
+resource.AddFile("sound/vo_clonetropper/hold02.wav")
+resource.AddFile("sound/vo_clonetropper/hold03.wav")
+resource.AddFile("sound/vo_clonetropper/retreat01.wav")
+resource.AddFile("sound/vo_clonetropper/retreat02.wav")
+
+

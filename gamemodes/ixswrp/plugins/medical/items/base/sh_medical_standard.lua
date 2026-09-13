@@ -62,7 +62,12 @@ local function startTreatment(item, client, target, targetEntity)
 	end
 
 	if not IsValid(client) or not client:Alive() or not item or
-		not IsValid(target) or not target:IsPlayer() or not target:Alive() or target:InCriticalState() then
+		not IsValid(target) or not target:IsPlayer() or not target:Alive() then
+		return false
+	end
+
+	if target:IsCritical() then
+		client:Notify("Пациенту нужен реанимационный набор!")
 		return false
 	end
 
@@ -88,10 +93,15 @@ local function startTreatment(item, client, target, targetEntity)
 
 	local function completeTreatment()
 		if not IsValid(client) or not client:Alive() or not item or
-			not IsValid(target) or not target:IsPlayer() or not target:Alive() or target:InCriticalState() or
+			not IsValid(target) or not target:IsPlayer() or not target:Alive() or
 			not isItemInInventory(item, inventoryID) then
 			resetTreatment()
 			return
+		end
+
+		if target:IsCritical() then
+			client:Notify("Пациенту нужен реанимационный набор!")
+			return 
 		end
 
 		local health = math.min(target:Health() + math.max(tonumber(item.healAmount) or 0, 0), target:GetMaxHealth())
@@ -206,11 +216,6 @@ ITEM.functions.Inject = {
 		local target = resolveTarget(trace.Entity)
 
 		if not IsValid(target) or not target:IsPlayer() or not target:Alive() or not target:GetCharacter() then
-			return false
-		end
-
-		if target:IsCriticalState() then
-			client:Notify("Пациенту нужен реанимационный набор!")
 			return false
 		end
 

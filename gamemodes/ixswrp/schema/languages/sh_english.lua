@@ -18,11 +18,11 @@ LANGUAGE = {
 	lastEdit = "Last revision by",
 	lastEditDate = "Last revised on",
 	objectivesTitle = "Current Objectives",
-	searchingCorpse = "Searching corpse...",
-	radioNotOn = "Your radio isn't on!",
-	radioRequired = "You need a radio to do this.",
-	radioAlreadyOn = "You already have a radio that is turned on!",
-	economy = "Economy",
+	searchingCorpse = "Обыскиваем тело...",
+	radioNotOn = "Радио не включено!",
+	radioRequired = "Вам нужно радио для этого.",
+	radioAlreadyOn = "Радио уже включено!",
+	economy = "Экономика",
 
 	-- combine display messages
 	cViewData = "Downloading citizen profile data...",
