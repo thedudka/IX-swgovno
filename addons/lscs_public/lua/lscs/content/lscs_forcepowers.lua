@@ -65,7 +65,7 @@ force.Author = "Blu-x92 / Luna"
 force.Description = "Force Assisted Jump"
 force.id = "jump"
 force.OnClk =  function( ply, TIME )
-	if not ply:IsForceUser() then return end
+	if not ply:IsTrueForceUser() then return end
 
 	if not ply._lscsAssistedJump then return end
 

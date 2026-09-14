@@ -5,6 +5,6 @@ ITEM.description = "Бургер из мяса Банты, с двумя бул�
 ITEM.useSound = "npc/barnacle/barnacle_crunch3.wav"
 ITEM.cost = 10
 ITEM.dUses = 2
-ITEM.AddStam = 0
+ITEM.AddStam = 5
 ITEM.AddHealth = 4
 ITEM.rarity = 1

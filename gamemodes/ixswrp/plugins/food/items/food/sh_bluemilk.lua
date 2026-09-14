@@ -7,3 +7,7 @@ ITEM.dUses = 2
 ITEM.AddStam = 20
 ITEM.AddHealth = 0
 ITEM.useSound = "npc/barnacle/barnacle_gulp1.wav"
+
+function ITEM:OnRegistered()
+	self.functions.Use.name = "Выпить"
+end

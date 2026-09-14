@@ -43,5 +43,10 @@ end
 
 function CHAR:IsForceUser()
 	local faction = self:GetFaction()
+	return faction == FACTION_JEDI or faction == FACTION_SITH or faction == FACTION_ROBOT
+end
+
+function CHAR:IsTrueForceUser()
+	local faction = self:GetFaction()
 	return faction == FACTION_JEDI or faction == FACTION_SITH
 end

@@ -5,6 +5,6 @@ ITEM.description = "Запеченная птица с планеты Эндор
 ITEM.useSound = "npc/barnacle/barnacle_crunch3.wav"
 ITEM.cost = 10
 ITEM.dUses = 1
-ITEM.AddStam = 0
+ITEM.AddStam = 10
 ITEM.AddHealth = 7
 ITEM.rarity = 1

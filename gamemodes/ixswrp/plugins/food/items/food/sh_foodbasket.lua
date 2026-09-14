@@ -5,6 +5,6 @@ ITEM.description = "Глубокая тарелка с сухой едой и с
 ITEM.useSound = "npc/barnacle/barnacle_crunch3.wav"
 ITEM.cost = 10
 ITEM.dUses = 3
-ITEM.AddStam = 0
+ITEM.AddStam = 3
 ITEM.AddHealth = 2
 ITEM.rarity = 1

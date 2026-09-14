@@ -387,10 +387,6 @@ function PANEL:Think()
 
 	if ((!self.anchorMode and !bTabDown) or gui.IsGameUIVisible()) then
 		self:Remove()
-
-		if (ix.option.Get("escCloseMenu", false)) then
-			gui.HideGameUI()
-		end
 	end
 end
 

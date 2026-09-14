@@ -27,7 +27,7 @@ function PLUGIN:SetupMove(ply, mv, cmd)
 		
 		if ply:OnGround() then
 			if SERVER then
-				if !char:IsForceUser() then
+				if !char:IsTrueForceUser() then
 				ply:ConsumeStamina(staminaUse)
                 end
 				if ply:GetVelocity() != (ply.lastVelocity or vector_origin) then

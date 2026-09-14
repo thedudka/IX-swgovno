@@ -5,6 +5,6 @@ ITEM.description = "Стейк из Банты. Мясо вяленное и о�
 ITEM.useSound = "npc/barnacle/barnacle_crunch3.wav"
 ITEM.cost = 10
 ITEM.dUses = 5
-ITEM.AddStam = 0
+ITEM.AddStam = 2
 ITEM.AddHealth = 8
 ITEM.rarity = 1

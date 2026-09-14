@@ -1,7 +1,7 @@
 ITEM.name = "Санитарный комплект"
 ITEM.description = "Огромный комплект для санитаров и медиков на поле боя, способный поднять на ноги бойца в критическом состоянии. Комплект предоставляет только небольшую медицину для восстановления, поэтому рекомендуется после использования применять дополнительные медикаменты."
 ITEM.model = Model("models/reizer_props/alysseum_project/medicine_obj/med_canister_01/med_canister_01.mdl")
-ITEM.category = "Медицина"
+ITEM.category = "Санитарные наборы"
 ITEM.width = 3
 ITEM.height = 3
 ITEM.base = "base_rescue_kit"

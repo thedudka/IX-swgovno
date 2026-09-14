@@ -60,7 +60,7 @@ end
 hook.Add("CalcView", "WoundedWalk_CameraSway", function(ply, pos, angles, fov)
         local weapon = ply:GetActiveWeapon()
 		local character = ply:GetCharacter()
-        if not character or ply:GetLocalVar("ragdoll", 0) != 0 or ply:IsForceUser() then return end
+        if not character or ply:GetLocalVar("ragdoll", 0) != 0 or ply:IsForceUser() or ply:IsTrueForceUser() then return end
 		if not IsValid(ply) or not ply:Alive() then return end
         if IsValid(weapon) then
             local class = weapon.Base or ""
@@ -100,7 +100,7 @@ hook.Add("CalcView", "WoundedWalk_CameraSway", function(ply, pos, angles, fov)
     end)
     hook.Add("HUDPaint", "WoundedWalk_MuffleAndSounds", function()
         local ply = LocalPlayer()
-        if ply:IsForceUser() or !IsValid(ply) then 
+        if !IsValid(ply) then 
             if muffle_lastDSP then
                 ply:SetDSP(0)
                 muffle_lastDSP = nil

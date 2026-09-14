@@ -37,7 +37,7 @@ end
 local function CalcStaminaChange(client)
 	local character = client:GetCharacter()
 
-	if (!character or client:GetMoveType() == MOVETYPE_NOCLIP or character:IsForceUser()) then
+	if (!character or client:GetMoveType() == MOVETYPE_NOCLIP or character:IsTrueForceUser()) then
 		return 0
 	end
 
@@ -169,7 +169,7 @@ ix.bar.Add(function()
 		local client = LocalPlayer()
 		if not IsValid(client) or not client:GetCharacter() then return false end
 
-		if (client:IsDroid()) or (client:IsClone()) or (client:IsForceUser()) then
+		if (client:IsDroid()) or (client:IsClone()) or (client:IsTrueForceUser()) then
 			return false
 		end
 

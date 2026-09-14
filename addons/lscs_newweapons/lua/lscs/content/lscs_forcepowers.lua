@@ -65,7 +65,7 @@ force.Author = "Blu-x92 / Luna"
 force.Description = "Force Assisted Jump"
 force.id = "jump"
 force.OnClk =  function( ply, TIME )
-	if not ply:IsForceUser() then return end
+	if not ply:IsTrueForceUser() then return end
 	
 	if not ply._lscsAssistedJump then return end
 
@@ -134,7 +134,7 @@ force.Description = "Force Assisted Jump"
 force.id = "jumpii"
 force.OnClk =  function( ply, TIME )
 
-	if not ply:IsForceUser() then return end
+	if not ply:IsTrueForceUser() then return end
 	if not ply._lscsAssistedJump then return end
 
 	if ply:OnGround() then
@@ -201,7 +201,7 @@ force.Author = "Valkorius"
 force.Description = "Force Assisted Jump"
 force.id = "jumpiii"
 force.OnClk =  function( ply, TIME )
-	if not ply:IsForceUser() then return end
+	if not ply:IsTrueForceUser() then return end
 	if not ply._lscsAssistedJump then return end
 
 	if ply:OnGround() then

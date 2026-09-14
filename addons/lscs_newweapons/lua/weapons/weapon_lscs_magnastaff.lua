@@ -8,7 +8,7 @@ SWEP.PrintName	= "Magnaguard Electrostaff"
 SWEP.Author		= "BadJay707"
 SWEP.Slot		= 0
 SWEP.SlotPos 	= 3
-SWEP.HoldType 	= "melee2"
+SWEP.HoldType 	= "jediwep"
 SWEP.Spawnable	= true
 SWEP.AdminOnly	= false
 

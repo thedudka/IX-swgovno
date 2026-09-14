@@ -2055,7 +2055,7 @@ end
 
 function LSCS:OpenMenu()
 	local ply = LocalPlayer()
-	if not ply:IsForceUser() then return end
+	if not ply:IsTrueForceUser() then return end
 	if not IsValid( Frame ) then
 		Frame = vgui.Create( "DFrame" )
 		Frame:SetSize( FrameSizeX, FrameSizeY )
