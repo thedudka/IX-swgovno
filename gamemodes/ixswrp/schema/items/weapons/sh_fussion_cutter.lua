@@ -1,7 +1,7 @@
 ITEM.name = "Сварочный аппарат"
 ITEM.description = "Стандартное устройство для починки обшивки техники. Является универсальным для любого материала, поэтому им можно чинить как наземную, так и воздушную технику."
 ITEM.model = "models/props/starwars/weapons/fusion_cutter.mdl"
-ITEM.class = "weapon_lvsrepair"
+ITEM.class = "alydus_fusioncutter"
 ITEM.category = "Инструменты и модули"
 ITEM.isWeapon = true
 ITEM.weaponCategory = "equipment"

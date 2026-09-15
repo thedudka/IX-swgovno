@@ -39,6 +39,22 @@ if SERVER then
 "models/vjsw/galacticrepublic/clones/clonetrooper_jet.mdl", 
 "models/vjsw/galacticrepublic/clones/clonetrooper_heavy.mdl", 
 "models/vjsw/galacticrepublic/clones/clonetrooper_engineer.mdl", 
+"models/vjsw/galacticrepublic/clones/clonetrooper_arc_commander.mdl",
+"models/vjsw/galacticrepublic/clones/212th_clonetrooper.mdl",
+"models/vjsw/galacticrepublic/clones/212th_clonetrooper_arc.mdl",
+"models/vjsw/galacticrepublic/clones/212th_clonetrooper_engineer.mdl",
+"models/vjsw/galacticrepublic/clones/212th_clonetrooper_heavy.mdl",
+"models/vjsw/galacticrepublic/clones/212th_clonetrooper_jet.mdl",
+"models/vjsw/galacticrepublic/clones/212th_clonetrooper_lieutenant.mdl",
+"models/vjsw/galacticrepublic/clones/212th_clonetrooper_rocketeer.mdl",
+"models/vjsw/galacticrepublic/clones/212th_clonetrooper_sharpshooter.mdl",
+"models/vjsw/galacticrepublic/clones/2nd_paratrooper.mdl",
+"models/vjsw/galacticrepublic/clones/2nd_paratrooper_engineer.mdl",
+"models/vjsw/galacticrepublic/clones/2nd_paratrooper_heavy.mdl",
+"models/vjsw/galacticrepublic/clones/2nd_paratrooper_jet.mdl",
+"models/vjsw/galacticrepublic/clones/2nd_paratrooper_lieutenant.mdl",
+"models/vjsw/galacticrepublic/clones/2nd_paratrooper_rocketeer.mdl",
+"models/vjsw/galacticrepublic/clones/2nd_paratrooper_sharpshooter.mdl",
 	}
 	PLUGIN.RobotModels = {"models/player/cheddar/swtor/droids/purification_droid.mdl", 
 "models/player/cheddar/swtor/droids/bodyguard_droid.mdl", 
@@ -57,6 +73,7 @@ if SERVER then
 "models/vjsw/confederacyofindependentsystems/battle_droid_rocketeer.mdl", 
 	}
     PLUGIN.MercModels = {"models/player/estrella/shae_vizla.mdl",
+	"models/nada/dindjarin.mdl",
 	}
 
 	do
