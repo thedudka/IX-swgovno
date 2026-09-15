@@ -1,8 +1,8 @@
-ITEM.name = "Одноразовый сварочный аппарат"
-ITEM.model = Model("models/props/starwars/weapons/fusion_cutter.mdl")
-ITEM.description = "Инструмент, предназначенный для быстрой сварки поврежденной брони. Подходит для починки малых повреждений."
+ITEM.name = "Инъектор дюрапласта"
+ITEM.model = Model("models/kingpommes/starwars/misc/imp_code_cylinder.mdl")
+ITEM.description = "Устройство для быстрого восстановления малых повреждений брони. Инъекция происходит прямо в бронепластину, а жидкий дюропласт заполняет дыры в каркасе и после твердеет, оставляя участок защищенным. Не пытайтесь что-то написать этим устройством!"
 ITEM.dUses = 1
-ITEM.armorAmount = 45
+ITEM.armorAmount = 35
 ITEM.healAmount = 0
 ITEM.maxArmor = 100
 ITEM.useTime = 3

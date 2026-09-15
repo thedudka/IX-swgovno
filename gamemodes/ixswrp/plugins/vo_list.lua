@@ -455,11 +455,138 @@ sound.Add({
 }
 })
 
-// clone
+sound.Add({
+    name = "commander_medic",
+    channel = CHAN_VOICE,
+    volume = 1,
+    level = 80,
+    pitch = 100,
+    sound = {"vo_clonetropper/commander/medic1.wav",
+    "vo_clonetropper/commander/medic2.wav",
+    "vo_clonetropper/commander/medic3.wav",
+    "vo_clonetropper/commander/medic4.wav",
+}
+})
+
+sound.Add({
+    name = "commander_healup",
+    channel = CHAN_VOICE,
+    volume = 1,
+    level = 80,
+    pitch = 100,
+    sound = {"vo_clonetropper/commander/healup1.wav",
+    "vo_clonetropper/commander/healup2.wav",
+    "vo_clonetropper/commander/healup3.wav",
+    "vo_clonetropper/commander/healup4.wav",
+    "vo_clonetropper/commander/healup5.wav",
+    "vo_clonetropper/commander/healup6.wav",
+}
+})
+
+sound.Add({
+    name = "commander_revive",
+    channel = CHAN_VOICE,
+    volume = 1,
+    level = 80,
+    pitch = 100,
+    sound = {"vo_clonetropper/commander/revive1.wav",
+    "vo_clonetropper/commander/revive2.wav",
+    "vo_clonetropper/commander/revive3.wav",
+    "vo_clonetropper/commander/revive4.wav",
+    "vo_clonetropper/commander/revive5.wav",
+    "vo_clonetropper/commander/revive6.wav",
+}
+})
+
+sound.Add({
+    name = "commander_report",
+    channel = CHAN_VOICE,
+    volume = 1,
+    level = 80,
+    pitch = 100,
+    sound = {"vo_clonetropper/commander/report1.wav",
+    "vo_clonetropper/commander/report2.wav",
+    "vo_clonetropper/commander/report3.wav",
+    "vo_clonetropper/commander/report4.wav",
+    "vo_clonetropper/commander/report5.wav",
+}
+})
+
+sound.Add({
+    name = "commander_enter",
+    channel = CHAN_VOICE,
+    volume = 1,
+    level = 80,
+    pitch = 100,
+    sound = {"vo_clonetropper/commander/enter1.wav",
+    "vo_clonetropper/commander/enter2.wav",
+    "vo_clonetropper/commander/enter3.wav",
+    "vo_clonetropper/commander/enter4.wav",
+    "vo_clonetropper/commander/enter5.wav",
+    "vo_clonetropper/commander/enter6.wav",
+}
+})
+
+sound.Add({
+    name = "commander_positive",
+    channel = CHAN_VOICE,
+    volume = 1,
+    level = 80,
+    pitch = 100,
+    sound = {"vo_clonetropper/commander/positive1.wav",
+    "vo_clonetropper/commander/positive2.wav",
+    "vo_clonetropper/commander/positive3.wav",
+    "vo_clonetropper/commander/positive4.wav",
+    "vo_clonetropper/commander/positive5.wav",
+}
+})
+
+sound.Add({
+    name = "commander_negative",
+    channel = CHAN_VOICE,
+    volume = 1,
+    level = 80,
+    pitch = 100,
+    sound = {"vo_clonetropper/commander/negative1.wav",
+    "vo_clonetropper/commander/negative2.wav",
+    "vo_clonetropper/commander/negative3.wav",
+    "vo_clonetropper/commander/negative4.wav",
+    "vo_clonetropper/commander/negative5.wav",
+    "vo_clonetropper/commander/negative6.wav",
+    "vo_clonetropper/commander/negative7.wav",
+}
+})
+
+sound.Add({
+    name = "commander_yes",
+    channel = CHAN_VOICE,
+    volume = 1,
+    level = 80,
+    pitch = 100,
+    sound = {"vo_clonetropper/commander/yes1.wav",
+    "vo_clonetropper/commander/yes2.wav",
+    "vo_clonetropper/commander/yes3.wav",
+    "vo_clonetropper/commander/yes4.wav",
+
+}
+})
+
+sound.Add({
+    name = "commander_no",
+    channel = CHAN_VOICE,
+    volume = 1,
+    level = 80,
+    pitch = 100,
+    sound = {"vo_clonetropper/commander/no1.wav",
+    "vo_clonetropper/commander/no2.wav",
+}
+})
+
+
 resource.AddFile("sound/vo_clonetropper/clone_medic.wav")
 resource.AddFile("sound/vo_clonetropper/clone_incoming.wav")
 resource.AddFile("sound/vo_clonetropper/clone_forward.wav")
-// droid
+
 resource.AddFile("sound/droidnoises/droid_medic.wav")
 resource.AddFile("sound/droidnoises/droid_grenade.wav")
 resource.AddFile("sound/droidnoises/droid_noise1.wav")
@@ -470,7 +597,7 @@ resource.AddFile("sound/droidnoises/droid_noise5.wav")
 resource.AddFile("sound/droidnoises/mouse1.wav")
 resource.AddFile("sound/droidnoises/mouse2.wav")
 resource.AddFile("sound/droidnoises/mouse3.wav")
-// commander
+
 resource.AddFile("sound/vo_clonetropper/commander/breach1.wav")
 resource.AddFile("sound/vo_clonetropper/commander/breach2.wav")
 
@@ -508,6 +635,7 @@ resource.AddFile("sound/vo_clonetropper/commander/hold5.wav")
 resource.AddFile("sound/vo_clonetropper/commander/retreat1.wav")
 resource.AddFile("sound/vo_clonetropper/commander/retreat2.wav")
 resource.AddFile("sound/vo_clonetropper/commander/retreat3.wav")
+
 
 resource.AddFile("sound/mercnoises/attack01.wav")
 resource.AddFile("sound/mercnoises/attack02.wav")
@@ -549,5 +677,58 @@ resource.AddFile("sound/vo_clonetropper/hold02.wav")
 resource.AddFile("sound/vo_clonetropper/hold03.wav")
 resource.AddFile("sound/vo_clonetropper/retreat01.wav")
 resource.AddFile("sound/vo_clonetropper/retreat02.wav")
+
+resource.AddFile("sound/vo_clonetropper/commander/enter1.wav")
+resource.AddFile("sound/vo_clonetropper/commander/enter2.wav")
+resource.AddFile("sound/vo_clonetropper/commander/enter3.wav")
+resource.AddFile("sound/vo_clonetropper/commander/enter4.wav")
+resource.AddFile("sound/vo_clonetropper/commander/enter5.wav")
+resource.AddFile("sound/vo_clonetropper/commander/enter6.wav")
+
+resource.AddFile("sound/vo_clonetropper/commander/healup1.wav")
+resource.AddFile("sound/vo_clonetropper/commander/healup2.wav")
+resource.AddFile("sound/vo_clonetropper/commander/healup3.wav")
+resource.AddFile("sound/vo_clonetropper/commander/healup4.wav")
+resource.AddFile("sound/vo_clonetropper/commander/healup5.wav")
+resource.AddFile("sound/vo_clonetropper/commander/healup6.wav")
+
+resource.AddFile("sound/vo_clonetropper/commander/medic1.wav")
+resource.AddFile("sound/vo_clonetropper/commander/medic2.wav")
+resource.AddFile("sound/vo_clonetropper/commander/medic3.wav")
+resource.AddFile("sound/vo_clonetropper/commander/medic4.wav")
+
+resource.AddFile("sound/vo_clonetropper/commander/negative1.wav")
+resource.AddFile("sound/vo_clonetropper/commander/negative2.wav")
+resource.AddFile("sound/vo_clonetropper/commander/negative3.wav")
+resource.AddFile("sound/vo_clonetropper/commander/negative4.wav")
+resource.AddFile("sound/vo_clonetropper/commander/negative5.wav")
+resource.AddFile("sound/vo_clonetropper/commander/negative6.wav")
+resource.AddFile("sound/vo_clonetropper/commander/negative7.wav")
+
+resource.AddFile("sound/vo_clonetropper/commander/positive1.wav")
+resource.AddFile("sound/vo_clonetropper/commander/positive2.wav")
+resource.AddFile("sound/vo_clonetropper/commander/positive3.wav")
+resource.AddFile("sound/vo_clonetropper/commander/positive4.wav")
+resource.AddFile("sound/vo_clonetropper/commander/positive5.wav")
+
+resource.AddFile("sound/vo_clonetropper/commander/report1.wav")
+resource.AddFile("sound/vo_clonetropper/commander/report2.wav")
+resource.AddFile("sound/vo_clonetropper/commander/report3.wav")
+resource.AddFile("sound/vo_clonetropper/commander/report4.wav")
+resource.AddFile("sound/vo_clonetropper/commander/report5.wav")
+
+resource.AddFile("sound/vo_clonetropper/commander/revive1.wav")
+resource.AddFile("sound/vo_clonetropper/commander/revive2.wav")
+resource.AddFile("sound/vo_clonetropper/commander/revive3.wav")
+resource.AddFile("sound/vo_clonetropper/commander/revive4.wav")
+resource.AddFile("sound/vo_clonetropper/commander/revive5.wav")
+resource.AddFile("sound/vo_clonetropper/commander/revive6.wav")
+
+resource.AddFile("sound/vo_clonetropper/commander/no1.wav")
+resource.AddFile("sound/vo_clonetropper/commander/no2.wav")
+resource.AddFile("sound/vo_clonetropper/commander/yes1.wav")
+resource.AddFile("sound/vo_clonetropper/commander/yes2.wav")
+resource.AddFile("sound/vo_clonetropper/commander/yes3.wav")
+resource.AddFile("sound/vo_clonetropper/commander/yes4.wav")
 
 

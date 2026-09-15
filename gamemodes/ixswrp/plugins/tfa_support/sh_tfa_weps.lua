@@ -190,7 +190,7 @@ PLUGIN.GunData[ "rw_sw_dual_dc17" ] = {
 	Price = 650,
 	Firerate = 400*2,
 	Damage = 25,
-	MagazineCapacity = 35,
+	MagazineCapacity = 30,
 	Accuracy = 0.06,
 }
 

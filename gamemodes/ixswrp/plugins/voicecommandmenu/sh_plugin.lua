@@ -146,10 +146,7 @@ if SERVER then
 			client:EmitSound(sounds[math.random(#sounds)], 75, 100)
 		end
 
-		-- Default to the standard string (for Commander commands)
 		local chatMessage = command.message
-		
-		-- Override with a randomized string ONLY if the 'messages' array exists (for standard commands)
 		if command.messages and #command.messages > 0 then
 			chatMessage = command.messages[math.random(#command.messages)]
 		end
