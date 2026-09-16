@@ -63,61 +63,55 @@ if CLIENT then
 end
 
 
-hook.Add("HUDPaint", "Sparks_Macrobinoculars_DrawWaypoints", function ()
-
+hook.Add("HUDPaint", "Sparks_Macrobinoculars_DrawWaypoints", function()
 	local waypoints = ents.FindByClass("waypoint_marker")
-	for k,v in ipairs(waypoints) do
-
-		local point = v:GetPos() + v:OBBCenter() //bruh -- no u ?
+	for k, v in ipairs(waypoints) do
+		local point = v:GetPos() + v:OBBCenter()
 		
-		local opacity = (point:DistToSqr(LocalPlayer():GetPos()))^2 //cancer -- i prefer aids.
-		//print(opacity)
-		//print(opacity/4)
-		local fade = math.Clamp(((opacity/4)/100)*125, 0, 125) //makes shit fade in/out as you get closer/further
-		//print(fade)
-		local wp_colors = { //this is pretty fucking bad but also i dont care because it works -- yeah i can get that
-		[1] = Color(255,0,0,fade),
-		[2] = Color(0,255,0,fade),
-		[3] = Color(0,0,255,fade),
-		[4] = Color(255,255,0,fade),
-		[5] = Color(255,0,255,fade),
-		["black"] = Color(0,0,0,fade)
+		local opacity = (point:DistToSqr(LocalPlayer():GetPos()))^2
+		local fade = math.Clamp(((opacity / 4) / 100) * 125, 0, 125)
+
+		local wp_colors = {
+			[1] = Color(255, 0, 0, fade),
+			[2] = Color(0, 255, 0, fade),
+			[3] = Color(0, 0, 255, fade),
+			[4] = Color(255, 255, 0, fade),
+			[5] = Color(255, 0, 255, fade),
+			["black"] = Color(0, 0, 0, fade)
 		}
 
-		
+		local scale = math.Clamp(((point:DistToSqr(LocalPlayer():GetPos())) / 500)^2, 15, 20)
+		local point2D = point:ToScreen()
+		point2D.x = math.Clamp(point2D.x, 0, ScrW())
+		point2D.y = math.Clamp(point2D.y, 0, ScrH())
+		point2D.visible = true
 
-		//if opacity/4 > 100 then
-			local scale = math.Clamp( ( (point:DistToSqr(LocalPlayer():GetPos())) / 500)^2, 15, 20) //dist2sqr is annoying
-			local point2D = point:ToScreen()
-			point2D.x = math.Clamp(point2D.x, 0, ScrW())
-			point2D.y = math.Clamp(point2D.y, 0, ScrH())
-			point2D.visible = true
-			local diamond = { //fuck you clockwise ordering -- yeah i can guess 
-				{x = point2D.x + 0*scale, y = point2D.y + 1*scale}, --up
-				{x = point2D.x + 1*scale, y = point2D.y + 0*scale}, --right
-				{x = point2D.x + 0*scale, y = point2D.y - 1*scale}, --down
-				{x = point2D.x - 1*scale, y = point2D.y + 0*scale} --left -- now do a barrel roll.
-			}
-			local border = {
-				{x = point2D.x + 0*scale, y = point2D.y + 1.2*scale}, --up
-				{x = point2D.x + 1.2*scale, y = point2D.y + 0*scale}, --right
-				{x = point2D.x + 0*scale, y = point2D.y - 1.2*scale}, --down
-				{x = point2D.x - 1.2*scale, y = point2D.y + 0*scale} --left -- BARREL ROLL
-			}
+		-- Corrected Clockwise Winding Order: Top -> Right -> Bottom -> Left
+		local diamond = {
+			{x = point2D.x + 0 * scale, y = point2D.y - 1 * scale}, -- Top
+			{x = point2D.x + 1 * scale, y = point2D.y + 0 * scale}, -- Right
+			{x = point2D.x + 0 * scale, y = point2D.y + 1 * scale}, -- Bottom
+			{x = point2D.x - 1 * scale, y = point2D.y + 0 * scale}  -- Left
+		}
 
-			surface.SetDrawColor(wp_colors["black"]) -- racist.
-			surface.DrawPoly(border) -- well that settles it
-			surface.SetDrawColor(wp_colors[v:GetColorType()])
-			surface.DrawPoly(diamond) //people having issues with this one specifically not working but i have no fucking clue why so suck my nuts
-			draw.SimpleText(v:GetWaypointName(), "WaypointMarkerFont", point2D.x, point2D.y + -16-(1*scale), Color(255,255,255,fade),TEXT_ALIGN_CENTER,TEXT_ALIGN_CENTER)
-       		local dist = LocalPlayer():GetPos():Distance(v:GetPos()) // modif : get distance from point
-        	local mText = math.Round(dist / 40, 1) .. "m" // modif : get the distance in meter
-			draw.SimpleText(mText,"WaypointMarkerFont", point2D.x, point2D.y + -32-(1*scale), Color(255,255,255,fade),TEXT_ALIGN_CENTER,TEXT_ALIGN_CENTER) // modif : add the text 
-			// above the marker
+		local border = {
+			{x = point2D.x + 0 * scale, y = point2D.y - 1.2 * scale}, -- Top
+			{x = point2D.x + 1.2 * scale, y = point2D.y + 0 * scale}, -- Right
+			{x = point2D.x + 0 * scale, y = point2D.y + 1.2 * scale}, -- Bottom
+			{x = point2D.x - 1.2 * scale, y = point2D.y + 0 * scale}  -- Left
+		}
 
-		end
+		surface.SetDrawColor(wp_colors["black"])
+		surface.DrawPoly(border)
 
-	//end
+		-- Added fallback in case color variable isn't synchronized yet
+		local drawColor = wp_colors[v:GetColorType()] or wp_colors[1]
+		surface.SetDrawColor(drawColor)
+		surface.DrawPoly(diamond)
 
-
+		draw.SimpleText(v:GetWaypointName(), "WaypointMarkerFont", point2D.x, point2D.y + -16 - (1 * scale), Color(255, 255, 255, fade), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
+		local dist = LocalPlayer():GetPos():Distance(v:GetPos())
+		local mText = math.Round(dist / 40, 1) .. "m"
+		draw.SimpleText(mText, "WaypointMarkerFont", point2D.x, point2D.y + -32 - (1 * scale), Color(255, 255, 255, fade), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
+	end
 end)
