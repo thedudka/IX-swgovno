@@ -76,27 +76,27 @@ if SERVER then
 	"models/nada/dindjarin.mdl",
 	}
 
-	do
+do
 		for k, model in ipairs(PLUGIN.CloneModels) do
-			local shortname = string.Explode("/", model)
+			local shortname = string.StripExtension(string.GetFileFromFilename(model))
 			player_manager.AddValidModel(shortname, model)
 			player_manager.AddValidHands(shortname, "models/star_wars_battlefront/sides/rep/1st/c_arms_trooper.mdl", 0, "0000000")
 		end
 
 		for k, model in ipairs(PLUGIN.RobotModels) do
-			local shortname = string.Explode("/", model)
+			local shortname = string.StripExtension(string.GetFileFromFilename(model))
 			player_manager.AddValidModel(shortname, model)
 			player_manager.AddValidHands(shortname, "models/star_wars_battlefront/sides/cis/1st/c_arms_magna_guard.mdl", 0, "0000000")
 		end
 
 		for k, model in ipairs(PLUGIN.DroidModels) do
-			local shortname = string.Explode("/", model)
+			local shortname = string.StripExtension(string.GetFileFromFilename(model))
 			player_manager.AddValidModel(shortname, model)
 			player_manager.AddValidHands(shortname, "models/star_wars_battlefront/sides/cis/1st/c_arms_bdroid.mdl", 1, "0000000")
 		end
 
-        for k, model in ipairs(PLUGIN.MercModels) do
-			local shortname = string.Explode("/", model)
+		for k, model in ipairs(PLUGIN.MercModels) do
+			local shortname = string.StripExtension(string.GetFileFromFilename(model))
 			player_manager.AddValidModel(shortname, model)
 			player_manager.AddValidHands(shortname, "models/star_wars_battlefront/sides/sth/1st/c_arms_trooper.mdl", 1, "0000000")
 		end
