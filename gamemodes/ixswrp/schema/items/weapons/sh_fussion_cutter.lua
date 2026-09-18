@@ -11,7 +11,9 @@ ITEM.width = 1
 ITEM.height = 2
 ITEM.price = 2500
 ITEM.iconCam = {
-    ang	= Angle(25.000, 220.000, 0.000),
-	pos	= Vector(219.557037, 179.819946, 140.005905),
-    fov	= 4.5
+	pos = Vector(188.66, 153.9, 121.2),
+	ang = Angle(25, 220, 0),
+	fov = 4.82
 }
+
+
