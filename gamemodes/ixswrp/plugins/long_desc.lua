@@ -12,7 +12,7 @@ ix.char.RegisterVar("description", {
         value = string.Trim((tostring(value):gsub("\r\n", ""):gsub("\n", "")))
 
         local minLength = ix.config.Get("minDescriptionLength", 16)
-        local maxLength = 1024 -- Your custom maximum limit
+        local maxLength = ix.config.Get("maxDescriptionLength", 512)
 
         local length = value:utf8len()
 

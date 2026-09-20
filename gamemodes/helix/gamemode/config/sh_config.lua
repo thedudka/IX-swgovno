@@ -91,6 +91,10 @@ ix.config.Add("minDescriptionLength", 0, "The minimum number of characters in a 
 	data = {min = 0, max = 300},
 	category = "characters"
 })
+ix.config.Add("maxDescriptionLength", 512, "Максимальное значение размера описания персонажа.", nil, {
+	data = {min = 128, max = 1024},
+	category = "characters"
+})
 ix.config.Add("saveInterval", 300, "How often characters save in seconds.", nil, {
 	data = {min = 60, max = 3600},
 	category = "characters"
