@@ -3,6 +3,7 @@ ITEM.name = "Миска с едой"
 ITEM.model = "models/food/foodbasket.mdl"
 ITEM.description = "Глубокая тарелка с сухой едой и сухарями внутри. Гадость, однако для клонов такая еда нормальна."
 ITEM.useSound = "npc/barnacle/barnacle_crunch3.wav"
+ITEM.category = "Еда"
 ITEM.cost = 10
 ITEM.dUses = 3
 ITEM.AddStam = 3

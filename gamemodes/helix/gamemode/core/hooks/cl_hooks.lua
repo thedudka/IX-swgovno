@@ -718,7 +718,7 @@ end
 function GM:PopulateCharacterInfo(client, character, container)
 	-- description
 	local descriptionText = character:GetDescription()
-	descriptionText = (descriptionText:utf8len() > 128 and
+	descriptionText = (descriptionText:utf8len() > 500 and
 		string.format("%s...", descriptionText:utf8sub(1, 125)) or
 		descriptionText)
 

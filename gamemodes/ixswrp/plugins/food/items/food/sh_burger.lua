@@ -3,6 +3,7 @@ ITEM.name = "Бургер"
 ITEM.model = "models/food/bantha_burger.mdl"
 ITEM.description = "Бургер из мяса Банты, с двумя булочками и растительностью внутри. Котлета сделана из вяленого мяса."
 ITEM.useSound = "npc/barnacle/barnacle_crunch3.wav"
+ITEM.category = "Еда"
 ITEM.cost = 10
 ITEM.dUses = 2
 ITEM.AddStam = 5

@@ -3,6 +3,7 @@ ITEM.name = "Шуура"
 ITEM.model = "models/food/shuura.mdl"
 ITEM.description = "Сладкий фрукт с желтой кожурой и кремовой мякотью. Растёт на Набу."
 ITEM.useSound = "npc/barnacle/barnacle_crunch3.wav"
+ITEM.category = "Еда"
 ITEM.cost = 10
 ITEM.dUses = 1
 ITEM.AddStam = 10

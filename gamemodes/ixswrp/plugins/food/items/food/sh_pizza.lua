@@ -3,6 +3,7 @@ ITEM.name = "Пицца-каламари"
 ITEM.model = "models/food/mon_calamari_pizza.mdl"
 ITEM.description = "Популярный вид пиццы в Галактике, с нарезанными грибами, овощами и секретным ингредиентом. Очень питательная, но со специфическим вкусом."
 ITEM.useSound = "npc/barnacle/barnacle_crunch3.wav"
+ITEM.category = "Еда"
 ITEM.cost = 10
 ITEM.dUses = 4
 ITEM.AddStam = 10

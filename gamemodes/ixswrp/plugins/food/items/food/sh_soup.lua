@@ -2,6 +2,7 @@ ITEM.base = "base_drink"
 ITEM.name = "Тарелка супа"
 ITEM.model = "models/food/soupbowl.mdl"
 ITEM.description = "Тарелка, внутри которой находится горячий суп с мясом, овощами и зеленью. То что нужно после сухих пайков."
+ITEM.category = "Еда"
 ITEM.cost = 4
 ITEM.dUses = 5
 ITEM.AddStam = 15

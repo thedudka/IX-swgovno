@@ -3,6 +3,7 @@ ITEM.name = "Запеченный порг"
 ITEM.model = "models/food/roast_porg.mdl"
 ITEM.description = "Запеченная птица с планеты Эндор. На вкус нежная и вкусная, жаль что ее мало."
 ITEM.useSound = "npc/barnacle/barnacle_crunch3.wav"
+ITEM.category = "Еда"
 ITEM.cost = 10
 ITEM.dUses = 1
 ITEM.AddStam = 10

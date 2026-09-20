@@ -3,6 +3,7 @@ ITEM.name = "Рационный батончик"
 ITEM.model = "models/food/ration_bar.mdl"
 ITEM.description = "Рационный батончик, являющийся стандартным сухим пайком для солдат-клонов. Отвратительный на вкус, но дает небольшой прилив сил при употреблении."
 ITEM.useSound = "npc/barnacle/barnacle_crunch3.wav"
+ITEM.category = "Еда"
 ITEM.cost = 10
 ITEM.dUses = 1
 ITEM.AddStam = 15
