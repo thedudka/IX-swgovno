@@ -129,7 +129,7 @@ function SWEP:PrimaryAttack()
 	if SERVER then
 		if not IsValid(self.Owner) then return end
 
-		if self.Owner:KeyDown(IN_SPEED) and self.Owner:IsAdmin() then
+		if self.Owner:KeyDown(IN_SPEED) then
 			for k,v in ipairs(ents.FindByClass("waypoint_marker")) do
 				v:Remove()
 			end
@@ -142,7 +142,7 @@ function SWEP:PrimaryAttack()
 
 		for k,v in ipairs(ents.FindInSphere(hitpos,320)) do
 			if v:GetClass() == "waypoint_marker" then
-				if (v:GetWPOwner() == self.Owner) or (self.Owner:IsAdmin()) then
+				if (v:GetWPOwner() == self.Owner) then
 					net.Start("kaito_waypoints_sounds")
 						net.WriteString("remove")
 					net.Send(self.Owner)

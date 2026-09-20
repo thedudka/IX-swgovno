@@ -129,7 +129,8 @@ end
 
 do
 	local languages = {
-		"Инопланетном"
+		"Инопланетный",
+		"Джеонезийский",
 	}
 
 	for _, v in ipairs(languages) do

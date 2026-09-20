@@ -1,20 +1,20 @@
 
 LANGUAGE = {
-	langGiven = "%s has given %s the %s language.",
-	langTaken = "%s has taken %s %s language.",
-	langChanged = "Your language has been changed to %s.",
-	langNotKnown = "You do not know that language!",
-	langReset = "Your language has been reset.",
-	langInvalid = "That language does not exist!",
+	langGiven = "%s дал %s %s язык.",
+	langTaken = "%s забрал у %s %s язык.",
+	langChanged = "Ваш текущий язык был изменен на %s.",
+	langNotKnown = "Вы не знаете этого языка!",
+	langReset = "Ваш текущий язык был сброшен.",
+	langInvalid = "Указанный язык не найден!",
 
-	cmdSetLanguage = "Sets your current language. If no language is specified, it will be reset.",
-	cmdCharGiveLanguage = "Permits a character to speak a language.",
-	cmdCharTakeLanguage = "Removes a character's ability to speak a language.",
+	cmdSetLanguage = "Задаёт текущий разговорный язык. Если язык не указан, он будет сброшен.",
+	cmdCharGiveLanguage = "Разрешает персонажу говорить на указанном языке. (name Инопланетный, Джеонезийский)",
+	cmdCharTakeLanguage = "Убирает персонажу возможность говорить на указанном языке.",
 
-	stIC = "says",
-	stW = "whispers",
-	stY = "yells",
+	stIC = "говорит",
+	stW = "шепчет",
+	stY = "кричит",
 	
-	langSay = "%s %s in %s \"%s\"",
-	langSayUnk = "%s %s something in %s."
+	langSay = "%s %s использовал %s диалект и сказал \"%s\"",
+	langSayUnk = "%s %s использовал %s диалект и сказал какую-то тарабарщину."
 }

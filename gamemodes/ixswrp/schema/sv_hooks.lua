@@ -388,3 +388,7 @@ netstream.Hook("ViewObjectivesUpdate", function(client, text)
 		Schema:AddCombineDisplayMessage("@cViewObjectivesFiller", nil, client, date:spanseconds())
 	end
 end)
+
+hook.Add("PlayerSpray", "DisableAllSprays", function(ply)
+    return true
+end)

@@ -71,6 +71,20 @@ do
 end
 
 do
+	COMMAND = {
+		description = "/event в радиусе обычного чата.",
+		arguments = ix.type.text,
+		superAdminOnly = true
+	}
+
+	function COMMAND:OnRun(client, text)
+		ix.chat.Send(client, "localevent", text)
+	end
+
+	ix.command.Add("LocalEvent", COMMAND)
+end
+
+do
 	local COMMAND = {}
 	COMMAND.arguments = ix.type.text
 
@@ -224,6 +238,55 @@ ix.command.Add("CharRevive", {
 		target:SetArmor(0)
 		target:Notify("Вы были возрождены силами за пределами вашего понимания.")
 		client:Notify("Вы возродили " .. target:Name() .. ".")
+	end
+})
+
+ix.command.Add("CharCrit", {
+	description = "Позволяет перевести игрока в критическое состояние.",
+	superAdminOnly = true,
+	arguments = {
+		ix.type.player
+	},
+	OnRun = function(self, client, target)
+		if (!IsValid(target) or !target:IsPlayer()) then
+			return false
+		end
+
+		if (target:IsCritical()) then
+			client:Notify("Игрок уже в критическом состоянии!")
+			return false
+		end
+        
+		target:SetCriticalState(true)
+		target:SetCriticalBlood(300)
+		target:SetHealth(1)
+		target:SetArmor(0)
+		target:Notify("Вас что-то ранило.")
+		client:Notify("Вы перевели в критическое состояние " .. target:Name() .. ".")
+	end
+})
+
+ix.command.Add("CharRagdoll", {
+	description = "Позволяет персонажа отправить в рэгдолл.",
+	arguments = {ix.type.player, ix.type.number},
+	superAdminOnly = true,
+	OnRun = function(self, client, target, time)
+		if (!target:Alive() or target:GetMoveType() == MOVETYPE_NOCLIP or target:GetNetVar("forcedSequence")) then
+			return "@notNow"
+		end
+
+		if (time and time > 0) then
+			time = math.Clamp(time, 1, 60)
+		end
+
+		if (target:IsCritical()) then
+			client:Notify("Игрок в критическом состоянии!")
+		end
+
+		if (!IsValid(target.ixRagdoll) and !target:IsCritical()) then
+			target:SetRagdolled(true, time)
+			target:Notify("Вас что-то вырубило.")
+		end
 	end
 })
 

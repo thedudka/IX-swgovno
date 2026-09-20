@@ -56,6 +56,20 @@ ix.container.Register("models/reizer_props/srsp/sci_fi/armory_02_3/armory_02_3.m
 	height = 10,
 })
 
+ix.container.Register("models/reizer_props/srsp/sci_fi/armory_02_2/armory_02_2.mdl", {
+	name = "Медицинский шкаф",
+	description = "Железный шкаф с оборудованным холодильником для хранения медикаментов.",
+	width = 8,
+	height = 10,
+})
+
+ix.container.Register("models/reizer_props/srsp/sci_fi/armory_02_1/armory_02_1.mdl", {
+	name = "Шкаф снаряжения",
+	description = "Шкаф для хранения различного снаряжения и брони.",
+	width = 8,
+	height = 10,
+})
+
 ix.container.Register("models/niksacokica/containers/con_square_crate02.mdl", {
 	name = "Стальной ящик",
 	description = "Малый дюрасталевый ящик для хранения различных вещей.",
@@ -80,13 +94,6 @@ ix.container.Register("models/theinvisibleman/swbf/imperial/general/box_04.mdl",
 ix.container.Register("models/lordtrilobite/starwars/props/crate_yavin01_phys.mdl", {
 	name = "Укрепленный ящик",
 	description = "Контейнер, используемый для хранения взрывчатки или нестабильных соединений.",
-	width = 5,
-	height = 4,
-})
-
-ix.container.Register("models/lordtrilobite/starwars/props/crate_yavin01_phys.mdl", {
-	name = "Укрепленный ящик",
-	description = "Контейнер, используемый для хранения взрывчатки или нестабильных соединений.",
 	width = 6,
 	height = 3,
 })
@@ -98,9 +105,23 @@ ix.container.Register("models/lordtrilobite/starwars/props/barrel_scarif2b_phys.
 	height = 4,
 })
 
+ix.container.Register("models/starwars/syphadias/props/sw_tor/bioware_ea/props/city/city_trashcan.mdl", {
+	name = "Мусорный бак",
+	description = "Обычный железный мусорный бак, в котором скорее всего хлам.",
+	width = 2,
+	height = 5,
+})
+
 ix.container.Register("models/lordtrilobite/starwars/props/barrel_scarif1_phys.mdl", {
 	name = "Большая стальная бочка",
 	description = "Большой контейнер, в котором может быть что или кто угодно.",
 	width = 3,
 	height = 6,
+})
+
+ix.container.Register("models/theinvisibleman/swbf/rebels/general/cargo/box_03.mdl", {
+	name = "Железный ящик",
+	description = "Синий ящик для хранения разных вещей, от оружия до медикаментов и модулей.",
+	width = 5,
+	height = 3,
 })
