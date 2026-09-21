@@ -125,3 +125,10 @@ ix.container.Register("models/theinvisibleman/swbf/rebels/general/cargo/box_03.m
 	width = 5,
 	height = 3,
 })
+
+ix.container.Register("models/starwars/syphadias/props/sw_tor/bioware_ea/items/harvesting/scavenge/scavenge_barrel.mdl", {
+	name = "Малая пластиковая бочка",
+	description = "Бочка для перевозки жидкостей. Внутри есть защита от внешних повреждений при транспортировке.",
+	width = 3,
+	height = 3,
+})
