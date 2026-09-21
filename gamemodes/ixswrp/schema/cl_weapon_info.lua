@@ -28,7 +28,7 @@ local function addWeaponStats( tooltip, item )
 		) )
 	end
 	row:SetFont( "ixWeaponStatsFont" )
-	row:SetBackgroundColor( Color( 251, 255, 0, 128) )
+	row:SetBackgroundColor( Color( 80, 80, 80, 128) )
 	row:SetTextColor( color_white )
 	row:SizeToContents()
 end

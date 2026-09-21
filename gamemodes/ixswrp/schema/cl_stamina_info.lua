@@ -16,7 +16,7 @@ local function addstaminaStats( tooltip, item )
 	row:SetText( "ПРЕДМЕТ ДЛЯ ВОССТАНОВЛЕНИЯ ВЫНОСЛИВОСТИ" )
 
 	row:SetFont( "ixHealthStatsFont" )
-	row:SetBackgroundColor( Color( 80, 80, 80, 128) )
+	row:SetBackgroundColor( Color( 251, 255, 0, 128) )
 	row:SetTextColor( color_white )
 	row:SizeToContents()
 end
