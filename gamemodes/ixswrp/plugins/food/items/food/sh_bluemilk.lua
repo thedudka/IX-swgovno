@@ -5,7 +5,7 @@ ITEM.description = "Стакан молока голубого цвета, пр�
 ITEM.category = "Еда"
 ITEM.cost = 4
 ITEM.dUses = 2
-ITEM.AddStam = 20
+ITEM.AddStam = 40
 ITEM.AddHealth = 0
 ITEM.useSound = "npc/barnacle/barnacle_gulp1.wav"
 

@@ -1,7 +1,7 @@
 ITEM.base = "base_food"
-ITEM.name = "Миска с едой"
+ITEM.name = "Миска с сухарями"
 ITEM.model = "models/food/foodbasket.mdl"
-ITEM.description = "Глубокая тарелка с сухой едой и сухарями внутри. Гадость, однако для клонов такая еда нормальна."
+ITEM.description = "Глубокая миска с сухарями внутри. Очень сухие и отвратительные на вкус."
 ITEM.useSound = "npc/barnacle/barnacle_crunch3.wav"
 ITEM.category = "Еда"
 ITEM.cost = 10

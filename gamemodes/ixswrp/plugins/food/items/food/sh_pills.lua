@@ -5,7 +5,7 @@ ITEM.description = "Данный препарат был разработан д
 ITEM.category = "Еда"
 ITEM.cost = 4
 ITEM.dUses = 3
-ITEM.AddStam = 75
+ITEM.AddStam = 95
 ITEM.AddHealth = 0
 ITEM.useSound = "npc/barnacle/barnacle_gulp1.wav"
 

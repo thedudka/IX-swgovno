@@ -5,7 +5,7 @@ ITEM.description = "Алтуннский нектар в удобной бума
 ITEM.cost = 4
 ITEM.category = "Еда"
 ITEM.dUses = 4
-ITEM.AddStam = 25
+ITEM.AddStam = 30
 ITEM.AddHealth = 5
 ITEM.useSound = "npc/barnacle/barnacle_gulp1.wav"
 

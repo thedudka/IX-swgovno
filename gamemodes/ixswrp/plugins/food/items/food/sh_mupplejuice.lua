@@ -5,7 +5,7 @@ ITEM.description = "Бутыль мапплового розового сока.
 ITEM.category = "Еда"
 ITEM.cost = 4
 ITEM.dUses = 3
-ITEM.AddStam = 45
+ITEM.AddStam = 35
 ITEM.AddHealth = 3
 ITEM.useSound = "npc/barnacle/barnacle_gulp1.wav"
 
