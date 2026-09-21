@@ -13,7 +13,7 @@ local function addAlcoStats( tooltip, item )
 	local row = tooltip:AddRowAfter( "description", "AlcoStats" )
 	if not IsValid( row ) then return end
 
-	row:SetText( "Употребление алкоголя может повести за собой последствия" )
+	row:SetText( "ПРОДУКТ СОДЕРЖИТ АЛКОГОЛЬ" )
 
 	row:SetFont( "ixHealthStatsFont" )
 	row:SetBackgroundColor( Color( 250, 142, 0, 128) )
