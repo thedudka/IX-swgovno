@@ -1,0 +1,11 @@
+ITEM.base = "base_food"
+ITEM.name = "Мейлурун"
+ITEM.model = "models/lordtrilobite/starwars/props/food_fruit_meiloorun.mdl"
+ITEM.description = "Сладкий фрукт неизвестного происхождения с очень вкусной мякотью, но твердой кожурой."
+ITEM.useSound = "npc/barnacle/barnacle_crunch3.wav"
+ITEM.category = "Еда"
+ITEM.cost = 10
+ITEM.dUses = 2
+ITEM.AddStam = 25
+ITEM.AddHealth = 5
+ITEM.rarity = 1

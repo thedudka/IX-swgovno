@@ -34,6 +34,7 @@ local icons = {
 	["Ближний бой"] = "bomb",
 	["Клоническое оружие"] = "gun",
 	["Конфедеративное оружие"] = "gun",
+	["Алкоголь"] = "cake",
 }
 
 spawnmenu.AddContentType("ixItem", function(container, data)

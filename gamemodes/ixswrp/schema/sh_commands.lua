@@ -266,6 +266,28 @@ ix.command.Add("CharCrit", {
 	end
 })
 
+ix.command.Add("CharSober", {
+    description = "Обнуляет уровень опьянения персонажа.",
+    superAdminOnly = true,
+    arguments = {
+        ix.type.character
+    },
+    OnRun = function(self, client, target)
+        target:SetDrunk(0)
+		client:Notify("Вы заставили протрезветь " .. target:GetName() .. ".")
+        
+        local targetPlayer = target:GetPlayer()
+        if (IsValid(targetPlayer)) then
+            targetPlayer.ixNextDrunkSpeak = nil
+            targetPlayer:Notify("Вы мгновенно протрезвели.")
+            
+            if (targetPlayer:IsRagdolled()) then
+                targetPlayer:SetRagdolled(false)
+            end
+        end
+    end
+})
+
 ix.command.Add("CharRagdoll", {
 	description = "Позволяет персонажа отправить в рэгдолл.",
 	arguments = {ix.type.player, ix.type.number},

@@ -1,0 +1,11 @@
+ITEM.base = "base_food"
+ITEM.name = "Засушенная рыба"
+ITEM.model = "models/lordtrilobite/starwars/props/corellia_fish_needlegawp.mdl"
+ITEM.description = "Засушенная сухая рыба с планеты Кореллия. Без напитка очень быстро сушит горло."
+ITEM.useSound = "npc/barnacle/barnacle_crunch3.wav"
+ITEM.category = "Еда"
+ITEM.cost = 10
+ITEM.dUses = 5
+ITEM.AddStam = 15
+ITEM.AddHealth = 2
+ITEM.rarity = 1
