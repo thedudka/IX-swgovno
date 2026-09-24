@@ -88,6 +88,7 @@ resource.AddFile("sound/sw_music/droid_march_theme.mp3")
 resource.AddFile("sound/sw_music/alien_vessel_theme.mp3")
 resource.AddFile("sound/sw_music/macewindu_theme.mp3")
 resource.AddFile("sound/sw_music/venator_theme.mp3")
+resource.AddFile("sound/sw_music/battle_ambient.mp3")
 
 resource.AddFile("sound/ui/ui_cancel.wav")
 resource.AddFile("sound/ui/ui_click.wav")
