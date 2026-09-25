@@ -3,8 +3,6 @@ PLUGIN.name = "Alcohol System"
 PLUGIN.author = "Generated"
 PLUGIN.description = "Adds alcohol consumption, drunkenness levels, visual effects, random speech, and a native 60-second ragdoll."
 
-ix.util.Include("cl_plugin.lua")
-
 ix.char.RegisterVar("drunk", {
     field = "drunk",
     fieldType = ix.type.number,
