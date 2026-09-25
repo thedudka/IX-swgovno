@@ -288,6 +288,23 @@ ix.command.Add("CharSober", {
     end
 })
 
+ix.command.Add("CharDrunk", {
+    description = "Заставляет персонажа испытывать максимальный эффект опьянения.",
+    superAdminOnly = true,
+    arguments = {
+        ix.type.character
+    },
+    OnRun = function(self, client, target)	
+        target:SetDrunk(99)
+		client:Notify("" .. target:GetName() .. " пьян.")
+        
+        local targetPlayer = target:GetPlayer()
+        if (IsValid(targetPlayer)) then
+            targetPlayer.ixNextDrunkSpeak = nil
+        end
+    end
+})
+
 ix.command.Add("CharRagdoll", {
 	description = "Позволяет персонажа отправить в рэгдолл.",
 	arguments = {ix.type.player, ix.type.number},
