@@ -129,6 +129,20 @@ ix.container.Register("models/theinvisibleman/swbf/rebels/general/cargo/box_03.m
 ix.container.Register("models/starwars/syphadias/props/sw_tor/bioware_ea/items/harvesting/scavenge/scavenge_barrel.mdl", {
 	name = "Малая пластиковая бочка",
 	description = "Бочка для перевозки жидкостей. Внутри есть защита от внешних повреждений при транспортировке.",
+	width = 2,
+	height = 3,
+})
+
+ix.container.Register("models/props/starwars/medical/ammo_pickup.mdl", {
+	name = "Подсумок",
+	description = "Явно чей-то подсумок. Вы можете попробовать поживиться тем, что внутри.",
+	width = 2,
+	height = 2,
+})
+
+ix.container.Register("models/epsilon/cwa_furniture/misc/rdv_snowbackpack.mdl", {
+	name = "Рюкзак",
+	description = "Явно чей-то рюкзак. Вы же не станете воровать, правда?",
 	width = 3,
 	height = 3,
 })
