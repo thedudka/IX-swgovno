@@ -38,8 +38,8 @@ ix.type = ix.type or {}
 
 -- Define gamemode information.
 GM.Name = "Helix"
-GM.Author = "faggots and retards"
-GM.Website = "https://discord.gg/UBsSBr3Tp6"
+GM.Author = "Somebody"
+GM.Website = "https://discord.gg/w6YjrA3YF3"
 GM.Version = "β"
 
 do

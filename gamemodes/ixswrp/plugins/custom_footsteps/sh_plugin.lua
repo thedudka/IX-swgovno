@@ -81,7 +81,7 @@ hook.Add("PlayerFootstep", "SurfaceCustomFootsteps", function(ply, pos, foot, so
      if not char then return end
     local faction = char:GetFaction()
 
-    if char:IsClone() then
+    if (char:IsClone() or char:IsCommando()) then
     ply:EmitSound(gearSounds[math.random(#gearSounds)], volume * 0.4, 75, 0.2, CHAN_ITEM)
 
         local customSound
@@ -164,7 +164,7 @@ hook.Add("PlayerPostThink", "CheckLadderSound", function(ply)
     local charl = ply:GetCharacter()
      if not charl then return end
     local factionl = charl:GetFaction()
-    if faction1 == FACTION_JEDI or faction1 == FACTION_CLONE or faction1 == FACTION_SITH then return end
+    if faction1 == FACTION_JEDI or faction1 == FACTION_CLONE or faction1 == FACTION_COMMANDO or faction1 == FACTION_SITH then return end
 
     if ply:GetMoveType() == MOVETYPE_LADDER then
         local vel = ply:GetVelocity():Length()

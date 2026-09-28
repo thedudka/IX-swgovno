@@ -57,11 +57,33 @@ PLUGIN.classCommands = {
 		[7] = {label = "Позитивная реплика.", messages = {"Вот так и действует дисциплинированный отряд!", "Мы раздавим их, отряд!", "У них нет ни единого шанса против нас!", "Единственное, что ты должен чувствовать, стреляя в кого-то - это отдачу.", "Один против всех этих тварей... Хм, у них нет шансов.", "Прямо как в симуляции!"}},
 		[8] = {label = "Так точно.", message = "Так точно."},
 		[9] = {label = "Никак нет.", message = "Никак нет."},
-	}
+	},
+	[CLASS_LEADER] = {
+		[1] = {label = "Мне нужен медик!", message = "Мне нужен медик, отделение!"},
+		[2] = {label = "Подлечитесь.", message = "Подлечитесь, отделение."},
+		[3] = {label = "Реанимировать отряд.", message = "Поднимите на ноги раненых бойцов, отделение."},
+		[4] = {label = "Доложить статус.", message = "Отделение, доложите статус."},
+		[5] = {label = "Штурм и зачистка.", message = "Штурмовать и зачищать вперед, отделение!"},
+		[6] = {label = "Негативная реплика.", messages = {"Все еще хуже, чем я думал!", "Все идет не по плану!", "Что может быть еще хуже?", "Так дела уж точно не делаются...", "Нас тут выносят!", "Высылайте мешки для трупов..."}},
+		[7] = {label = "Позитивная реплика.", messages = {"Вот так и действует дисциплинированный отряд!", "Мы раздавим их, отряд!", "У них нет ни единого шанса против нас!", "Единственное, что ты должен чувствовать, стреляя в кого-то - это отдачу.", "Один против всех этих тварей... Хм, у них нет шансов.", "Прямо как в симуляции!"}},
+		[8] = {label = "Так точно.", message = "Так точно."},
+		[9] = {label = "Никак нет.", message = "Никак нет."},
+	},
 }
 
 PLUGIN.classSounds = {
 	[CLASS_CLONECOMMANDER] = {
+		[1] = {"commander_medic"},
+		[2] = {"commander_healup"},
+		[3] = {"commander_revive"},
+		[4] = {"commander_report"},
+		[5] = {"commander_enter"},
+		[6] = {"commander_negative"},
+		[7] = {"commander_positive"},
+		[8] = {"commander_yes"},
+		[9] = {"commander_no"},
+	},
+		[CLASS_LEADER] = {
 		[1] = {"commander_medic"},
 		[2] = {"commander_healup"},
 		[3] = {"commander_revive"},
@@ -76,6 +98,17 @@ PLUGIN.classSounds = {
 
 PLUGIN.factionSounds = {
 	[FACTION_CLONE] = {
+		[1] = {"Clone_heal"},
+		[2] = {"Clone_boo"},
+		[3] = {"Clone_cheers"},
+		[4] = {"Clone_yes"},
+		[5] = {"Clone_no"},
+        [6] = {"Clone_retreat"},
+        [7] = {"Clone_hold"},
+        [8] = {"Clone_spread"},
+        [9] = {"Clone_pile"}
+	},
+		[FACTION_COMMANDO] = {
 		[1] = {"Clone_heal"},
 		[2] = {"Clone_boo"},
 		[3] = {"Clone_cheers"},
@@ -152,7 +185,7 @@ if SERVER then
 			chatMessage = command.messages[math.random(#command.messages)]
 		end
 
-		if class == CLASS_CLONECOMMANDER then
+		if class == CLASS_CLONECOMMANDER or class == CLASS_LEADER then
 			ix.chat.Send(client, "radio", chatMessage)
 		else
 			ix.chat.Send(client, "ic", chatMessage)

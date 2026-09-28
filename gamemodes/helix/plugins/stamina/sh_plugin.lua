@@ -169,7 +169,7 @@ ix.bar.Add(function()
 		local client = LocalPlayer()
 		if not IsValid(client) or not client:GetCharacter() then return false end
 
-		if (client:IsDroid()) or (client:IsClone()) or (client:IsTrueForceUser()) then
+		if (client:IsDroid() or client:IsClone() or client:IsCommando() or client:IsTrueForceUser()) then
 			return false
 		end
 

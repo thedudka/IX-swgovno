@@ -56,7 +56,18 @@ PLUGIN.classCommands = {
 		[7] = {label = "Отступаем.", message = "Отделение - отступаем. Двигаемся к точке сбора."},
 		[8] = {label = "Нужна помощь.", message = "Я спекся. Отделение - вернуть меня в строй."},
 		[9] = {label = "Все за мной!", message = "Отставить маневры, отделение. Все за мной."}
-	}
+	},
+		[CLASS_LEADER] = {
+		[1] = {label = "Идем на прорыв.", message = "Отделение, штурмовой порядок. Идем на прорыв."},
+		[2] = {label = "Рассредоточиться, атаковать фланги.", message = "Врассыпную. Штурмуем с флангов."},
+		[3] = {label = "Концентрировать огонь по цели.", message = "Концентрировать огонь на этой цели."},
+		[4] = {label = "Удерживать позицию.", message = "Удерживать этот сектор."},
+		[5] = {label = "Занять позицию.", message = "Окопаться здесь. Занять выгодные позиции и высоты."},
+		[6] = {label = "Фланг пробит.", message = "Внимание отделение - фланг пробит."},
+		[7] = {label = "Отступаем.", message = "Отделение - отступаем. Двигаемся к точке сбора."},
+		[8] = {label = "Нужна помощь.", message = "Я спекся. Отделение - вернуть меня в строй."},
+		[9] = {label = "Все за мной!", message = "Отставить маневры, отделение. Все за мной."}
+	},
 }
 
 PLUGIN.classSounds = {
@@ -70,7 +81,18 @@ PLUGIN.classSounds = {
 		[7] = {"commander_retreat"},
 		[8] = {"commander_helpme"},
 		[9] = {"commander_follow"}
-	}
+	},
+	[CLASS_LEADER] = {
+		[1] = {"commander_forward"},
+		[2] = {"commander_flank"},
+		[3] = {"commander_eliminate"},
+		[4] = {"commander_hold"},
+		[5] = {"commander_secure"},
+		[6] = {"commander_breach"},
+		[7] = {"commander_retreat"},
+		[8] = {"commander_helpme"},
+		[9] = {"commander_follow"}
+	},
 }
 
 function PLUGIN:GetCommands(client)
@@ -82,6 +104,17 @@ end
 
 PLUGIN.factionSounds = {
 	[FACTION_CLONE] = {
+		[1] = {"Clone_medic"},
+		[2] = {"Clone_grenade"},
+		[3] = {"Clone_forward"},
+		[4] = {"Clone_incoming"},
+		[5] = {"Clone_supress"},
+        [6] = {"Clone_pride"},
+		[7] = {"Clone_flank"},
+		[8] = {"Clone_enemydown"},
+        [9] = {"Clone_ff"},
+	},
+		[FACTION_COMMANDO] = {
 		[1] = {"Clone_medic"},
 		[2] = {"Clone_grenade"},
 		[3] = {"Clone_forward"},
@@ -151,7 +184,7 @@ if SERVER then
 			chatMessage = command.messages[math.random(#command.messages)]
 		end
 
-		if class == CLASS_CLONECOMMANDER then
+		if class == CLASS_CLONECOMMANDER or class == CLASS_LEADER then
 			ix.chat.Send(client, "radio", chatMessage)
 		else
 			ix.chat.Send(client, "y", chatMessage)

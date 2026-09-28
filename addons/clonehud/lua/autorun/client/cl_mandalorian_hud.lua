@@ -19,14 +19,15 @@ local paletteSets = {
         amber = Color(255, 165, 52, 240),
         amberSoft = Color(255, 165, 52, 85),
         amberDim = Color(255, 165, 52, 32),
-        ylw = Color(253, 255, 110, 212),
+        ply = Color(253, 255, 110, 212),
         holo = Color(17, 18, 19, 200),
         holoSoft = Color(92, 220, 255, 46),
         danger = Color(255, 82, 82, 200),
         text = Color(255, 224, 170, 245),
         textSoft = Color(255, 224, 170, 120),
         grid = Color(92, 220, 255, 18),
-        scan = Color(92, 220, 255, 14)
+        scan = Color(92, 220, 255, 14),
+        stam= Color(253, 255, 110, 212),
     },
     clone = {
         shell = Color(8, 10, 14, 214),
@@ -36,8 +37,8 @@ local paletteSets = {
         amber = Color(228, 238, 255, 240),
         amberSoft = Color(228, 238, 255, 92),
         amberDim = Color(228, 238, 255, 36),
-        ylw = Color(253, 255, 110, 212),
-        red = Color(255, 0, 0, 210),
+        ply = Color(253, 255, 110, 212),
+     health = Color(255, 0, 0, 210),
         holo = Color(110, 218, 255, 212),
         blue = Color(40, 140, 255, 200),
         holoSoft = Color(110, 218, 255, 56),
@@ -45,9 +46,33 @@ local paletteSets = {
         text = Color(236, 244, 255, 246),
         textSoft = Color(236, 244, 255, 134),
         grid = Color(110, 218, 255, 22),
-        scan = Color(110, 218, 255, 16)
+        scan = Color(110, 218, 255, 16),
+        red=Color(255, 0, 0, 210),
+        stam= Color(253, 255, 110, 212),
+    },
+    commando = {
+        shell = Color(8, 10, 14, 214),
+        shellSoft = Color(18, 24, 30, 126),
+        panel = Color(10, 16, 24, 172),
+        panelSoft = Color(10, 18, 26, 90),
+        amber = Color(228, 238, 255, 240),
+        amberSoft = Color(228, 238, 255, 92),
+        amberDim = Color(228, 238, 255, 36),
+        ply = Color(253, 255, 110, 212),
+     health = Color(21, 255, 0, 210),
+        holo = Color(14, 141, 3, 212),
+        blue = Color(0, 200, 255, 210),
+        holoSoft = Color(110, 218, 255, 56),
+        danger = Color(255, 86, 86, 210),
+        text = Color(236, 244, 255, 246),
+        textSoft = Color(236, 244, 255, 134),
+        grid = Color(110, 218, 255, 22),
+        scan = Color(110, 218, 255, 16),
+        red=Color(255, 0, 0, 210),
+        stam= Color(255, 166, 94, 212),
     }
 }
+
 local palette = paletteSets.mando
 
 local radarCache = {}
@@ -73,7 +98,7 @@ local hudProfileCache = {
     player = nil,
     model = "",
     nextCheck = 0,
-    value = "mando"
+    value = "off"
 }
 local currentHUDProfile = "mando"
 local thirdPersonEnabled = false
@@ -228,7 +253,7 @@ end
 
 local function getHUDProfile(ply)
     if not IsValid(ply) then
-        return "mando"
+        return "off"
     end
 
     local modelName = ply:GetModel() or ""
@@ -241,6 +266,13 @@ local function getHUDProfile(ply)
     hudProfileCache.model = modelName
     hudProfileCache.nextCheck = now + 0.2
 
+    -- Commando Check: Takes priority over standard Clone and Mando logic
+    if ply.IsCommando and ply:IsCommando() then
+        hudProfileCache.value = "commando"
+        return "commando"
+    end
+
+    local explicitCloneTrooperModel = isExplicitCloneTrooperModel(modelName)
     local explicitCloneTrooperModel = isExplicitCloneTrooperModel(modelName)
     local helmetBodygroup, helmetValue = findHelmetBodygroupInfo(ply, explicitCloneTrooperModel)
     local selectedBodygroupName = getSelectedBodygroupName(helmetBodygroup, helmetValue)
@@ -1897,7 +1929,7 @@ local function drawRadar(x, y, width, height, ply)
             end
 
             if detection.kind == "player" then
-                color = palette.ylw
+                color = palette.ply
                 size = sp(4)
             elseif detection.kind == "npc" then
                 color = palette.amber
@@ -2190,7 +2222,8 @@ local function drawVitals(x, y, width, height, ply)
     local staminaEndY = y + sy(182)
     local traceStyle
 
-    if currentHUDProfile == "clone" then
+    -- Updated check to format Commando the same way as Clone
+    if currentHUDProfile == "clone" or currentHUDProfile == "commando" then
         traceRight = x + width - padding - sp(28)
         armorStartY = y + sy(66)
         armorEndY = y + sy(100)
@@ -2229,7 +2262,7 @@ local function drawVitals(x, y, width, height, ply)
         healthRatio,
         "HEALTH",
         tostring(math.max(ply:Health(), 0)) .. " / " .. tostring(healthMax),
-        palette.red,
+        palette.health,
         "below",
         nil,
         traceStyle
@@ -2244,7 +2277,7 @@ local function drawVitals(x, y, width, height, ply)
         staminaValue / 100,
         "STAMINA",
         tostring(math.floor(staminaValue)) .. " / 100",
-        palette.ylw,
+        palette.stam,
         "below",
         nil,
         traceStyle
@@ -2954,7 +2987,7 @@ hook.Add("HUDPaint", "MandoHUD.DrawHelmetHUD", function()
     end
 
     local hudProfile = getHUDProfile(ply)
-    currentHUDProfile = hudProfile == "clone" and "clone" or "mando"
+    currentHUDProfile = hudProfile == "clone" and "clone" or "commando"
     palette = paletteSets[currentHUDProfile] or paletteSets.mando
     local isShuttingDown, shutdownProgress = getHelmetShutdownProgress(ply)
     local isStartingUp, startupProgress, startupHolding = getHelmetStartupProgress(ply)

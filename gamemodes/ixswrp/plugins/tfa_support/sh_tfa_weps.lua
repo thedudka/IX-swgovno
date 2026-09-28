@@ -310,3 +310,60 @@ PLUGIN.GunData[ "bf2017_e5" ] = {
 	MagazineCapacity = 25,
 	Accuracy = 0.035,
 }
+PLUGIN.GunData[ "rw_sw_dc17m" ] = {
+	Name = "DC-17m",
+	Slot = "primary",
+	Category = "Коммандос оружие",
+	Model = "models/vsw/starwars/weapons/rc_weapons/w_dc-17m.mdl",
+	iconCam = {
+	pos = Vector(0, 38, 0),
+	ang = Angle(0, 270, 0),
+	fov = 42
+	},
+	Width = 3,
+	Height = 2,
+	Desc = "Конфигурационная боевая система, созданная специально для клонов-коммандос. Является модификацией DC-15A. Конкретно эта модель является бластерным карабином высокой точности с большим боезапасом и поразительной скорострельностью. Редкий образец вооружения, но идеальный для элитных войск.",
+	Price = 900,
+	Firerate = 500,
+	Damage = 40,
+	MagazineCapacity = 50,
+	Accuracy = 0.01,
+}
+PLUGIN.GunData[ "rw_sw_dc17m_shotgun" ] = {
+	Name = "DC-17m Штурмовой",
+	Slot = "primary",
+	Category = "Коммандос оружие",
+	Model = "models/vsw/starwars/weapons/rc_weapons/w_dc-17m_antiarmor.mdl",
+	iconCam = {
+	pos = Vector(-1.65, -28.93, 0.24),
+	ang = Angle(1.38, 87.63, 0),
+	fov = 45
+	},
+	Width = 3,
+	Height = 2,
+	Desc = "Штурмовая конфигурация DC-17m, созданная для зачистки помещений или траншей. Малый боезапас компенсируется огромным уроном и скорострелностью, а также хорошей точностью как для дробовика. Отлично подойдет как для устранения одиночных, так и для групповых целей в узких пространствах.",
+	Price = 900,
+	Firerate = 275,
+	Damage = 50,
+	MagazineCapacity = 8,
+	Accuracy = 0.04,
+}
+PLUGIN.GunData[ "rw_sw_dc17m_sniper" ] = {
+	Name = "DC-17m Снайперский",
+	Slot = "primary",
+	Category = "Коммандос оружие",
+	Model = "models/vsw/starwars/weapons/rc_weapons/w_dc-17m_sniper.mdl",
+	iconCam = {
+	pos = Vector(2.5, 42.5, 0),
+	ang = Angle(0, 270, 0),
+	fov = 45
+	},
+	Width = 4,
+	Height = 2,
+	Desc = "Снайперская конфигурация DC-17m. Огромная мощность, средняя скорострельность и невероятная точность позволяют снимать цели с большого расстояния за пару быстрых выстрелов. Боезапас ограничен всего пятью патронами, поэтому стоит целиться с умом.",
+	Price = 900,
+	Firerate = 180,
+	Damage = 200,
+	MagazineCapacity = 5,
+	Accuracy = 0.001,
+}

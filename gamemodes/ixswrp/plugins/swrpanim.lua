@@ -512,8 +512,18 @@ ix.anim.SetModelClass("models/player/cheddar/swtor/droids/welder_droid.mdl", "vj
 ix.anim.SetModelClass("models/player/cheddar/swtor/droids/worker_droid.mdl", "vj_player")
 
 ix.anim.SetModelClass("models/star_wars_battlefront/sides/geo/geonosian.mdl", "bw_model")
-ix.anim.SetModelClass("models/star_wars_battlefront/sides/cis/bx_droid.mdl", "bw_model")
-
+ix.anim.SetModelClass("models/star_wars_battlefront/sides/mrc/human_smuggler_01.mdl", "bw_model")
+ix.anim.SetModelClass("models/star_wars_battlefront/sides/mrc/human_smuggler_02.mdl", "bw_model")
+ix.anim.SetModelClass("models/star_wars_battlefront/sides/mrc/human_thug.mdl", "bw_model")
+ix.anim.SetModelClass("models/star_wars_battlefront/sides/mrc/rodian_thug.mdl", "bw_model")
+ix.anim.SetModelClass("models/star_wars_battlefront/sides/mrc/thug_female.mdl", "bw_model")
+ix.anim.SetModelClass("models/star_wars_battlefront/sides/mrc/thug_heavy.mdl", "bw_model")
+ix.anim.SetModelClass("models/star_wars_battlefront/sides/mrc/thug_large.mdl", "bw_model")
+ix.anim.SetModelClass("models/star_wars_battlefront/sides/mrc/thug_medium.mdl", "bw_model")
+ix.anim.SetModelClass("models/star_wars_battlefront/sides/mrc/thug_small.mdl", "bw_model")
+ix.anim.SetModelClass("models/star_wars_battlefront/sides/mrc/twilek_thug.mdl", "bw_model")
+ix.anim.SetModelClass("models/star_wars_battlefront/sides/mrc/weequay_thug_01.mdl", "bw_model")
+ix.anim.SetModelClass("models/star_wars_battlefront/sides/mrc/weequay_thug_02.mdl", "bw_model")
 
 ix.anim.SetModelClass("models/vj_alienswarm/drone.mdl", "alienswarmdrone")
 

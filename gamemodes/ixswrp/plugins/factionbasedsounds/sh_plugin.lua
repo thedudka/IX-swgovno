@@ -14,7 +14,13 @@ PLUGIN.soundSets = {
         death = {"Clonetropper_death"},
         burnDeath = {"Clonetropper_death"}
     },
-    
+    [FACTION_COMMANDO] = {
+        hurt = {"Clonetropper_hurt"},
+        burn = {"hurt_burn"},
+        drown = {"hurt_drown"},
+        death = {"Clonetropper_death"},
+        burnDeath = {"Clonetropper_death"}
+    },
     [FACTION_SITH] = {
         hurt = {""},
         burn = {"hurt_burn"},

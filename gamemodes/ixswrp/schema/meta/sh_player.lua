@@ -7,7 +7,7 @@ end
 
 function playerMeta:IsRepublic()
 	local faction = self:Team()
-	return faction == FACTION_CLONE or faction == FACTION_JEDI or faction == FACTION_ROBOT or faction == FACTION_MERC
+	return faction == FACTION_CLONE or faction == FACTION_JEDI or faction == FACTION_ROBOT or faction == FACTION_MERC or faction == FACTION_COMMANDO or faction == FACTION_REPUBLIC
 end
 
 function playerMeta:IsForceUser()
@@ -37,7 +37,12 @@ end
 
 function playerMeta:IsClone()
 	local faction = self:Team()
-	return faction == FACTION_CLONE or faction == FACTION_MERC
+	return faction == FACTION_CLONE or faction == FACTION_MERC or faction == FACTION_COMMANDO
+end
+
+function playerMeta:IsCommando()
+	local faction = self:Team()
+	return faction == FACTION_COMMANDO
 end
 
 function playerMeta:IsCIS()
