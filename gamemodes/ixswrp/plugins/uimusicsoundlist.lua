@@ -77,24 +77,4 @@ end
 		}
 	})
 
-resource.AddFile("sound/sw_music/mainmenu_theme.wav")
-resource.AddFile("sound/sw_music/tower_battle.mp3")
-resource.AddFile("sound/sw_music/space_battle_theme.mp3")
-resource.AddFile("sound/sw_music/assasin_droids_ost.wav")
-resource.AddFile("sound/sw_music/naboo_theme.mp3")
-resource.AddFile("sound/sw_music/republic_commando_theme.mp3")
-resource.AddFile("sound/sw_music/battle_geonosis.mp3")
-resource.AddFile("sound/sw_music/droid_march_theme.mp3")
-resource.AddFile("sound/sw_music/alien_vessel_theme.mp3")
-resource.AddFile("sound/sw_music/macewindu_theme.mp3")
-resource.AddFile("sound/sw_music/venator_theme.mp3")
-resource.AddFile("sound/sw_music/battle_ambient.mp3")
-
-resource.AddFile("sound/ui/ui_cancel.wav")
-resource.AddFile("sound/ui/ui_click.wav")
-resource.AddFile("sound/ui/ui_message.wav")
-resource.AddFile("sound/ui/ui_rollover.wav")
-resource.AddFile("sound/ui/ui_back.wav")
-resource.AddFile("sound/ui/ui_notify.wav")
-
 resource.AddFile("materials/background.jpg")
