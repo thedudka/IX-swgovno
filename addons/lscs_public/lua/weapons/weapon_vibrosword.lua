@@ -11,7 +11,9 @@ SWEP.Slot				= 0
 SWEP.SlotPos			= 2
 
 SWEP.Spawnable		= true
-SWEP.AdminOnly		= true
+SWEP.AdminOnly		= false
+SWEP.HoldType = "melee2"
+SWEP.IsAlwaysRaised = true
 
 function SWEP:SetupDataTables()
 	BaseClass.SetupDataTables( self )

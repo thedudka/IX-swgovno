@@ -7,6 +7,7 @@ FACTION.models = {
 "models/vjsw/confederacyofindependentsystems/battle_droid_commander.mdl",
 "models/vjsw/confederacyofindependentsystems/battle_droid_engineer.mdl",
 "models/vjsw/confederacyofindependentsystems/battle_droid_rocketeer.mdl",
+"models/star_wars_battlefront/sides/cis/bx_droid.mdl",
 }
 FACTION.isDefault = false
 FACTION.isGloballyRecognized = false

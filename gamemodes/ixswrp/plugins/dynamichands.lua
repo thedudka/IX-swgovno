@@ -64,7 +64,8 @@ if SERVER then
 "models/player/cheddar/swtor/droids/slicer_droid.mdl", 
 "models/player/cheddar/swtor/droids/temple_guardian_droid.mdl", 
 "models/player/cheddar/swtor/droids/welder_droid.mdl", 
-"models/player/cheddar/swtor/droids/worker_droid.mdl", 
+"models/player/cheddar/swtor/droids/worker_droid.mdl",
+"models/star_wars_battlefront/sides/cis/bx_droid.mdl",
 	}
 	PLUGIN.DroidModels = {"models/vjsw/confederacyofindependentsystems/battle_droid.mdl", 
 "models/vjsw/confederacyofindependentsystems/battle_droid_assassin.mdl", 

@@ -12,7 +12,7 @@ ix.char.RegisterVar("drunk", {
     isHidden = true
 })
 
--- Random IC speech tables (You can add as many lines as you want here)
+
 PLUGIN.DrunkLines = {
     clone = {
         "Республика, Палпатин... А дальше что было?...",
@@ -77,7 +77,7 @@ if (SERVER) then
     function PLUGIN:PlayerLoadedCharacter(client, character)
         local timerID = "ixAlcoholDecay_" .. client:SteamID64()
         
-        -- Continuous decay: 1 point every 2 seconds
+        
         timer.Create(timerID, 2, 0, function()
             if (IsValid(client) and character) then
                 local current = character:GetDrunk() or 0
@@ -85,17 +85,18 @@ if (SERVER) then
                     local newAmount = math.max(current - 1, 0)
                     character:SetDrunk(newAmount)
                     
-                    -- 75% Random IC Speech Feature
-                    if (newAmount >= 75) then
+                    
+                    if (newAmount >= 65) then
                         if (not client.ixNextDrunkSpeak) then
                             client.ixNextDrunkSpeak = CurTime() + math.random(10, 20)
                         elseif (CurTime() >= client.ixNextDrunkSpeak) then
                             client.ixNextDrunkSpeak = CurTime() + math.random(10, 20)
                             
                             local lines = PLUGIN.DrunkLines.default
-                            if (client.IsClone and client:IsClone()) then
+                            local faction = character:GetFaction()
+                            if (faction == FACTION_CLONE) then
                                 lines = PLUGIN.DrunkLines.clone
-                            elseif (client.IsDroid and client:IsDroid()) then
+                            elseif (client:IsDroid()) then
                                 lines = PLUGIN.DrunkLines.droid
                             end
                             
@@ -126,7 +127,7 @@ else
         if not character then return end
         
         local drunk = character:GetDrunk() or 0
-        if (drunk >= 50) then
+        if (drunk >= 45) then
             local weapon = client:GetActiveWeapon()
             if client:GetLocalVar("ragdoll", 0) ~= 0 or client:IsForceUser() or client:IsTrueForceUser() then return end
             if not IsValid(client) or not client:Alive() then return end
@@ -135,8 +136,7 @@ else
                 if string.find(class, "arc9") or string.find(class, "mg_base") then return end
             end
             
-            -- Scale sway from 50 to 100
-            local factor = (drunk - 50) / 50 
+            local factor = (drunk - 45) / 50 
             local intensity = 1.35
             local speed = 1
             local sway = factor * intensity
@@ -155,7 +155,6 @@ else
         if (character) then
             local drunk = character:GetDrunk() or 0
             if (drunk >= 25) then
-                -- Scale blur from 25 to 100
                 local factor = (drunk - 25) / 75
                 local blurPasses = math.ceil(factor * 5)
                 

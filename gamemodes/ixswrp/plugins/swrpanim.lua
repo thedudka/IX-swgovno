@@ -249,7 +249,7 @@ ix.anim.jedi = {
 	},
 }
 
-ix.anim.geonosian = {
+ix.anim.bw_model = {
 	normal = {
 		[ACT_MP_STAND_IDLE] = {ACT_HL2MP_IDLE, ACT_HL2MP_IDLE_FIST},
 		[ACT_MP_CROUCH_IDLE] = {ACT_HL2MP_IDLE_CROUCH, ACT_HL2MP_IDLE_CROUCH_FIST},
@@ -365,6 +365,15 @@ ix.anim.geonosian = {
 		glide = {ACT_HL2MP_JUMP_FIST, ACT_HL2MP_JUMP_GRENADE},
 		attack = ACT_HL2MP_GESTURE_RANGE_ATTACK_GRENADE,
 	},
+	jedi = {
+		[ACT_MP_STAND_IDLE] = {ACT_HL2MP_IDLE, ACT_HL2MP_IDLE_MELEE},
+		[ACT_MP_CROUCH_IDLE] = {ACT_HL2MP_IDLE_CROUCH, ACT_HL2MP_IDLE_CROUCH_MELEE},
+		[ACT_MP_WALK] = {ACT_HL2MP_WALK, ACT_HL2MP_WALK_MELEE},
+		[ACT_MP_CROUCHWALK] = {ACT_HL2MP_WALK_CROUCH, ACT_HL2MP_WALK_CROUCH_MELEE},
+		[ACT_MP_RUN] = {ACT_HL2MP_RUN, ACT_HL2MP_RUN_MELEE},
+		glide = {ACT_HL2MP_JUMP_MELEE, ACT_HL2MP_JUMP_MELEE},
+		attack = ACT_HL2MP_GESTURE_RANGE_ATTACK_MELEE,
+	},
 	["sit"] = "sit",
 	["sit_zen"] = "sit_zen",
 	vehicle = {
@@ -460,6 +469,23 @@ ix.anim.SetModelClass("models/vjsw/galacticrepublic/clones/shock_clonetrooper_sh
 ix.anim.SetModelClass("models/vjsw/galacticrepublic/clones/clonetrooper_jet.mdl", "vj_player")
 ix.anim.SetModelClass("models/vjsw/galacticrepublic/clones/clonetrooper_heavy.mdl", "vj_player")
 ix.anim.SetModelClass("models/vjsw/galacticrepublic/clones/clonetrooper_engineer.mdl", "vj_player")
+ix.anim.SetModelClass("models/vjsw/galacticrepublic/clones/clonetrooper.mdl", "vj_player")
+ix.anim.SetModelClass("models/vjsw/galacticrepublic/clones/clonetrooper_rocketeer.mdl", "vj_player")
+ix.anim.SetModelClass("models/vjsw/galacticrepublic/clones/clonetrooper_sharpshooter.mdl", "vj_player")
+ix.anim.SetModelClass("models/vjsw/galacticrepublic/clones/clonetrooper_lieutenant.mdl", "vj_player")
+ix.anim.SetModelClass("models/vjsw/galacticrepublic/clones/galactic_marine.mdl", "vj_player")
+ix.anim.SetModelClass("models/vjsw/galacticrepublic/clones/galactic_marine_heavy.mdl", "vj_player")
+ix.anim.SetModelClass("models/vjsw/galacticrepublic/clones/galactic_marine_lieutenant.mdl", "vj_player")
+ix.anim.SetModelClass("models/vjsw/galacticrepublic/clones/galactic_marine_sharpshooter.mdl", "vj_player")
+ix.anim.SetModelClass("models/vjsw/galacticrepublic/clones/galactic_marine_rocketeer.mdl", "vj_player")
+ix.anim.SetModelClass("models/vjsw/galacticrepublic/clones/clonetrooper_arc.mdl", "vj_player")
+ix.anim.SetModelClass("models/vjsw/galacticrepublic/clones/clonetrooper_arc_captain.mdl", "vj_player")
+ix.anim.SetModelClass("models/vjsw/galacticrepublic/clones/clonetrooper_arc_lieutenant.mdl", "vj_player")
+ix.anim.SetModelClass("models/vjsw/galacticrepublic/clones/clonetrooper_arc_sergeant.mdl", "vj_player")
+ix.anim.SetModelClass("models/vjsw/galacticrepublic/clones/clone_commando_mp_a.mdl", "vj_player")
+ix.anim.SetModelClass("models/vjsw/galacticrepublic/clones/clone_commando_mp_b.mdl", "vj_player")
+ix.anim.SetModelClass("models/vjsw/galacticrepublic/clones/clone_commando_mp_c.mdl", "vj_player")
+ix.anim.SetModelClass("models/vjsw/galacticrepublic/clones/clone_commando_mp_d.mdl", "vj_player")
 
 // jedi
 ix.anim.SetModelClass("models/cyanblue/genshin_impact/thicc_venti/thicc_venti.mdl", "jedi")
@@ -485,7 +511,10 @@ ix.anim.SetModelClass("models/player/cheddar/swtor/droids/temple_guardian_droid.
 ix.anim.SetModelClass("models/player/cheddar/swtor/droids/welder_droid.mdl", "vj_player")
 ix.anim.SetModelClass("models/player/cheddar/swtor/droids/worker_droid.mdl", "vj_player")
 
-ix.anim.SetModelClass("models/star_wars_battlefront/sides/geo/geonosian.mdl", "geonosian")
+ix.anim.SetModelClass("models/star_wars_battlefront/sides/geo/geonosian.mdl", "bw_model")
+ix.anim.SetModelClass("models/star_wars_battlefront/sides/cis/bx_droid.mdl", "bw_model")
+
+
 ix.anim.SetModelClass("models/vj_alienswarm/drone.mdl", "alienswarmdrone")
 
 ix.anim.SetModelClass("models/nada/dindjarin.mdl", "vj_player")

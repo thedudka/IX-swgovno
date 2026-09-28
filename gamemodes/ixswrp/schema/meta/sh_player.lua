@@ -12,7 +12,7 @@ end
 
 function playerMeta:IsForceUser()
 	local faction = self:Team()
-	return faction == FACTION_JEDI or faction == FACTION_SITH or faction == FACTION_ROBOT
+	return faction == FACTION_JEDI or faction == FACTION_SITH or faction == FACTION_ROBOT or faction == FACTION_DROID
 end
 
 function playerMeta:IsTrueForceUser()

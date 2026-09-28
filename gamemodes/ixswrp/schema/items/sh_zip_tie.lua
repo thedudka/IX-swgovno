@@ -2,6 +2,7 @@
 ITEM.name = "Наручники"
 ITEM.description = "Наручники для сдерживания пленных и обеспечения безопасности пленителей."
 ITEM.price = 8
+ITEM.category = "Инструменты и модули"
 ITEM.model = "models/items/crossbowrounds.mdl"
 ITEM.functions.Use = {
 	OnRun = function(itemTable)

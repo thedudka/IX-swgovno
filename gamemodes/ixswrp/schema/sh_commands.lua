@@ -266,6 +266,23 @@ ix.command.Add("CharCrit", {
 	end
 })
 
+ix.command.Add("CharDrunk", {
+    description = "Заставляет персонажа испытывать максимальный эффект опьянения.",
+    superAdminOnly = true,
+    arguments = {
+        ix.type.character
+    },
+    OnRun = function(self, client, target)	
+        target:SetDrunk(99)
+		client:Notify("" .. target:GetName() .. " пьян.")
+        
+        local targetPlayer = target:GetPlayer()
+        if (IsValid(targetPlayer)) then
+            targetPlayer.ixNextDrunkSpeak = nil
+        end
+    end
+})
+
 ix.command.Add("CharSober", {
     description = "Обнуляет уровень опьянения персонажа.",
     superAdminOnly = true,
@@ -284,23 +301,6 @@ ix.command.Add("CharSober", {
             if (targetPlayer:IsRagdolled()) then
                 targetPlayer:SetRagdolled(false)
             end
-        end
-    end
-})
-
-ix.command.Add("CharDrunk", {
-    description = "Заставляет персонажа испытывать максимальный эффект опьянения.",
-    superAdminOnly = true,
-    arguments = {
-        ix.type.character
-    },
-    OnRun = function(self, client, target)	
-        target:SetDrunk(99)
-		client:Notify("" .. target:GetName() .. " пьян.")
-        
-        local targetPlayer = target:GetPlayer()
-        if (IsValid(targetPlayer)) then
-            targetPlayer.ixNextDrunkSpeak = nil
         end
     end
 })
