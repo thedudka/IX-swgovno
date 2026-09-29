@@ -367,3 +367,63 @@ PLUGIN.GunData[ "rw_sw_dc17m_sniper" ] = {
 	MagazineCapacity = 5,
 	Accuracy = 0.001,
 }
+
+PLUGIN.GunData[ "bf2017_e5s" ] = {
+	Name = "E5-S",
+	Slot = "primary",
+	Category = "ADMIN WEAPONS",
+	Model = "models/weapons/glcw_weps_battlefront/cis_sniper_rifle.mdl",
+	iconCam = {
+    pos = Vector(-2, -197, -20),
+    ang = Angle(-6, 88.561, 0),
+    fov = 5.5
+	},
+	Width = 5,
+	Height = 2,
+	Desc = "Снайперская винтовка Конфедерации.",
+	Price = 900,
+	Firerate = 228,
+	Damage = 120,
+	MagazineCapacity = 30,
+	Accuracy = 0.001337,
+}
+
+PLUGIN.GunData[ "bf2017_e5c" ] = {
+	Name = "E5-С",
+	Slot = "primary",
+	Category = "ADMIN WEAPONS",
+	Model = "models/weapons/glcw_weps_battlefront/rep_chaingun.mdl",
+	iconCam = {
+    pos = Vector(-2, -197, -20),
+    ang = Angle(-6, 88.561, 0),
+    fov = 5.5
+	},
+	Width = 4,
+	Height = 2,
+	Desc = "Пулемёт Конфедерации.",
+	Price = 900,
+	Firerate = 333,
+	Damage = 30,
+	MagazineCapacity = 100,
+	Accuracy = 0.8814,
+}
+
+PLUGIN.GunData[ "bf2017_rg4d" ] = {
+	Name = "RG-4D",
+	Slot = "sidearm",
+	Category = "ADMIN WEAPONS",
+	Model = "models/sw_battlefront/weapons/dl44_pistol.mdl",
+	iconCam = {
+    pos = Vector(-2, -197, -20),
+    ang = Angle(-6, 88.561, 0),
+    fov = 5.5
+	},
+	Width = 2,
+	Height = 1,
+	Desc = "Пистолет Конфедерации.",
+	Price = 900,
+	Firerate = 200,
+	Damage = 25,
+	MagazineCapacity = 20,
+	Accuracy = 0.1,
+}
