@@ -1,4 +1,3 @@
-
 if (not SERVER) then return end
 
 local MAX_NAME = 64
@@ -53,6 +52,7 @@ local function SanitizeDraft(raw)
 		category = ClampString(raw.category or "", 64),
 		width = math.Clamp(tonumber(raw.width) or 1, 1, 8),
 		height = math.Clamp(tonumber(raw.height) or 1, 1, 8),
+		rarity = math.Clamp(tonumber(raw.rarity) or 0, 0, 4),
 		rows = rows
 	}
 end

@@ -221,6 +221,7 @@ local function CollectDraft(frame)
 		category = frame.categoryEntry:GetValue(),
 		width = frame.widthEntry:GetValue(),
 		height = frame.heightEntry:GetValue(),
+		rarity = frame.rarityEntry:GetValue(),
 		rows = {}
 	}
 
@@ -242,6 +243,7 @@ local function PopulateForm(frame, draft)
 	frame.categoryEntry:SetText(draft.category or "")
 	frame.widthEntry:SetValue(tonumber(draft.width) or 1)
 	frame.heightEntry:SetValue(tonumber(draft.height) or 1)
+	frame.rarityEntry:SetValue(tonumber(draft.rarity) or 0)
 
 	ClearRows(frame)
 	for _, row in ipairs(draft.rows or {}) do
@@ -393,12 +395,13 @@ local function BuildFrame()
 
 	AddGap()
 
-	frame.nameEntry = MakeTextEntry(scroll, "Name", "Custom Item")
+frame.nameEntry = MakeTextEntry(scroll, "Name", "Custom Item")
 	frame.descEntry = MakeTextArea(scroll, "Description", "", 90)
 	frame.modelEntry = MakeTextEntry(scroll, "Model", "models/props_c17/oildrum001.mdl")
 	frame.categoryEntry = MakeTextEntry(scroll, "Category", "")
 	frame.widthEntry = MakeNumberEntry(scroll, "Width (cells)", 1, 1, 8)
 	frame.heightEntry = MakeNumberEntry(scroll, "Height (cells)", 1, 1, 8)
+	frame.rarityEntry = MakeNumberEntry(scroll, "Rarity (0-4)", 0, 0, 4)
 
 	AddGap()
 

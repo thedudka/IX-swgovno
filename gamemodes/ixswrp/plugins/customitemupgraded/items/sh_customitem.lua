@@ -6,6 +6,7 @@ ITEM.category = "GM"
 ITEM.nobusiness = true
 ITEM.width = 1
 ITEM.height = 1
+ITEM.rarity = 0
 
 function ITEM:GetName()
 	return self:GetData("name", "Custom Item")
@@ -17,6 +18,10 @@ end
 
 function ITEM:GetModel()
 	return self:GetData("model", "models/Gibs/HGIBS.mdl")
+end
+
+function ITEM:GetRarity()
+	return self:GetData("rarity", self.rarity)
 end
 
 function ITEM:GetCategoryOverride()
