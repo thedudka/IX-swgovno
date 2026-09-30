@@ -4,6 +4,7 @@ ITEM.ammo = "smg1_grenade" -- type of the ammo
 ITEM.ammoAmount = 5 -- amount of the ammo
 ITEM.height = 3
 ITEM.width = 2
+ITEM.rarity = 2
 ITEM.description = "Стандартный комплект боезапаса для ручного гранатного метателя, используемого для подавления пехоты противника."
 ITEM.iconCam = {
     ang	= Angle(25.000, 220.000, 0.000),

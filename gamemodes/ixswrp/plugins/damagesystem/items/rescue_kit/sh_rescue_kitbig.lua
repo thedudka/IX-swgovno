@@ -6,6 +6,7 @@ ITEM.width = 3
 ITEM.height = 3
 ITEM.base = "base_rescue_kit"
 ITEM.dUses = 7
+ITEM.rarity = 3
 ITEM.useTime = 10
 ITEM.useSound = "items/medshot4.wav"
 ITEM.reviveHealth = 50

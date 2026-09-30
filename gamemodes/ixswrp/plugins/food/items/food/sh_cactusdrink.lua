@@ -6,6 +6,7 @@ ITEM.cost = 4
 ITEM.dUses = 3
 ITEM.AddStam = 50
 ITEM.AddHealth = 0
+ITEM.rarity = 1
 ITEM.useSound = "npc/barnacle/barnacle_gulp1.wav"
 ITEM.category = "Еда"
 

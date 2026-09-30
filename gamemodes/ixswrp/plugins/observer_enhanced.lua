@@ -267,8 +267,8 @@ if CLIENT then
 
 				if player:IsCritical() then
 					table.insert(text, {
-						text = "В крите.",
-						color = colorHealth,
+						text = "В КРИТЕ.",
+						color = colorRed,
 					})
 				end
 

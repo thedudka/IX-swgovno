@@ -7,6 +7,7 @@ ITEM.cost = 4
 ITEM.dUses = 2
 ITEM.AddStam = 40
 ITEM.AddHealth = 0
+ITEM.rarity = 1
 ITEM.useSound = "npc/barnacle/barnacle_gulp1.wav"
 
 function ITEM:OnRegistered()

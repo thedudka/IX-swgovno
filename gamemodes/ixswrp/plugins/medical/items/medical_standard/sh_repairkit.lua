@@ -2,6 +2,7 @@ ITEM.name = "Ремонтный набор брони"
 ITEM.model = Model("models/props/starwars/weapons/repairkit.mdl")
 ITEM.description = "Небольшой набор, предназначенный для починки брони при средних повреждениях в короткие сроки."
 ITEM.dUses = 2
+ITEM.rarity = 2
 ITEM.armorAmount = 75
 ITEM.healAmount = 0
 ITEM.maxArmor = 100

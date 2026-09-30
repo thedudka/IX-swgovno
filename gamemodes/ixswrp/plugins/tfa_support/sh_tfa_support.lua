@@ -120,6 +120,7 @@ function PLUGIN:InitializedPlugins()
 		ITEM.MagazineCapacity = dat.MagazineCapacity
 		ITEM.Accuracy = dat.Accuracy
 		ITEM.Radius = dat.Radius
+		ITEM.rarity = dat.Rarity
 		
 		if dat.iconCam then
 			ITEM.iconCam = dat.iconCam

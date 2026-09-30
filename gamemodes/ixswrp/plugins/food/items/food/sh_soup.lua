@@ -5,6 +5,7 @@ ITEM.description = "Тарелка, внутри которой находитс
 ITEM.category = "Еда"
 ITEM.cost = 4
 ITEM.dUses = 5
+ITEM.rarity = 2
 ITEM.AddStam = 15
 ITEM.AddHealth = 7
 ITEM.useSound = "npc/barnacle/barnacle_gulp1.wav"

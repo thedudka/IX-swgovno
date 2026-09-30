@@ -3,6 +3,7 @@ ITEM.model = Model("models/starwars/syphadias/props/sw_tor/bioware_ea/items/harv
 ITEM.description = "Большой медицинский набор, способный вылечить в условиях боевых действий очень тяжелые раны."
 ITEM.price = 65
 ITEM.width = 2
+ITEM.rarity = 3
 ITEM.height = 2
 ITEM.dUses = 4
 ITEM.healAmount = 100

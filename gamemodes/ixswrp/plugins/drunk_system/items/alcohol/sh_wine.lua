@@ -2,6 +2,7 @@ ITEM.name = "Бокал кореллианского вина"
 ITEM.description = "Премиальный алкогольный напиток. Его часто фасуют именно по таким бокалам, сразу для клиентов. Идеальный выбор для дорогих встреч без намерения упиться."
 ITEM.model = Model("models/food/wineglass.mdl")
 ITEM.base = "base_alcohol"
+ITEM.rarity = 3
 ITEM.category = "Алкоголь"
 ITEM.DrunkAdd = 20
 ITEM.dUses = 1

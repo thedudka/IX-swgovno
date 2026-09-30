@@ -6,6 +6,7 @@ ITEM.useSound = "npc/barnacle/barnacle_crunch3.wav"
 ITEM.category = "Еда"
 ITEM.cost = 10
 ITEM.dUses = 4
+ITEM.rarity = 1
 ITEM.AddStam = 10
 ITEM.AddHealth = 4
 ITEM.rarity = 1

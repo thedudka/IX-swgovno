@@ -2,6 +2,7 @@ ITEM.name = "Ящик с газовыми блоками для оружия"
 ITEM.model = "models/niksacokica/containers/con_small_container_pipes.mdl"
 ITEM.height = 2
 ITEM.width = 4
+ITEM.rarity = 2
 ITEM.ammo = "ar2" -- type of the ammo
 ITEM.ammoAmount = 1000 -- amount of the ammo
 ITEM.description = "Данный ящик предназначается для тяжелой пехоты и пулемётчиков, которым необходимо множество газовых блоков для замены. Легкий, но крайне большой."

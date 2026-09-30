@@ -4,6 +4,7 @@ ITEM.model = Model("models/starwars/syphadias/props/sw_tor/bioware_ea/items/harv
 ITEM.dUses = 4
 ITEM.armorAmount = 100
 ITEM.healAmount = 0
+ITEM.rarity = 3
 ITEM.maxArmor = 100
 ITEM.useTime = 10
 ITEM.useSound = "physics/metal/weapon_impact_soft2.wav"

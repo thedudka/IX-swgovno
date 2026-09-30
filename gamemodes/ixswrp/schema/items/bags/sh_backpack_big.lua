@@ -4,6 +4,7 @@ ITEM.model = "models/epsilon/cwa_furniture/misc/onderonrexsuit.mdl"
 ITEM.width = 2
 ITEM.height = 3
 ITEM.invWidth = 5
+ITEM.rarity = 2
 ITEM.invHeight = 4
 ITEM.iconCam = {
     pos = Vector(286.164642, 239.196335, 172.558533),

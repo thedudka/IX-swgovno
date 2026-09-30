@@ -8,6 +8,7 @@ ITEM.isWeapon = true
 ITEM.weaponCategory = "primary"
 ITEM.width = 6
 ITEM.height = 1
+ITEM.rarity = 3
 ITEM.price = 5000
 ITEM.iconCam = {
 	pos = Vector(0, 138, 0),

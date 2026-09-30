@@ -8,4 +8,3 @@ ITEM.cost = 10
 ITEM.dUses = 1
 ITEM.AddStam = 15
 ITEM.AddHealth = 5
-ITEM.rarity = 1

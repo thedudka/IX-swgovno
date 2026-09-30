@@ -2,6 +2,7 @@ ITEM.name = "Экспериментальный набор лечения"
 ITEM.description = "Очень редкий экспериментальный образец набора лечения нового поколения. При использовании восстанавливает все жизненные показатели, а также броню субъекта. На удивление лёгкий."
 ITEM.model = Model("models/reizer_props/88th_box_small_2_prop/88th_legion_box_small_2.mdl")
 ITEM.dUses = 1
+ITEM.rarity = 4
 ITEM.healAmount = 100
 ITEM.armorAmount = 100
 ITEM.maxArmor = 100

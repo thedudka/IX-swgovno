@@ -2,6 +2,7 @@ ITEM.name = "Стандартный комплент пехотных боепр
 ITEM.model = "models/theinvisibleman/swbf/rebels/general/cargo/box_04.mdl"
 ITEM.height = 2
 ITEM.width = 2
+ITEM.rarity = 1
 ITEM.ammo = "ar2" -- type of the ammo
 ITEM.ammoAmount = 500 -- amount of the ammo
 ITEM.description = "Комплект с дополнительными газоблоками и картриджамии для вооружения. Является стандартным комплектом боеприпасов для легкой пехоты."

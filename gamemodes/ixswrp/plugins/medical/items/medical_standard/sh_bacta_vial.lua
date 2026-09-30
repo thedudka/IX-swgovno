@@ -3,6 +3,7 @@ ITEM.model = Model("models/bf2/bacta.mdl")
 ITEM.description = "Капсула с веществом Бактой, обладающая лечебными свойствами и способная на лечение средних ранений."
 ITEM.dUses = 2
 ITEM.healAmount = 65
+ITEM.rarity = 2
 ITEM.useTime = 5
 ITEM.width = 1
 ITEM.height = 2

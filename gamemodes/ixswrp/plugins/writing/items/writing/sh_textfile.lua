@@ -6,6 +6,7 @@ ITEM.description = "Диск с хранящейся на ней текстов�
 ITEM.price = 2
 ITEM.model = Model("models/lordtrilobite/starwars/props/imp_datatape.mdl")
 ITEM.width = 1
+ITEM.rarity = 1
 ITEM.height = 1
 ITEM.category = "Текст"
 ITEM.classes = {CLASS_EOW}

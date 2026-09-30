@@ -409,6 +409,41 @@ end
 -- @realm shared
 -- @string name The name of the hook
 -- @func func The function to call after the original hook was called
+
+function ITEM:GetRarity()
+	return (self.GetRare and self:GetRare()) or self:GetData("rare", nil) or self.rarity or 0
+end
+
+if CLIENT then
+	RARITY_COLORS = {
+		[0] = Color(255, 255, 255, 51),
+		[1] = Color(51, 204, 51, 255),
+		[2] = Color(0, 102, 255, 255),
+		[3] = Color(204, 0, 255, 255),
+		[4] = Color(230, 188, 22)
+	}
+	
+	function ix.hud.PopulateItemTooltip(tooltip, item)
+		local rColor = RARITY_COLORS[item:GetRarity()] or RARITY_COLORS[0]
+		local name = tooltip:AddRow("name")
+		name:SetImportant()
+		name:SetText(item.GetName and item:GetName() or L(item.name))
+		name:SetBackgroundColor(rColor)
+		name:SetMaxWidth(math.max(name:GetMaxWidth(), ScrW() * 0.5))
+		name:SizeToContents()
+
+		local description = tooltip:AddRow("description")
+		description:SetText(item:GetDescription() or "")
+		description:SizeToContents()
+
+		if (item.PopulateTooltip) then
+			item:PopulateTooltip(tooltip)
+		end
+
+		hook.Run("PopulateItemTooltip", tooltip, item)
+	end
+end
+
 function ITEM:PostHook(name, func)
 	if (name) then
 		self.postHooks[name] = func

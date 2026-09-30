@@ -7,6 +7,7 @@ ITEM.isWeapon = true
 ITEM.weaponCategory = "equipment"
 ITEM.classes = {CLASS_EOW}
 ITEM.flag = "V"
+ITEM.rarity = 1
 ITEM.width = 1
 ITEM.height = 2
 ITEM.price = 2500

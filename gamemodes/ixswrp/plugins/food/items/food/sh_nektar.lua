@@ -7,6 +7,7 @@ ITEM.category = "Еда"
 ITEM.dUses = 4
 ITEM.AddStam = 30
 ITEM.AddHealth = 5
+ITEM.rarity = 2
 ITEM.useSound = "npc/barnacle/barnacle_gulp1.wav"
 
 function ITEM:OnRegistered()
