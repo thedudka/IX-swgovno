@@ -216,6 +216,7 @@ PLUGIN.GunData[ "rw_sw_dp23" ] = {
 	Damage = 25,
 	MagazineCapacity = 8,
 	Accuracy = 0.5,
+	Rarity = 1,
 }
 
 PLUGIN.GunData[ "rw_sw_z6" ] = {
@@ -236,7 +237,7 @@ PLUGIN.GunData[ "rw_sw_z6" ] = {
 	Damage = 20,
 	MagazineCapacity = 250,
 	Accuracy = 0.035,
-	Rarity = 2,
+	Rarity = 3,
 }
 
 PLUGIN.GunData[ "rw_sw_pinglauncher" ] = {
@@ -256,7 +257,7 @@ PLUGIN.GunData[ "rw_sw_pinglauncher" ] = {
 	Price = 8000,
 	Damage = 200,
 	Radius = 7,
-	Rarity = 1,
+	Rarity = 3,
 }
 
 PLUGIN.GunData[ "rw_sw_plx1" ] = {
@@ -336,7 +337,7 @@ PLUGIN.GunData[ "rw_sw_dc17m" ] = {
 	Damage = 40,
 	MagazineCapacity = 50,
 	Accuracy = 0.01,
-	Rarity = 3,
+	Rarity = 4,
 }
 PLUGIN.GunData[ "rw_sw_dc17m_shotgun" ] = {
 	Name = "DC-17m Штурмовой",
@@ -356,7 +357,7 @@ PLUGIN.GunData[ "rw_sw_dc17m_shotgun" ] = {
 	Damage = 50,
 	MagazineCapacity = 8,
 	Accuracy = 0.04,
-	Rarity = 3,
+	Rarity = 4,
 }
 PLUGIN.GunData[ "rw_sw_dc17m_sniper" ] = {
 	Name = "DC-17m Снайперский",

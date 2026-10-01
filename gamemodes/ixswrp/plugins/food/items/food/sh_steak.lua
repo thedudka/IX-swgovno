@@ -9,4 +9,4 @@ ITEM.dUses = 5
 ITEM.rarity = 2
 ITEM.AddStam = 2
 ITEM.AddHealth = 8
-ITEM.rarity = 1
+ITEM.rarity = 2
