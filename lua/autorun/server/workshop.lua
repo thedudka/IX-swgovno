@@ -12,6 +12,7 @@ resource.AddWorkshop("1881362178")
 resource.AddWorkshop("1617356303")
 resource.AddWorkshop("621970321")
 resource.AddWorkshop("3284016274")
+resource.AddWorkshop("756209791")
 
 resource.AddWorkshop("2019568291")
 resource.AddWorkshop("1741985166")
