@@ -511,6 +511,7 @@ ix.anim.SetModelClass("models/player/cheddar/swtor/droids/temple_guardian_droid.
 ix.anim.SetModelClass("models/player/cheddar/swtor/droids/welder_droid.mdl", "vj_player")
 ix.anim.SetModelClass("models/player/cheddar/swtor/droids/worker_droid.mdl", "vj_player")
 
+
 ix.anim.SetModelClass("models/star_wars_battlefront/sides/cis/bx_droid.mdl", "bw_model")
 ix.anim.SetModelClass("models/star_wars_battlefront/sides/geo/geonosian.mdl", "bw_model")
 ix.anim.SetModelClass("models/star_wars_battlefront/sides/mrc/human_smuggler_01.mdl", "bw_model")
