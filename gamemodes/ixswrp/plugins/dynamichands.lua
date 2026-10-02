@@ -69,18 +69,17 @@ if SERVER then
 "models/player/cheddar/swtor/droids/temple_guardian_droid.mdl", 
 "models/player/cheddar/swtor/droids/welder_droid.mdl", 
 "models/player/cheddar/swtor/droids/worker_droid.mdl",
-"models/star_wars_battlefront/sides/cis/bx_droid.mdl",
 	}
 	PLUGIN.DroidModels = {"models/vjsw/confederacyofindependentsystems/battle_droid.mdl", 
 "models/vjsw/confederacyofindependentsystems/battle_droid_assassin.mdl", 
 "models/vjsw/confederacyofindependentsystems/battle_droid_commander.mdl", 
 "models/vjsw/confederacyofindependentsystems/battle_droid_engineer.mdl", 
-"models/vjsw/confederacyofindependentsystems/battle_droid_rocketeer.mdl", 
+"models/vjsw/confederacyofindependentsystems/battle_droid_rocketeer.mdl",
+"models/star_wars_battlefront/sides/cis/bx_droid.mdl",
 	}
     PLUGIN.MercModels = {"models/player/estrella/shae_vizla.mdl",
 	"models/nada/dindjarin.mdl",
 	}
-
 do
 		for k, model in ipairs(PLUGIN.CloneModels) do
 			local shortname = string.StripExtension(string.GetFileFromFilename(model))
