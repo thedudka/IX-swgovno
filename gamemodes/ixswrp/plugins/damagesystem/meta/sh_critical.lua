@@ -58,25 +58,36 @@ function PLAYER:SetCriticalState(state)
 			self:EmitSound("physics/flesh/flesh_impact_bullet1.wav")
 		end
 
-		if IsValid(self.ixRagdoll) then
-			self.ixRagdoll:Remove()
+        // это такая тупая хуйня но она работает значит не трогайте
+		local ragdollDelay = 0
+		if self:GetLocalVar("ragdoll") or IsValid(self.ixRagdoll) then
+			self:SetRagdolled(false)
+			ragdollDelay = 0.1 
 		end
 
 		self:SetAction("@critical", 999999)
-		self:SetRagdolled(true, 999999, 999999)
+        
+		// если игрок уже в рэгдолле то его поднимаем а потом кидаем в крит
+		// выглядит это ровно также как и звучит, но ешьте что дают
+		timer.Simple(ragdollDelay, function()
+			if not IsValid(self) or not self:IsCritical() then return end
 
-		self:SetNoDraw(true)
-		self:SetNotSolid(false)
-		self:SetCollisionGroup(COLLISION_GROUP_PLAYER)
-		self:SetCustomCollisionCheck(true)
+			self:SetRagdolled(true, 999999, 999999)
 
-		if IsValid(self.ixRagdoll) then
-			self.ixRagdoll:SetNotSolid(false)
-			self.ixRagdoll:SetCollisionGroup(COLLISION_GROUP_WEAPON)
-		end
+			self:SetNoDraw(true)
+			self:SetNotSolid(true)
+			self:SetCollisionGroup(COLLISION_GROUP_IN_VEHICLE)
+			self:SetCustomCollisionCheck(true)
 
-		self:SetLocalVar("knocked", true)
-		self:SetMoveType(MOVETYPE_OBSERVER)
+			if IsValid(self.ixRagdoll) then
+				self.ixRagdoll:SetNotSolid(false)
+				self.ixRagdoll:SetCollisionGroup(COLLISION_GROUP_WEAPON)
+			end
+
+			self:SetLocalVar("knocked", true)
+			self:SetMoveType(MOVETYPE_OBSERVER)
+		end)
+		
 		return
 	end
 
@@ -87,9 +98,7 @@ function PLAYER:SetCriticalState(state)
 	character:SetData("critical", nil)
 	character:SetBlood(300)
 
-	if IsValid(self.ixRagdoll) then
-		self.ixRagdoll:SetNotSolid(false)
-		self.ixRagdoll:SetCollisionGroup(COLLISION_GROUP_WEAPON)
+	if IsValid(self.ixRagdoll) or self:GetLocalVar("ragdoll") then
 		self:SetRagdolled(false)
 	end
 

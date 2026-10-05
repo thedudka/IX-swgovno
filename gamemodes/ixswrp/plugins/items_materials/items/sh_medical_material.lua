@@ -1,0 +1,9 @@
+ITEM.name = "Медицинские материалы"
+ITEM.description = "Контейнер с медицинскими материалами для создания медикаментов в фабрикаторе."
+ITEM.model = "models/lordtrilobite/starwars/props/hyperfuelbarrel02.mdl"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.rarity = 2
+ITEM.skin = 1
+ITEM.cost = 20
+ITEM.category = "Материалы для фабрикатора"

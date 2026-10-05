@@ -121,7 +121,7 @@ ix.container.Register("models/lordtrilobite/starwars/props/barrel_scarif1_phys.m
 
 ix.container.Register("models/theinvisibleman/swbf/rebels/general/cargo/box_03.mdl", {
 	name = "Железный ящик",
-	description = "Синий ящик для хранения разных вещей, от оружия до медикаментов и модулей.",
+	description = "Ящик для хранения разных вещей, от оружия до медикаментов и модулей.",
 	width = 5,
 	height = 3,
 })
@@ -144,5 +144,12 @@ ix.container.Register("models/epsilon/cwa_furniture/misc/rdv_snowbackpack.mdl", 
 	name = "Рюкзак",
 	description = "Явно чей-то рюкзак. Вы же не станете воровать, правда?",
 	width = 3,
+	height = 3,
+})
+
+ix.container.Register("models/lt_c/sci_fi/ground_locker_small.mdl", {
+	name = "Шкафчик",
+	description = "Шкафчик для хранения разных вещей. Часто кому-то принадлежит.",
+	width = 5,
 	height = 3,
 })

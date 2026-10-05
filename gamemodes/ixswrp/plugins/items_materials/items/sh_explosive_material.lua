@@ -1,0 +1,9 @@
+ITEM.name = "Плазменный контейнер"
+ITEM.description = "Контейнер с плазмой и барадием для создания взрывчатых веществ и боеприпасов в фабрикаторе."
+ITEM.model = "models/lordtrilobite/starwars/props/hyperfuelbarrel02.mdl"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.rarity = 1
+ITEM.skin = 2
+ITEM.cost = 20
+ITEM.category = "Материалы для фабрикатора"

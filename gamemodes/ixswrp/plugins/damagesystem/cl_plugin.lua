@@ -100,6 +100,7 @@ hook.Add("CalcView", "WoundedWalk_CameraSway", function(ply, pos, angles, fov)
     end)
     hook.Add("HUDPaint", "WoundedWalk_MuffleAndSounds", function()
         local ply = LocalPlayer()
+        local char = ply:GetCharacter()
         if !IsValid(ply) then 
             if muffle_lastDSP then
                 ply:SetDSP(0)
@@ -111,7 +112,7 @@ hook.Add("CalcView", "WoundedWalk_CameraSway", function(ply, pos, angles, fov)
         end
         local hp = ply:Health()
         local curTime = CurTime()
-        if IsValid(ply) then
+        if IsValid(ply) and char then
             local threshold = 49
             local intensity = 1
             if hp <= threshold then

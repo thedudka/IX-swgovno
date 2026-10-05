@@ -18,8 +18,14 @@ if CLIENT then
 			return !CAMI.PlayerHasAccess(LocalPlayer(), "Helix - Observer", nil)
 		end
 	})
-
 		ix.option.Add("observerShowContainer", ix.type.bool, true, {
+		category = "observer",
+		hidden = function()
+			return !CAMI.PlayerHasAccess(LocalPlayer(), "Helix - Observer", nil)
+		end
+	})
+	
+	ix.option.Add("observerShowStations", ix.type.bool, true, {
 		category = "observer",
 		hidden = function()
 			return !CAMI.PlayerHasAccess(LocalPlayer(), "Helix - Observer", nil)
@@ -138,6 +144,7 @@ if CLIENT then
 		[1] = Color(0, 255, 255, 255),
 		[2] = Color(70, 131, 187),
 		[3] = Color(100, 255, 108),
+		[4] = Color(255, 219, 100),
 	}
 	function PLUGIN.esp:GetAdminESPInfo(info)
 		for k, v in ipairs(player.GetAll()) do
@@ -229,6 +236,24 @@ if CLIENT then
 						{
 							text = v:GetDisplayName(),
 							color = colors[3]
+						}
+					}
+				})
+			end
+		end
+
+		if ix.option.Get("observerShowStation", true) then
+			for k, v in ipairs(ents.FindByClass("ix_station_*")) do 
+				table.insert(info, {
+					position = v:GetPos(),
+					text = {
+						{
+							text = "Верстак",
+							color = colors[4]
+						},
+						{
+							text = "Станция для крафта",
+							color = colors[4]
 						}
 					}
 				})

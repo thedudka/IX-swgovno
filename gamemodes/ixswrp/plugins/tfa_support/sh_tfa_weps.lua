@@ -264,11 +264,11 @@ PLUGIN.GunData[ "rw_sw_plx1" ] = {
 	Name = "PLX-1",
 	Slot = "primary",
 	Category = "Клоническое оружие",
-	Model = "models/weapons/glcw_weps_battlefront/rep_rocket_launcher.mdl",
+	Model = "models/props/starwars/weapons/rep_launcher.mdl",
 	iconCam = {
-    pos = Vector(-200.761108, 15.201555, -0.944953),
-    ang = Angle(-0.521, -0.348, 0.000),
-    fov = 14
+	pos = Vector(-8, 60, 7.7),
+	ang = Angle(-0.75, 270, 0),
+	fov = 45
 	},
 	Width = 5,
 	Height = 2,

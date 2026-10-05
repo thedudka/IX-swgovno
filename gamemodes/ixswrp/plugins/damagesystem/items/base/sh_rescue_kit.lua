@@ -177,28 +177,6 @@ function ITEM:OnCanUse(client)
 	return true
 end
 
-ITEM.functions.Use = {
-	name = "Использовать",
-	OnRun = function(item)
-		local client = item.player
-		if not IsValid(client) or not item:OnCanUse(client) then
-			return false
-		end
-
-		local trace = client:GetEyeTrace()
-		local target = resolveTarget(trace.Entity)
-
-		if not IsValid(target) or not target:IsPlayer() or not target:IsCritical() then
-			return false
-		end
-
-		return startTreatment(item, client, target, trace.Entity)
-	end,
-	OnCanRun = function(item)
-		return IsValid(item.player) and item:OnCanUse(item.player) and not item.player.ixRescueTreatment
-	end
-}
-
 ITEM.functions.Inject = {
 	name = "Реанимировать",
 	OnRun = function(item)
