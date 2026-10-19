@@ -1,6 +1,6 @@
 surface.CreateFont( "ixStatsFont", {
-	font = "Trebuchet MS",
-	size = 22,
+	font = "Robtronika",
+	size = 14,
 	weight = 600,
 	extended = true
 } )

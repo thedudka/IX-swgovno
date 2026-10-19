@@ -2,6 +2,8 @@ PLUGIN.name = "Stamina"
 PLUGIN.author = "Chessnut"
 PLUGIN.description = "Adds a stamina system to limit running."
 
+local breathRecoveryFraction = 0.25
+
 -- luacheck: push ignore 631
 ix.config.Add("staminaDrain", 1, "How much stamina to drain per tick (every quarter second). This is calculated before attribute reduction.", nil, {
 	data = {min = 0, max = 10, decimals = 2},
@@ -69,7 +71,7 @@ local function CalcStaminaChange(client)
 				client:SetNetVar("brth", true)
 
 				hook.Run("PlayerStaminaLost", client)
-			elseif (value >= (maxStamina * 0.5) and client:GetNetVar("brth", false)) then
+			elseif (value >= (maxStamina * breathRecoveryFraction) and client:GetNetVar("brth", false)) then
 				client:SetNetVar("brth", nil)
 
 				hook.Run("PlayerStaminaGained", client)
@@ -125,7 +127,7 @@ if (SERVER) then
 
 		self:SetLocalVar("stm", value)
 
-		if (value >= (maxStamina * 0.5) and self:GetNetVar("brth", false)) then
+		if (value >= (maxStamina * breathRecoveryFraction) and self:GetNetVar("brth", false)) then
 			self:SetNetVar("brth", nil)
 
 			hook.Run("PlayerStaminaGained", self)

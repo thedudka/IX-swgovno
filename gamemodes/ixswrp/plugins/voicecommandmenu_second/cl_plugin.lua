@@ -63,7 +63,7 @@ hook.Add("HUDPaint", "ixSecondaryVoiceMenu.Draw", function()
 
 	draw.RoundedBox(6, x, y, width, height, Color(20, 24, 30, 235))
 	draw.RoundedBox(6, x + 2, y + 2, width - 4, height - 4, Color(31, 37, 45, 245))
-	draw.SimpleText("ДОП. ГОЛОСОВЫЕ СООБЩЕНИЯ", "ixVoiceCommandMenu.Title", x + 18, y + 14, Color(236, 239, 244), TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
+	draw.SimpleText("ДОП. ГОЛОСОВЫЕ СООБЩЕНИЯ", "ixVoiceCommandMenu.Title", x + 6, y + 14, Color(236, 239, 244), TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
 	draw.SimpleText("Нажмите цифру для ответа", "ixVoiceCommandMenu.Entry", x + 18, y + 42, Color(160, 170, 182), TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
 
 	for number = 1, #commands do

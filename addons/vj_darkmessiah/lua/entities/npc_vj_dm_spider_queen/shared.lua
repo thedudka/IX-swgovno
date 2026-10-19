@@ -5,3 +5,4 @@ ENT.Author 			= "DrVrej"
 ENT.Contact 		= "http://steamcommunity.com/groups/vrejgaming"
 ENT.Information 	= "She's your mother!"
 ENT.Category		= "Dark Messiah"
+ENT.VJ_NPC_Class = {"CLASS_DARK_MESSIAH"}

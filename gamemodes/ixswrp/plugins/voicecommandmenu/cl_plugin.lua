@@ -4,14 +4,14 @@ PLUGIN.menuOpen = false
 PLUGIN.weaponLockUntil = 0
 
 surface.CreateFont("ixVoiceCommandMenu.Title", {
-	font = "Tahoma",
-	size = 22,
+	font = "Robtronika",
+	size = 14,
 	weight = 700,
 	extended = true
 })
 
 surface.CreateFont("ixVoiceCommandMenu.Entry", {
-	font = "Tahoma",
+	font = "Doubleplus",
 	size = 18,
 	weight = 500,
 	extended = true

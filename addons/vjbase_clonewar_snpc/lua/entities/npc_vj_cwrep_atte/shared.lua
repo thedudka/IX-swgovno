@@ -6,6 +6,7 @@ ENT.Contact 		= "http://steamcommunity.com/profiles/76561198180831682/"
 ENT.Purpose 		= "Spawn it and fight with it!"
 ENT.Instructions 	= "Click on the spawnicon to spawn it."
 ENT.Category		= "Galactic Republic"
+ENT.VJ_NPC_Class = {"CLASS_REPUBLIC"}
 
 if CLIENT then
 	VJ.AddKillIcon("npc_vj_cwrep_atte", ENT.PrintName, VJ.KILLICON_DEFAULT)

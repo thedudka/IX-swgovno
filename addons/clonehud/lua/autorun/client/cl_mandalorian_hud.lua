@@ -74,6 +74,29 @@ local paletteSets = {
 }
 
 local palette = paletteSets.mando
+local radarFactionPalette = {
+    friendly = Color(80, 230, 120, 220),
+    hostile = Color(255, 80, 80, 220),
+    neutral = Color(255, 220, 70, 220)
+}
+
+local function getVJNPCAllegiance(ent)
+    local npcClasses = ent.VJ_NPC_Class
+
+    if (!istable(npcClasses)) then
+        return nil
+    end
+
+    for _, npcClass in ipairs(npcClasses) do
+        if (npcClass == "CLASS_CIS") or (npcClass == "CLASS_ALIENSWARM") or (npcClass == "CLASS_DARK_MESSIAH") then
+            return "hostile"
+        elseif (npcClass == "CLASS_REPUBLIC") then
+            return "friendly"
+        end
+    end
+
+    return nil
+end
 
 local radarCache = {}
 local radarDetections = {}
@@ -1746,12 +1769,10 @@ local function refreshRadar(ply)
             elseif ent:IsNPC() then
                 keep = true
                 kind = "npc"
-            elseif ent:IsVehicle() then
-                keep = true
-                kind = "vehicle"
             end
 
             if keep then
+                local character = kind == "player" and ent:GetCharacter()
                 local offset = ent:GetPos() - origin
                 radarCache[#radarCache + 1] = {
                     id = ent:EntIndex(),
@@ -1759,7 +1780,9 @@ local function refreshRadar(ply)
                     y = offset:Dot(forward),
                     z = offset.z,
                     distance = offset:Length2D(),
-                    kind = kind
+                    kind = kind,
+                    faction = character and character:GetFaction() or nil,
+                    npcAllegiance = kind == "npc" and getVJNPCAllegiance(ent) or nil
                 }
             end
         end
@@ -1791,13 +1814,6 @@ local function drawRadarBlip(x, y, size, col, kind)
         surface.SetDrawColor(fadeTo(46))
         surface.DrawPoly(diamond)
         drawPolyOutline(diamond, fadeTo(255))
-        return
-    end
-
-    if kind == "vehicle" then
-        local faded = fadeTo(255)
-        drawSoftLine(x - size, y, x + size, y, faded)
-        drawSoftLine(x, y - size, x, y + size, faded)
         return
     end
 
@@ -1908,7 +1924,9 @@ local function drawRadar(x, y, width, height, ply)
                     detectedAt = now,
                     offsetX = offsetX,
                     offsetY = offsetY,
-                    kind = contact.kind
+                    kind = contact.kind,
+                    faction = contact.faction,
+                    npcAllegiance = contact.npcAllegiance
                 }
             end
         end
@@ -1929,13 +1947,28 @@ local function drawRadar(x, y, width, height, ply)
             end
 
             if detection.kind == "player" then
-                color = palette.ply
+                local faction = detection.faction
+
+                if (faction == FACTION_CLONE or faction == FACTION_REPUBLIC or
+                    faction == FACTION_COMMANDO or faction == FACTION_JEDI) then
+                    color = radarFactionPalette.friendly
+                elseif (faction == FACTION_DROID or faction == FACTION_CIS or
+                    faction == FACTION_FAUNA or faction == FACTION_SITH) then
+                    color = radarFactionPalette.hostile
+                else
+                    color = radarFactionPalette.neutral
+                end
+
                 size = sp(4)
             elseif detection.kind == "npc" then
-                color = palette.amber
-                size = sp(5)
-            elseif detection.kind == "vehicle" then
-                color = withAlpha(palette.red, 210)
+                if (detection.npcAllegiance == "friendly") then
+                    color = radarFactionPalette.friendly
+                elseif (detection.npcAllegiance == "hostile") then
+                    color = radarFactionPalette.hostile
+                else
+                    color = palette.amber
+                end
+
                 size = sp(5)
             end
 

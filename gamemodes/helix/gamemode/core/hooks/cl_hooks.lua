@@ -36,14 +36,14 @@ function GM:LoadFonts(font, genericFont)
 
 	surface.CreateFont("ixTitleFont", {
 		font = font,
-		size = ScreenScale(30),
+		size = ScreenScale(24),
 		extended = true,
 		weight = 100
 	})
 
 	surface.CreateFont("ixSubTitleFont", {
 		font = font,
-		size = ScreenScale(16),
+		size = ScreenScale(10),
 		extended = true,
 		weight = 100
 	})
@@ -55,8 +55,8 @@ function GM:LoadFonts(font, genericFont)
 	})
 
 	surface.CreateFont("ixMenuButtonFont", {
-		font = "Roboto Th",
-		size = ScreenScale(14),
+		font = font,
+		size = ScreenScale(8),
 		extended = true,
 		weight = 100
 	})
@@ -175,14 +175,14 @@ function GM:LoadFonts(font, genericFont)
 	})
 
 	surface.CreateFont("ixSmallTitleFont", {
-		font = "Roboto Th",
+		font = font,
 		size = math.max(ScreenScale(12), 24),
 		extended = true,
 		weight = 100
 	})
 
 	surface.CreateFont("ixMinimalTitleFont", {
-		font = "Roboto",
+		font = font,
 		size = math.max(ScreenScale(8), 22),
 		extended = true,
 		weight = 800

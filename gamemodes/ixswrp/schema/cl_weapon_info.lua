@@ -1,5 +1,5 @@
 surface.CreateFont( "ixWeaponStatsFont", {
-	font = "Trebuchet MS",
+	font = "Doubleplus",
 	size = 22,
 	weight = 600,
 	extended = true

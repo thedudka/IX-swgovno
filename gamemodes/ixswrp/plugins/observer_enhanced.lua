@@ -33,14 +33,14 @@ if CLIENT then
 	})
 
 	surface.CreateFont("ixESPMainText", {
-		font = "Arial",
+		font = (ix.config.Get("genericFont")),
 		weight = 700,
 		size = ScreenScale(7),
 		extended = true,
 	})
 
 	surface.CreateFont("ixESPText", {
-		font = "Arial",
+		font = (ix.config.Get("genericFont")),
 		weight = 700,
 		size = ScreenScale(5.5),
 		extended = true,
