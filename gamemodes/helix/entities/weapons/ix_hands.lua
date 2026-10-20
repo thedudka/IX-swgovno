@@ -2,7 +2,7 @@
 AddCSLuaFile()
 
 if (CLIENT) then
-	SWEP.PrintName = "Hands"
+	SWEP.PrintName = "Руки"
 	SWEP.Slot = 0
 	SWEP.SlotPos = 1
 	SWEP.DrawAmmo = false
@@ -10,10 +10,10 @@ if (CLIENT) then
 end
 
 SWEP.Author = "Chessnut"
-SWEP.Instructions = [[Primary Fire: Throw/Punch
-Secondary Fire: Knock/Pickup
-Secondary Fire + Mouse: Rotate Object
-Reload: Drop]]
+SWEP.Instructions = [[ЛКМ: Кинуть/Ударить
+ПКМ: Стучать/Взять в руки
+Зажатый ПКМ: Крутить Объект
+Перезарядка: Бросить]]
 SWEP.Purpose = "Hitting things and knocking on doors."
 SWEP.Drop = false
 
@@ -67,7 +67,25 @@ function SWEP:Initialize()
 end
 
 if (CLIENT) then
+	ix.lang.AddTable("english", {
+		optDisableHandsCrosshair = "Отключить прицел рук",
+		optdDisableHandsCrosshair = "Скрывает прицел при использовании рук."
+	})
+
+	ix.lang.AddTable("russian", {
+		optDisableHandsCrosshair = "Отключить прицел рук",
+		optdDisableHandsCrosshair = "Скрывает прицел при использовании рук."
+	})
+
+	ix.option.Add("disableHandsCrosshair", ix.type.bool, true, {
+		category = "Интерфейс"
+	})
+
 	function SWEP:DoDrawCrosshair(x, y)
+		if (ix.option.Get("disableHandsCrosshair", false)) then
+			return true
+		end
+
 		surface.SetDrawColor(255, 255, 255, 66)
 		surface.DrawRect(x - 2, y - 2, 4, 4)
 	end

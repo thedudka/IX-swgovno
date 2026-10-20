@@ -173,7 +173,13 @@ function ENT:OnMeleeAttackExecute(status, ent, isProp)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:OnDamaged(dmginfo, hitgroup, status)
-	if status == "PreDamage" && hitgroup == 11 then
+	local inflictor = dmginfo:GetInflictor()
+	local attacker = dmginfo:GetAttacker()
+	local weapon = IsValid(attacker) and attacker:IsPlayer() and attacker:GetActiveWeapon()
+	local isRailcoil = (IsValid(inflictor) and inflictor:GetClass() == "rw_sw_railcoil") or
+		(IsValid(weapon) and weapon:GetClass() == "rw_sw_railcoil")
+
+	if status == "PreDamage" && hitgroup == 11 && !isRailcoil then
 		dmginfo:SetDamage(0)
 	end
 end

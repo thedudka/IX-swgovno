@@ -139,6 +139,12 @@ end
 
 function ENT:OnDamaged(dmginfo, hitgroup, status)
 	if status == "PreDamage" then
+		local inflictor = dmginfo:GetInflictor()
+		local attacker = dmginfo:GetAttacker()
+		local weapon = IsValid(attacker) and attacker:IsPlayer() and attacker:GetActiveWeapon()
+		local isRailcoil = (IsValid(inflictor) and inflictor:GetClass() == "rw_sw_railcoil") or
+			(IsValid(weapon) and weapon:GetClass() == "rw_sw_railcoil")
+
 		if self.SBDChestArmorBroken == false then
 			if dmginfo:IsBulletDamage() then
 				if dmginfo:GetDamage() >= 60 && (hitgroup == 20) then
@@ -195,49 +201,53 @@ function ENT:OnDamaged(dmginfo, hitgroup, status)
 				end
 			end
 		end
-		if self.SBDChestArmorBroken == true && self.SBDHeadArmorBroken == false then
-			if !(hitgroup == 20) and dmginfo:IsBulletDamage() or dmginfo:GetDamageType() == DMG_SLASH or dmginfo:GetDamageType() == DMG_CLUB then
-				VJ.EmitSound(self, "VJ.Impact.Armor")
-				dmginfo:ScaleDamage(0.25)
-				local sparkEffect = EffectData()
-				sparkEffect:SetOrigin(dmginfo:GetDamagePosition())
-				sparkEffect:SetNormal(dmginfo:GetDamageForce():GetNormalized())
-				sparkEffect:SetMagnitude(3)
-				sparkEffect:SetScale(1)
-				util.Effect("ElectricSpark", sparkEffect)
-			end
-		elseif self.SBDChestArmorBroken == false && self.SBDHeadArmorBroken == true then
-			if !(hitgroup == 21) and dmginfo:IsBulletDamage() or dmginfo:GetDamageType() == DMG_SLASH or dmginfo:GetDamageType() == DMG_CLUB then
-				VJ.EmitSound(self, "VJ.Impact.Armor")
-				dmginfo:ScaleDamage(0.25)
-				local sparkEffect = EffectData()
-				sparkEffect:SetOrigin(dmginfo:GetDamagePosition())
-				sparkEffect:SetNormal(dmginfo:GetDamageForce():GetNormalized())
-				sparkEffect:SetMagnitude(3)
-				sparkEffect:SetScale(1)
-				util.Effect("ElectricSpark", sparkEffect)
-			end
-		elseif self.SBDChestArmorBroken == true && self.SBDHeadArmorBroken == true then
-			if !(hitgroup == 20) and !(hitgroup == 21) and dmginfo:IsBulletDamage() or dmginfo:GetDamageType() == DMG_SLASH or dmginfo:GetDamageType() == DMG_CLUB then
-				VJ.EmitSound(self, "VJ.Impact.Armor")
-				dmginfo:ScaleDamage(0.25)
-				local sparkEffect = EffectData()
-				sparkEffect:SetOrigin(dmginfo:GetDamagePosition())
-				sparkEffect:SetNormal(dmginfo:GetDamageForce():GetNormalized())
-				sparkEffect:SetMagnitude(3)
-				sparkEffect:SetScale(1)
-				util.Effect("ElectricSpark", sparkEffect)
-			end
+		if (isRailcoil) then
+			dmginfo:ScaleDamage(1.0)
 		else
-			if dmginfo:IsBulletDamage() or dmginfo:GetDamageType() == DMG_SLASH or dmginfo:GetDamageType() == DMG_CLUB then
-				VJ.EmitSound(self, "VJ.Impact.Armor")
-				dmginfo:ScaleDamage(0.25)
-				local sparkEffect = EffectData()
-				sparkEffect:SetOrigin(dmginfo:GetDamagePosition())
-				sparkEffect:SetNormal(dmginfo:GetDamageForce():GetNormalized())
-				sparkEffect:SetMagnitude(3)
-				sparkEffect:SetScale(1)
-				util.Effect("ElectricSpark", sparkEffect)
+			if self.SBDChestArmorBroken == true && self.SBDHeadArmorBroken == false then
+				if !(hitgroup == 20) and dmginfo:IsBulletDamage() or dmginfo:GetDamageType() == DMG_SLASH or dmginfo:GetDamageType() == DMG_CLUB then
+					VJ.EmitSound(self, "VJ.Impact.Armor")
+					dmginfo:ScaleDamage(0.25)
+					local sparkEffect = EffectData()
+					sparkEffect:SetOrigin(dmginfo:GetDamagePosition())
+					sparkEffect:SetNormal(dmginfo:GetDamageForce():GetNormalized())
+					sparkEffect:SetMagnitude(3)
+					sparkEffect:SetScale(1)
+					util.Effect("ElectricSpark", sparkEffect)
+				end
+			elseif self.SBDChestArmorBroken == false && self.SBDHeadArmorBroken == true then
+				if !(hitgroup == 21) and dmginfo:IsBulletDamage() or dmginfo:GetDamageType() == DMG_SLASH or dmginfo:GetDamageType() == DMG_CLUB then
+					VJ.EmitSound(self, "VJ.Impact.Armor")
+					dmginfo:ScaleDamage(0.25)
+					local sparkEffect = EffectData()
+					sparkEffect:SetOrigin(dmginfo:GetDamagePosition())
+					sparkEffect:SetNormal(dmginfo:GetDamageForce():GetNormalized())
+					sparkEffect:SetMagnitude(3)
+					sparkEffect:SetScale(1)
+					util.Effect("ElectricSpark", sparkEffect)
+				end
+			elseif self.SBDChestArmorBroken == true && self.SBDHeadArmorBroken == true then
+				if !(hitgroup == 20) and !(hitgroup == 21) and dmginfo:IsBulletDamage() or dmginfo:GetDamageType() == DMG_SLASH or dmginfo:GetDamageType() == DMG_CLUB then
+					VJ.EmitSound(self, "VJ.Impact.Armor")
+					dmginfo:ScaleDamage(0.25)
+					local sparkEffect = EffectData()
+					sparkEffect:SetOrigin(dmginfo:GetDamagePosition())
+					sparkEffect:SetNormal(dmginfo:GetDamageForce():GetNormalized())
+					sparkEffect:SetMagnitude(3)
+					sparkEffect:SetScale(1)
+					util.Effect("ElectricSpark", sparkEffect)
+				end
+			else
+				if dmginfo:IsBulletDamage() or dmginfo:GetDamageType() == DMG_SLASH or dmginfo:GetDamageType() == DMG_CLUB then
+					VJ.EmitSound(self, "VJ.Impact.Armor")
+					dmginfo:ScaleDamage(0.25)
+					local sparkEffect = EffectData()
+					sparkEffect:SetOrigin(dmginfo:GetDamagePosition())
+					sparkEffect:SetNormal(dmginfo:GetDamageForce():GetNormalized())
+					sparkEffect:SetMagnitude(3)
+					sparkEffect:SetScale(1)
+					util.Effect("ElectricSpark", sparkEffect)
+				end
 			end
 		end
 	end	

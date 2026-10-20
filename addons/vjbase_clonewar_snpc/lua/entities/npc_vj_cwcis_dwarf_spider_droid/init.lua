@@ -138,8 +138,17 @@ end
 function ENT:OnDamaged(dmginfo, hitgroup, status)
 	if status == "PreDamage" then	
 		if dmginfo:IsBulletDamage() or dmginfo:GetDamageType() == DMG_SLASH or dmginfo:GetDamageType() == DMG_CLUB then
+			local inflictor = dmginfo:GetInflictor()
+			local attacker = dmginfo:GetAttacker()
+			local weapon = IsValid(attacker) and attacker:IsPlayer() and attacker:GetActiveWeapon()
+			local isRailcoil = (IsValid(inflictor) and inflictor:GetClass() == "rw_sw_railcoil") or
+				(IsValid(weapon) and weapon:GetClass() == "rw_sw_railcoil")
+
 			VJ.EmitSound(self, "VJ.Impact.Armor")
-			dmginfo:ScaleDamage(0.25)
+			if (!isRailcoil) then
+				dmginfo:ScaleDamage(0.25)
+			end
+
 			local sparkEffect = EffectData()
 			sparkEffect:SetOrigin(dmginfo:GetDamagePosition())
 			sparkEffect:SetNormal(dmginfo:GetDamageForce():GetNormalized())

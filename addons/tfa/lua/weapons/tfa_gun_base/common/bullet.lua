@@ -727,7 +727,7 @@ function SWEP.MainBullet:Penetrate(ply, traceres, dmginfo, weapon, penetrated, p
 		return
 	end
 
-	if penetration_cvar and not penetration_cvar:GetBool() then return end
+	if penetration_cvar and not penetration_cvar:GetBool() and weapon:GetClass() ~= "rw_sw_railcoil" then return end
 	if self.PenetrationCount > math.min(penetration_max_cvar:GetInt(100), weapon.Primary.MaxPenetration) then return end
 	-- source engine quirk - if bullet is fired too close to brush surface
 	-- it is assumed to be fired right in front of it, rather than exact

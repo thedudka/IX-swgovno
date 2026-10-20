@@ -5,7 +5,7 @@ PLUGIN.description = "do what it does"
 PLUGIN.author = "Yandex Alisa"
 
 if CLIENT then
-    ix.option.Add("Убрать стандартный TFA интерфейс", ix.type.bool, true, {
+    ix.option.Add("disableTfaHud", ix.type.bool, true, {
         category = "Интерфейс",
         default = true,
         OnChanged = function(oldValue, value)

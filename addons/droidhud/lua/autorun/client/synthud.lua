@@ -1,5 +1,5 @@
 CreateClientConVar("SyntHud_enabled",1,true,false, "Enable Synthetik HUD",0,1)
-CreateClientConVar("SyntHud_background",1,true,false, "Adds a background behind the hud",0,1)
+CreateClientConVar("SyntHud_background",0,true,false, "Adds a background behind the hud",0,1)
 CreateClientConVar("SyntHud_armor_background",1,true,false, "Aarmor backgorund style",0,3)
 CreateClientConVar("SyntHud_bars_background",1,true,false, "Display background for health/armor",0,1)
 

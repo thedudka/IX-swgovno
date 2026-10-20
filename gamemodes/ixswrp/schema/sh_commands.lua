@@ -217,9 +217,32 @@ do
 	ix.command.Add("CharSearch", COMMAND)
 end
 
-ix.command.Add("CharRevive", {
-	description = "Позволяет поднять игрока, если он в критическом состоянии.",
-	superAdminOnly = true,
+ix.command.Add("Untie", {
+	description = "Развязать другого игрока, если обычное освобождение не работает.",
+	arguments = {
+		ix.type.player
+	},
+	OnRun = function(self, client, target)
+		if (!IsValid(target) or !target:IsPlayer() or target == client) then
+			return "Укажите другого игрока."
+		end
+
+		if (!target:IsRestricted()) then
+			return "Этот игрок не связан."
+		end
+
+		target:SetRestricted(false)
+		target:SetNetVar("tying")
+		target:SetNetVar("untying")
+		target:SetAction(false)
+		target:Notify("Вас развязали.")
+		client:Notify("Вы развязали игрока.")
+	end
+})
+
+	ix.command.Add("CharRevive", {
+		description = "Позволяет поднять игрока, если он в критическом состоянии.",
+		superAdminOnly = true,
 	arguments = {
 		ix.type.player
 	},
@@ -371,6 +394,48 @@ ix.command.Add("AdminForceMenu", {
 	end
 })
 
+ix.command.Add("Helmet", {
+	description = "Переключает интерфейс на экране шлема.",
+	OnCheckAccess = function(self, client)
+		return client:IsClone()
+	end,
+	OnRun = function(self, client)
+		client:Say("!helmet")
+	end
+})
+
+ix.command.Add("Visor", {
+	description = "Переключает интерфейс на экране шлема.",
+	OnCheckAccess = function(self, client)
+		return client:IsClone()
+	end,
+	OnRun = function(self, client)
+		client:Say("!helmet")
+	end
+})
+
+ix.command.Add("DroidHudEnable", {
+	description = "Включает интерфейс дроида.",
+	OnCheckAccess = function(self, client)
+		return client:IsDroid()
+	end,
+	OnRun = function(self, client)
+		client:ConCommand("SyntHud_enabled 1")
+		client:ChatPrint("HUD включен.")
+	end
+})
+
+ix.command.Add("DroidHudDisable", {
+	description = "Отключает интерфейс дроида.",
+	OnCheckAccess = function(self, client)
+		return client:IsDroid()
+	end,
+	OnRun = function(self, client)
+		client:ConCommand("SyntHud_enabled 0")
+		client:ChatPrint("HUD отключен.")
+	end
+})
+
 do
 	COMMAND = {
 		description = "Позволяет ослепить игрока на выбранное время.",
@@ -388,3 +453,19 @@ do
 
 	ix.command.Add("PlyBlind", COMMAND)
 end
+
+ix.command.Add("PlyBlindAll", {
+	description = "Позволяет ослепить всех, кроме администраторов.",
+	arguments = {
+		ix.type.number,
+		ix.type.number
+	},
+	superAdminOnly = true,
+	OnRun = function(self, client, speed, time)
+		for _, target in ipairs(player.GetAll()) do
+			if (!target:IsAdmin() and !target:IsSuperAdmin()) then
+				target:ScreenFade(SCREENFADE.OUT, color_black, speed, time)
+			end
+		end
+	end
+})

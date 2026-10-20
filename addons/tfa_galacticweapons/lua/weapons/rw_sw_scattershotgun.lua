@@ -35,10 +35,10 @@ SWEP.FireModeName 					= nil
 SWEP.DisableChambering 				= true
 SWEP.MuzzleFlashEffect 				= ""
 
-SWEP.Primary.ClipSize				= 6
+SWEP.Primary.ClipSize				= 5
 SWEP.Primary.DefaultClip			= 6*5
-SWEP.Primary.RPM					= 110
-SWEP.Primary.RPM_Burst				= 110
+SWEP.Primary.RPM					= 250
+SWEP.Primary.RPM_Burst				= 250
 SWEP.Primary.Ammo					= "ar2"
 SWEP.Primary.AmmoConsumption 		= 1
 SWEP.Primary.Range 					= 2500
@@ -50,7 +50,7 @@ SWEP.Primary.BurstDelay				= 0.2
 SWEP.Primary.Sound 					= Sound ("w/scatter.wav");
 SWEP.Primary.ReloadSound 			= Sound ("w/heavy.wav");
 SWEP.Primary.PenetrationMultiplier 	= 0
-SWEP.Primary.Damage					= 25
+SWEP.Primary.Damage					= 45
 SWEP.Primary.HullSize 				= 0
 SWEP.DamageType 					= nil
 
@@ -101,24 +101,24 @@ SWEP.Blowback_Shell_Effect 			= "None"
 tfa_use_legacy_shells				= true
 
 SWEP.Tracer							= 0
-SWEP.TracerName 					= "rw_sw_laser_purple"
+SWEP.TracerName 					= "rw_sw_laser_red"
 SWEP.TracerCount 					= 1
 SWEP.TracerLua 						= false
 SWEP.TracerDelay					= 0.01
-SWEP.ImpactEffect 					= "rw_sw_impact_purple"
+SWEP.ImpactEffect 					= "rw_sw_impact_red"
 SWEP.ImpactDecal 					= "FadingScorch"
 
 SWEP.VMPos = Vector(0.9, -2, -4)
 SWEP.VMAng = Vector(0,0,-25)
 
 SWEP.IronSightTime 					= 0.4
-SWEP.Primary.KickUp					= 2.2
-SWEP.Primary.KickDown				= 1.9
+SWEP.Primary.KickUp					= 1.7
+SWEP.Primary.KickDown				= 1.6
 SWEP.Primary.KickHorizontal			= 0.12
 SWEP.Primary.StaticRecoilFactor 	= 0.6
-SWEP.Primary.Spread					= 0.07
+SWEP.Primary.Spread					= 0.06
 SWEP.Primary.IronAccuracy 			= 0.05
-SWEP.Primary.SpreadMultiplierMax 	= 2.5
+SWEP.Primary.SpreadMultiplierMax 	= 2.3
 SWEP.Primary.SpreadIncrement 		= 0.22
 SWEP.Primary.SpreadRecovery 		= 0.8
 SWEP.DisableChambering 				= true

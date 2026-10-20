@@ -242,7 +242,7 @@ if CLIENT then
 			end
 		end
 
-		if ix.option.Get("observerShowStation", true) then
+		if ix.option.Get("observerShowStations", true) then
 			for k, v in ipairs(ents.FindByClass("ix_station_*")) do 
 				table.insert(info, {
 					position = v:GetPos(),

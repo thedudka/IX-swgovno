@@ -299,16 +299,16 @@ announceHelmetState = function(ply, raised, bodygroupChanged, boneChanged)
     end
 
     if raised then
-        local message = "Helmet raised. Visor HUD hidden."
+        local message = "Дисплей отключен."
         if not bodygroupChanged and not boneChanged then
-            message = message .. " No matching helmet bodygroup or bone was found on this model."
+            message = message .. ""
         end
 
         ply:ChatPrint(message)
         return
     end
 
-    ply:ChatPrint("Helmet lowered. Visor HUD restored if enabled.")
+    ply:ChatPrint("Дисплей включен.")
 end
 
 hook.Add("PlayerSay", "MandoHUD.HelmetChatCommand", function(ply, text)
