@@ -21,62 +21,25 @@ hook.Add("EntityEmitSound", "rHideToolgunSound", function(data)
 	end
 end)
 
-if (SERVER) then
-    local hiddenWeaponClasses = {
-        weapon_physgun = true,
-        gmod_tool = true
-    }
-
-    local function setHiddenWeaponDraw(weapon, hidden)
-        if (!IsValid(weapon) or !hiddenWeaponClasses[weapon:GetClass()]) then
-            return
-        end
-
-        if (weapon:GetNoDraw() != hidden) then
-            weapon:SetNoDraw(hidden)
-        end
-    end
-
-    local function updateWeaponDraw(weapon)
-        if (!IsValid(weapon) or !hiddenWeaponClasses[weapon:GetClass()]) then
-            return
-        end
-
-        local owner = weapon:GetOwner()
-        setHiddenWeaponDraw(weapon, IsValid(owner) and owner:GetActiveWeapon() == weapon)
-    end
-
-    hook.Add("InitPostEntity", "HiddenPhysgun_InitializeWeaponModels", function()
-        for class in pairs(hiddenWeaponClasses) do
-            for _, weapon in ipairs(ents.FindByClass(class)) do
-                updateWeaponDraw(weapon)
+hook.Add("Think", "HiddenPhysgun_Model", function()
+    for _, ply in ipairs(player.GetAll()) do
+        local wep = ply:GetActiveWeapon()
+        if IsValid(wep) and wep:GetClass() == "weapon_physgun" then
+            if not wep:GetNoDraw() then
+                wep:SetNoDraw(true)
             end
         end
-    end)
-
-    hook.Add("OnEntityCreated", "HiddenPhysgun_InitializeCreatedWeapon", function(entity)
-        if (!IsValid(entity) or !hiddenWeaponClasses[entity:GetClass()]) then
-            return
+    end
+    
+    for _, wep in ipairs(ents.FindByClass("weapon_physgun")) do
+        if IsValid(wep) and not IsValid(wep:GetOwner()) then
+            if wep:GetNoDraw() then
+                wep:SetNoDraw(false)
+            end
         end
+    end
+end)
 
-        timer.Simple(0, function()
-            updateWeaponDraw(entity)
-        end)
-    end)
-
-    hook.Add("WeaponEquip", "HiddenPhysgun_WeaponEquip", function(weapon)
-        updateWeaponDraw(weapon)
-    end)
-
-    hook.Add("PlayerSwitchWeapon", "HiddenPhysgun_PlayerSwitchWeapon", function(_, oldWeapon, newWeapon)
-        setHiddenWeaponDraw(oldWeapon, false)
-        setHiddenWeaponDraw(newWeapon, true)
-    end)
-
-    hook.Add("PlayerDroppedWeapon", "HiddenPhysgun_PlayerDroppedWeapon", function(_, weapon)
-        setHiddenWeaponDraw(weapon, false)
-    end)
-end
 hook.Add("CalcMainActivity", "HiddenPhysgun_Anim", function(ply, velocity)
     local wep = ply:GetActiveWeapon()
     

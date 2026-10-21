@@ -217,14 +217,23 @@ do
 	ix.command.Add("CharSearch", COMMAND)
 end
 
-ix.command.Add("Untie", {
-	description = "Развязать другого игрока, если обычное освобождение не работает.",
-	arguments = {
-		ix.type.player
-	},
-	OnRun = function(self, client, target)
+do
+	local COMMAND = {}
+
+	function COMMAND:OnRun(client, arguments)
+		if (client:IsRestricted()) then
+			return "@notNow"
+		end
+
+		local data = {}
+			data.start = client:GetShootPos()
+			data.endpos = data.start + client:GetAimVector() * 96
+			data.filter = client
+
+		local target = util.TraceLine(data).Entity
+
 		if (!IsValid(target) or !target:IsPlayer() or target == client) then
-			return "Укажите другого игрока."
+			return "Наведитесь на другого игрока."
 		end
 
 		if (!target:IsRestricted()) then
@@ -238,7 +247,9 @@ ix.command.Add("Untie", {
 		target:Notify("Вас развязали.")
 		client:Notify("Вы развязали игрока.")
 	end
-})
+
+	ix.command.Add("Untie", COMMAND)
+end
 
 	ix.command.Add("CharRevive", {
 		description = "Позволяет поднять игрока, если он в критическом состоянии.",

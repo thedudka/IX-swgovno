@@ -30,7 +30,12 @@ if SERVER then
             return true
         end
 
-        if ((IsValid(inflictor) and inflictor.ixHeldOwner) or (IsValid(attacker) and attacker.ixHeldOwner)) then
+        local isTimeBombDetonation = IsValid(inflictor)
+            and inflictor:GetClass() == "ix_timebomb_charge"
+            and inflictor.ixTimeBombDetonating
+
+        if (((IsValid(inflictor) and inflictor.ixHeldOwner)
+            or (IsValid(attacker) and attacker.ixHeldOwner)) and not isTimeBombDetonation) then
             damageInfo:SetDamage(0)
             return true
         end
