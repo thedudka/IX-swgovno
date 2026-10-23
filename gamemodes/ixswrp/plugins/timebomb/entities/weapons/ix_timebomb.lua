@@ -35,6 +35,10 @@ local function getVehicleTarget(entity)
 	while (IsValid(current) and depth < 8) do
 		local class = current:GetClass()
 
+		if (class == "lvs_walker_atte_rear" or class == "lvs_walker_hsd_leg") then
+			return current
+		end
+
 		if (current:IsVehicle() or current.LVS or string.StartWith(class, "lvs_")) then
 			return current
 		end
@@ -151,13 +155,13 @@ local function createCharge(weapon, position, angles, mode, anchor, surfaceNorma
 		return false
 	end
 
-	local delay = mode == "npc" and 5 or (weapon.timeBombDelay or DEFAULT_TIMER)
+	local delay = weapon.timeBombDelay or DEFAULT_TIMER
 	charge:Arm(delay, client)
 
 	client:EmitSound("timebomb/plant.wav")
 
 	if (mode == "npc") then
-		client:Notify("Вы установили заряд на существо. Бегите.")
+		client:Notify("Заряд установлен на существо. Подрыв через " .. tostring(delay) .. " секунд.")
 	else
 		client:Notify("Заряд установлен. Детонация через " .. tostring(delay) .. " секунд.")
 	end
@@ -193,7 +197,7 @@ function SWEP:PrimaryAttack()
 	local dropPosition = placeTrace.Hit and (placeTrace.HitPos - forward * 10) or placeTrace.HitPos
 
 	if (placeTrace.StartSolid or placeTrace.HitSky) then
-		client:ChatPrint("Здесь нельзя установить заряд.")
+		client:Notify("Здесь нельзя установить заряд.")
 		return
 	end
 
@@ -213,47 +217,57 @@ function SWEP:SecondaryAttack()
 		return
 	end
 
+	local traceStart = client:GetShootPos()
+	local traceEnd = traceStart + client:GetAimVector() * 96
 	local trace = util.TraceLine({
-		start = client:GetShootPos(),
-		endpos = client:GetShootPos() + client:GetAimVector() * 96,
+		start = traceStart,
+		endpos = traceEnd,
 		filter = {client, self},
 		mask = MASK_SOLID
 	})
 
 	if (!trace.Hit or trace.HitSky) then
-		client:ChatPrint("Нельзя установить здесь заряд!")
+		client:Notify("Здесь нельзя установить заряд!")
 		return
+	end
+
+	local targetEntity = trace.Entity
+	local hitPosition = trace.HitPos
+	local hitNormal = trace.HitNormal
+
+	if (!isvector(hitNormal) or hitNormal:LengthSqr() < 0.001) then
+		hitNormal = hitPosition - targetEntity:WorldSpaceCenter()
 	end
 
 	local mode
-	local anchor = getVehicleTarget(trace.Entity)
+	local anchor = getVehicleTarget(targetEntity)
 
-	if (IsValid(trace.Entity) and trace.Entity:IsNPC()) then
+	if (IsValid(targetEntity) and targetEntity:IsNPC()) then
 		mode = "npc"
-		anchor = trace.Entity
+		anchor = targetEntity
 	elseif (IsValid(anchor)) then
 		mode = "vehicle"
-	elseif (trace.HitWorld or !IsValid(trace.Entity) or trace.Entity:IsWorld()) then
+	elseif (trace.HitWorld or !IsValid(targetEntity) or targetEntity:IsWorld()) then
 		mode = "world"
-	elseif (trace.Entity:GetClass() == "ix_container") then
+	elseif (targetEntity:GetClass() == "ix_container") then
 		mode = "container"
-		anchor = trace.Entity
-	elseif (trace.Entity:IsDoor()
-		or trace.Entity:GetClass() == "func_door"
-		or trace.Entity:GetClass() == "func_door_rotating"
-		or trace.Entity:GetClass() == "prop_door_rotating") then
+		anchor = targetEntity
+	elseif (targetEntity:IsDoor()
+		or targetEntity:GetClass() == "func_door"
+		or targetEntity:GetClass() == "func_door_rotating"
+		or targetEntity:GetClass() == "prop_door_rotating") then
 		mode = "door"
-		anchor = trace.Entity
-	elseif (trace.Entity:GetClass() == "prop_physics"
-		or trace.Entity:GetClass() == "prop_physics_multiplayer") then
+		anchor = targetEntity
+	elseif (targetEntity:GetClass() == "prop_physics"
+		or targetEntity:GetClass() == "prop_physics_multiplayer") then
 		mode = "prop"
-		anchor = trace.Entity
+		anchor = targetEntity
 	else
-		client:ChatPrint("Нельзя установить здесь заряд!")
+		client:Notify("Нельзя установить здесь заряд!")
 		return
 	end
 
-	local surfaceNormal = trace.HitNormal:GetNormalized()
+	local surfaceNormal = hitNormal:GetNormalized()
 	local worldUp = Vector(0, 0, 1)
 	local longAxis = worldUp - surfaceNormal * worldUp:Dot(surfaceNormal)
 
@@ -265,7 +279,7 @@ function SWEP:SecondaryAttack()
 	longAxis:Normalize()
 	local angles = longAxis:AngleEx(surfaceNormal)
 
-	createCharge(self, trace.HitPos, angles, mode, anchor, surfaceNormal)
+	createCharge(self, hitPosition, angles, mode, anchor, surfaceNormal)
 end
 
 function SWEP:Reload()
@@ -290,6 +304,6 @@ function SWEP:Reload()
 	local client = self:GetOwner()
 
 	if (IsValid(client)) then
-		client:ChatPrint("Время детонации установлено на " .. tostring(self.timeBombDelay) .. " секунд.")
+		client:ChatPrint("Время детонации установлено на " .. tostring(self.timeBombDelay) .. " секунд")
 	end
 end

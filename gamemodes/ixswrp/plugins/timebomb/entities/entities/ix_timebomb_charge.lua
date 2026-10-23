@@ -11,6 +11,99 @@ ENT.Holdable = true
 
 local CHARGE_MODEL = "models/epsilon/cwa_furniture/misc/eps_seismic_charge.mdl"
 
+local DESTROYED_VEHICLE_CLASSES = {
+	lvs_dwarfdroidcis = true,
+	lvs_flamedwarf = true,
+	lvs_flamerdwarf = true,
+	lvs_fakehover_aat = true,
+	lvs_fakehover_iftx = true,
+	lvs_starfighter_arc170 = true,
+	lvs_starfighter_droidtrifighter = true,
+	lvs_starfighter_n1 = true,
+	lvs_starfighter_vulturedroid = true,
+	lvs_starfighter_vwing = true,
+	lvs_starfighter_vulturedroid_blue = true,
+	lvs_starfighter_vulturedroid_mineguild = true,
+	lvs_starfighter_vulturedroid_techno = true,
+	lvs_fakehover_barc = true,
+    lvs_fakehover_barc_medical = true,
+	lvs_starfighter_vulturedroid_cis = true,
+	lvs_turret_aa_red = true,
+	lvs_turret_ai_red = true,
+	lvs_turret_av_red = true,
+	lvs_turret_aa = true,
+	lvs_turret_ai = true,
+	lvs_turret_av = true,
+	lvs_cis_ltl = true,
+}
+
+local HALF_HEALTH_VEHICLE_CLASSES = {
+	lvs_repulsorlift_gunship = true,
+	lvs_repulsorlift_dropship = true,
+	lvs_basilisk_kotor = true,
+	lvs_cis_htl
+}
+
+local DISABLED_WALKER_TARGET_CLASSES = {
+	lvs_walker_atte_rear = true,
+	lvs_walker_hsd_leg = true,
+	lvs_walker_hsd = true
+}
+
+local function destroyLVSVehicle(vehicle, attacker, inflictor)
+	if (!IsValid(vehicle) or !isfunction(vehicle.GetHP) or !isfunction(vehicle.SetHP)
+		or !isfunction(vehicle.IsDestroyed) or !isfunction(vehicle.SetDestroyed)
+		or !isfunction(vehicle.ClearPDS) or !isfunction(vehicle.PreExplode)
+		or !isfunction(vehicle.Explode)) then
+		ErrorNoHalt("[timebomb] Cannot destroy LVS vehicle: required damage-system methods are unavailable.\n")
+		return
+	end
+
+	if (vehicle:IsDestroyed()) then
+		return
+	end
+
+	vehicle:SetHP(0)
+	vehicle.FinalAttacker = attacker
+	vehicle.FinalInflictor = inflictor
+	vehicle:SetDestroyed(false)
+	vehicle:ClearPDS()
+
+	local explodeTime = vehicle:PreExplode(
+		math.Clamp((vehicle:GetVelocity():Length() - 200) / 200, 1.5, 16)
+	)
+
+	timer.Simple(explodeTime, function()
+		if (IsValid(vehicle)) then
+			vehicle:Explode()
+		end
+	end)
+end
+
+local function disableWalkerTarget(target)
+	local walker = target
+
+	if (target:GetClass() != "lvs_walker_hsd") then
+		if (!isfunction(target.GetBase)) then
+			ErrorNoHalt("[timebomb] Walker component does not expose its base vehicle.\n")
+			return
+		end
+
+		walker = target:GetBase()
+	end
+
+	if (!IsValid(walker) or !isfunction(walker.BecomeRagdoll)) then
+		ErrorNoHalt("[timebomb] Walker target has no valid ragdoll-capable vehicle.\n")
+		return
+	end
+
+	if (isfunction(walker.GetIsRagdoll) and walker:GetIsRagdoll()) then
+		return
+	end
+
+	walker:BecomeRagdoll()
+end
+
 function ENT:Initialize()
 	if (CLIENT) then
 		return
@@ -183,7 +276,6 @@ end
 
 function ENT:Arm(delay, attacker)
 	self.ixTimeBombAttacker = IsValid(attacker) and attacker or self.placer
-	delay = self.placementMode == "npc" and 5 or delay
 	self.ixTimeBombDetonationTime = CurTime() + delay
 	self.ixTimeBombNextBeep = CurTime() + 1
 	self:EmitSound("timebomb/tick.wav", 75)
@@ -231,12 +323,12 @@ function ENT:Detonate()
 	local attacker = IsValid(self.ixTimeBombAttacker) and self.ixTimeBombAttacker or self
 	local anchor = self.anchorEntity
 	local mode = self.placementMode
-	local damage = 250
+	local damage = 300
 
 	if (mode == "npc") then
-		damage = 500
-	elseif (mode == "vehicle") then
-		damage = 1000
+		damage = 300
+	elseif (mode == "door") then
+		damage = 150
 	end
 
 	if (IsValid(anchor)) then
@@ -246,6 +338,10 @@ function ENT:Detonate()
 			anchor:Fire("Unlock", "", 0)
 			anchor:Fire("Open", "", 0.1)
 		end
+	end
+
+	if (mode == "npc" and IsValid(anchor)) then
+		anchor:SetHealth(anchor:Health() - 2000)
 	end
 
 	self.ixTimeBombDetonating = true
@@ -269,6 +365,28 @@ function ENT:Detonate()
 	effectData:SetScale(1.5)
 	effectData:SetFlags(4)
 	util.Effect("Explosion", effectData)
+
+	if (mode == "vehicle" and IsValid(anchor)) then
+		local vehicleClass = anchor:GetClass()
+
+		timer.Simple(0, function()
+			if (!IsValid(anchor)) then
+				return
+			end
+
+			if (DISABLED_WALKER_TARGET_CLASSES[vehicleClass]) then
+				disableWalkerTarget(anchor)
+			end
+
+			if (DESTROYED_VEHICLE_CLASSES[vehicleClass]) then
+				destroyLVSVehicle(anchor, attacker, self)
+			elseif (HALF_HEALTH_VEHICLE_CLASSES[vehicleClass]
+				and isfunction(anchor.GetHP) and isfunction(anchor.SetHP)
+				and (!isfunction(anchor.IsDestroyed) or !anchor:IsDestroyed())) then
+				anchor:SetHP(anchor:GetHP() * 0.5)
+			end
+		end)
+	end
 
 	self:Remove()
 end

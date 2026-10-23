@@ -579,6 +579,11 @@ if (CLIENT) then
 		-- Define step
 		-- roughness = roughness or 1
 		local diff = abs(startang - endang)
+
+		if (diff <= 0) then
+			return quadarc
+		end
+
 		local smoothness = log(diff, 2) / 2
 		local step = diff / (pow(2, smoothness))
 
@@ -615,8 +620,12 @@ if (CLIENT) then
 			ct = ct + 1
 		end
 
+		if (ct < 3) then
+			return quadarc
+		end
+
 		-- QUAD the points.
-		for tri = 1, ct do
+		for tri = 1, ct - 2 do
 			local p1, p2, p3, p4
 			local t = tri + 1
 			p1 = outer[tri]

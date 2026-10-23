@@ -3,7 +3,7 @@ RECIPE.category = "Взрывчатка"
 RECIPE.requirements = {
 	["metal_material"] = 2,
 	["explosive_material"] = 2,
-	["weapon_material"] = 1,
+	["weapon_material"] = 2,
 }
 RECIPE.results = {
 	["item_timebomb"] = 1

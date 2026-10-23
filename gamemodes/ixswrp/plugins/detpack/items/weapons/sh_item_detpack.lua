@@ -1,0 +1,10 @@
+ITEM.name = "Термальный взрывпакет"
+ITEM.description = "Маловзрывчатое устройство с механизмом дистанционной детонации. Имеет антенну для принятия сигнала от специального активатора. Может устанавливаться на поверхности, однако, не обладает мощностью для выбивания замков. Хорошая вещь для засады или одновременного подрыва объектов."
+ITEM.model = "models/props/starwars/weapons/lasertrap.mdl"
+ITEM.class = "ix_detpack"
+ITEM.isWeapon = true
+ITEM.weaponCategory = "explosive"
+ITEM.category = "Взрывчатка"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.rarity = 1

@@ -1,0 +1,9 @@
+ITEM.name = "Активатор детонации"
+ITEM.description = "Устройство для активации взрывпакетов. Имеет только одну кнопку с очевидным назначением и при ее нажатии все установленные вами и вашими союзниками взрывпакеты будут сдетонированны."
+ITEM.model = "models/weapons/w_remotedetonator.mdl"
+ITEM.class = "ix_detpack_remote"
+ITEM.isWeapon = true
+ITEM.weaponCategory = "equipment"
+ITEM.category = "Инструменты и модули"
+ITEM.width = 1
+ITEM.height = 1

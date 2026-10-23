@@ -31,7 +31,7 @@ local icons = {
 	["primary"] = "gun",
 	["sidearm"] = "gun",
 	["Еда"] = "box",
-	["Ближний бой"] = "bomb",
+	["Ближний бой"] = "brick",
 	["Клоническое оружие"] = "gun",
 	["Конфедеративное оружие"] = "gun",
 	["Коммандос оружие"] = "gun",
@@ -40,6 +40,7 @@ local icons = {
 	["ADMIN WEAPONS"] = "gun",
 	["Материалы для фабрикатора"] = "cog",
 	["Материалы для деконструктора"] = "cog",
+	["Взрывчатка"] = "bomb",
 }
 
 spawnmenu.AddContentType("ixItem", function(container, data)

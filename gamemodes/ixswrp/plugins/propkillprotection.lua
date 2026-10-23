@@ -34,8 +34,13 @@ if SERVER then
             and inflictor:GetClass() == "ix_timebomb_charge"
             and inflictor.ixTimeBombDetonating
 
+        local isDetpackDetonation = IsValid(inflictor)
+            and inflictor:GetClass() == "ix_detpack_charge"
+            and inflictor.ixDetpackDetonating
+
         if (((IsValid(inflictor) and inflictor.ixHeldOwner)
-            or (IsValid(attacker) and attacker.ixHeldOwner)) and not isTimeBombDetonation) then
+            or (IsValid(attacker) and attacker.ixHeldOwner))
+            and not isTimeBombDetonation and not isDetpackDetonation) then
             damageInfo:SetDamage(0)
             return true
         end
