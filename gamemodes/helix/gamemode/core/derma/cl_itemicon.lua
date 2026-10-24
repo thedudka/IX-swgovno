@@ -1,3 +1,5 @@
+local PANEL = vgui.GetControlTable("ixItemIcon") or {}
+
 function PANEL:ExtraPaint(width, height)
 	local itemTable = self.itemTable
 
@@ -8,7 +10,7 @@ function PANEL:ExtraPaint(width, height)
 			return
 		end
 
-		surface.SetDrawColor(ColorAlpha(RARITY_COLORS[rarity], 20))
+		surface.SetDrawColor(ColorAlpha(RARITY_COLORS[rarity], 5))
 		surface.DrawRect(1, 1, width - 2, height - 2)
 	end
 end

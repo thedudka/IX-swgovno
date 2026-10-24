@@ -83,6 +83,7 @@ ix.util.IncludeDir("core/libs/thirdparty")
 ix.util.Include("core/sh_config.lua")
 ix.util.IncludeDir("core/libs")
 ix.util.IncludeDir("core/derma")
+ix.util.Include("core/derma/cl_itemicon.lua")
 ix.util.IncludeDir("core/hooks")
 
 -- Include language and default base items.
