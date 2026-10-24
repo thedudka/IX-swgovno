@@ -12,9 +12,15 @@ local function addWeaponStats( tooltip, item )
 
 	local row = tooltip:AddRowAfter( "description", "weaponStats" )
 	if not IsValid( row ) then return end
-	if item.Radius then
+	if item.Radius and item.canBreakDoors then
 		row:SetText( string.format(
-			"МАКСИМАЛЬНЫЙ УРОН ОТ ВЗРЫВА: %s\nРАДИУС ВЗРЫВА: %s МЕТРОВ",
+			"МАКСИМАЛЬНЫЙ УРОН ОТ ВЗРЫВА: %s\nРАДИУС ВЗРЫВА: %s М\nВЫБИВАЕТ ДВЕРИ И ЗАМКИ ПРИ ПРЯМОЙ УСТАНОВКЕ",
+			item.Damage,
+			item.Radius
+		) )
+	elseif item.Radius then
+		row:SetText( string.format(
+			"МАКСИМАЛЬНЫЙ УРОН ОТ ВЗРЫВА: %s\nРАДИУС ВЗРЫВА: %s М",
 			item.Damage,
 			item.Radius
 		) )
